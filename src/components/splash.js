@@ -19,13 +19,15 @@ const Splash = ({ onDown }) => (
       <Container className={styles.header}>
         <img src={logo} />
         <div className={styles.text}>
-          <Title>libermatic.</Title>
+          <Title isSize="1" className={styles.title}>
+            libermatic.
+          </Title>
           <Subtitle>Open sourcing humans</Subtitle>
         </div>
       </Container>
     </HeroBody>
     <HeroFooter className={styles.footer} hasTextAlign="centered">
-      <Icon isSize="small" className="fas fa-angle-down fa-2x" />
+      <Icon className="fas fa-angle-down fa-2x" />
     </HeroFooter>
   </Hero>
 );

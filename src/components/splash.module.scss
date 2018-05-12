@@ -24,6 +24,10 @@ $padding: 24px;
   margin: 0 $padding;
 }
 
+.title {
+  font-variant: small-caps;
+}
+
 .footer {
   padding: $padding;
   cursor: pointer;
