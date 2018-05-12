@@ -17,7 +17,7 @@ const Splash = ({ onDown }) => (
   <Hero isColor="dark" isFullHeight className={styles.hero} onClick={onDown}>
     <HeroBody>
       <Container className={styles.header}>
-        <img src={logo} />
+        <img src={logo} alt="libermatic." />
         <div className={styles.text}>
           <Title isSize="1" className={styles.title}>
             libermatic.

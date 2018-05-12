@@ -2,7 +2,7 @@ const autoprefixer = require('autoprefixer');
 
 module.exports = {
   siteMetadata: {
-    title: 'libermatic',
+    title: 'libermatic.',
     subtitle: 'Open sourcing humans',
   },
   plugins: [
