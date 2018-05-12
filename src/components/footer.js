@@ -3,11 +3,11 @@ import {
   Footer as BloomerFooter,
   Container,
   Content,
-  Heading,
   Columns,
   Column,
   Icon,
 } from 'bloomer';
+import Link from 'gatsby-link';
 
 import styles from './footer.module.scss';
 
@@ -15,7 +15,7 @@ const Footer = () => (
   <BloomerFooter>
     <Container>
       <Columns>
-        <Column isSize="3/4">
+        <Column isSize={8}>
           <Content>
             <p>
               <em className={styles.titleWord}>libermatic.</em> is a consulting
@@ -23,6 +23,24 @@ const Footer = () => (
               solely using open source tools and approaches.
             </p>
           </Content>
+        </Column>
+        <Column className={styles.links}>
+          <nav className="is-size-7">
+            <ul>
+              <li>
+                <Link to="/services">Services</Link>
+              </li>
+              <li>
+                <Link to="/blog">Blog</Link>
+              </li>
+              <li>
+                <Link to="/contact">Contact</Link>
+              </li>
+              <li>
+                <Link to="/about">About</Link>
+              </li>
+            </ul>
+          </nav>
         </Column>
         <Column className={styles.socials}>
           <Content>
@@ -37,11 +55,15 @@ const Footer = () => (
       </Columns>
       <Columns>
         <Column>
-          <Content isSize="small" className={styles.legal}>
+          <div className={`is-size-7 ${styles.legal}`}>
             <span>&copy; 2018 libermatic.</span>
-            <a href="#">Terms</a>
-            <a href="#">Privacy</a>
-          </Content>
+            <span>
+              <Link to="/terms-of-service">Terms of Service</Link>
+            </span>
+            <span>
+              <Link to="/privacy-policy">Privacy Policy</Link>
+            </span>
+          </div>
         </Column>
       </Columns>
     </Container>

@@ -2,15 +2,22 @@
 @import '~bulma/sass/utilities/derived-variables';
 @import '~bulma/sass/utilities/mixins';
 
-.socials {
+.socials,
+.links {
   @include tablet {
     text-align: right;
   }
 }
 
 .legal {
-  a {
-    margin: 12px;
+  span {
+    margin: 0 12px;
+  }
+  span:first-of-type {
+    margin-left: 0;
+  }
+  span:last-of-type {
+    margin-right: 0;
   }
 }
 
