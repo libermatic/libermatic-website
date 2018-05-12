@@ -1,0 +1,20 @@
+@import '~bulma/sass/utilities/initial-variables';
+@import '~bulma/sass/utilities/derived-variables';
+@import '~bulma/sass/utilities/mixins';
+
+.socials {
+  @include tablet {
+    text-align: right;
+  }
+}
+
+.legal {
+  a {
+    margin: 12px;
+  }
+}
+
+.titleWord {
+  font-style: normal;
+  font-variant: small-caps;
+}
