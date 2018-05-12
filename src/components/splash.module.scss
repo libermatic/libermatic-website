@@ -1,0 +1,30 @@
+@import '~bulma/sass/utilities/initial-variables';
+@import '~bulma/sass/utilities/derived-variables';
+@import '~bulma/sass/utilities/mixins';
+
+$padding: 24px;
+
+.hero {
+  background: center / cover no-repeat url('../media/hero-bg.png');
+}
+
+.header {
+  display: flex;
+  flex-flow: column nowrap;
+  img {
+    width: 5 * $padding;
+  }
+  @include tablet {
+    flex-flow: row nowrap;
+    align-items: center;
+  }
+}
+
+.text {
+  margin: 0 $padding;
+}
+
+.footer {
+  padding: $padding;
+  cursor: pointer;
+}
