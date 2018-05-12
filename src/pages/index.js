@@ -1,14 +1,17 @@
 import React from 'react';
-import Link from 'gatsby-link';
 
 import Splash from '../components/splash';
 
 const IndexPage = () => (
   <div>
     <Splash
-      onDown={() => {
-        console.log('down');
-      }}
+      onDown={() =>
+        window.scroll({
+          top: window.innerHeight,
+          left: 0,
+          behavior: 'smooth',
+        })
+      }
     />
     <div>loph</div>
   </div>
