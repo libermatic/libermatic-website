@@ -1,0 +1,28 @@
+@import '~bulma/sass/utilities/initial-variables';
+@import '~bulma/sass/utilities/derived-variables';
+@import '~bulma/sass/utilities/mixins';
+
+.hero {
+  background: center / cover no-repeat url('../media/hero-bg.png');
+}
+
+.title {
+  font-weight: normal;
+}
+
+.section {
+  padding: 6rem 1.5rem;
+  h3 {
+    @include tablet {
+      padding-bottom: 1rem;
+      border-bottom: 2px solid $info;
+    }
+    @include mobile {
+      color: $info;
+    }
+  }
+  em {
+    font-variant: small-caps;
+    font-style: normal;
+  }
+}
