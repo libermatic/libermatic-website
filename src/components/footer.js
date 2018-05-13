@@ -18,9 +18,10 @@ const Footer = () => (
         <Column isSize={8}>
           <Content>
             <p>
-              <em className={styles.titleWord}>libermatic.</em> is a consulting
-              firm based out of Imphal, IN that is dedicated to solving problems
-              solely using open source tools and approaches.
+              <strong>libermatic.</strong> /ˈlɪbəmatɪk/ /lɪbərˈmatɪk/{' '}
+              <span className={styles.smallcaps}>adj.</span> willing to be free,
+              open. From Latin <em>liber</em> (free) + Greek <em>μέμαα</em> (to
+              wish eagerly, strive, yearn, desire).
             </p>
           </Content>
         </Column>
