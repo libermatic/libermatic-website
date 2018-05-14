@@ -44,6 +44,7 @@ class Header extends Component {
                 to={to}
                 render={props => <Link {...props} />}
                 className={styles.navitem}
+                activeClassName="is-active"
               >
                 {label}
               </NavbarItem>
