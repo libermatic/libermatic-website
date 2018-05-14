@@ -1,7 +1,38 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+/* eslint-disable no-console */
 
- // You can delete this file if you're not using it
+const path = require('path');
+
+exports.createPages = ({ boundActionCreators, graphql }) => {
+  const { createPage } = boundActionCreators;
+  return new Promise(async (resolve, reject) => {
+    const { data, errors } = await graphql(`
+      {
+        allMarkdownRemark {
+          edges {
+            node {
+              id
+              frontmatter {
+                template
+                path
+              }
+            }
+          }
+        }
+      }
+    `);
+    if (errors) {
+      errors.forEach(e => console.error(e.toString()));
+      return reject(errors);
+    }
+    data.allMarkdownRemark.edges.forEach(({ node }) => {
+      createPage({
+        path: node.frontmatter.path,
+        component: path.resolve(
+          `src/templates/${node.frontmatter.template}.js`
+        ),
+        context: { id: node.id },
+      });
+    });
+    return resolve();
+  });
+};
