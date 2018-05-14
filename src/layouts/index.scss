@@ -1,9 +1,17 @@
+// fontawesome
+
 $fa-font-path: '~@fortawesome/fontawesome-free-webfonts/webfonts';
 
 @import '~@fortawesome/fontawesome-free-webfonts/scss/fontawesome';
 @import '~@fortawesome/fontawesome-free-webfonts/scss/fa-solid';
 @import '~@fortawesome/fontawesome-free-webfonts/scss/fa-brands';
 
+// bulma
+
+@import '~bulma/sass/utilities/initial-variables';
+
 $navbar-height: 4rem;
+$footer-background-color: $grey-lighter;
+$navbar-background-color: $grey-lighter;
 
 @import '~bulma/bulma';
