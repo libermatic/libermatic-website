@@ -5,6 +5,10 @@ subtitle: Or things we agree upon when we work together
 path: /terms-of-service
 ---
 
+<em>Updated May 14, 2018</em>
+
+---
+
 ## OVERVIEW
 
 This website is operated by libermatic. Throughout the site, the terms “we”,

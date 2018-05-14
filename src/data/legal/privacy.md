@@ -5,6 +5,10 @@ subtitle: Or things we say to stay out of jail
 path: /privacy-policy
 ---
 
+<em>Updated May 14, 2018</em>
+
+---
+
 This Privacy Policy describes how your personal information is collected, used,
 and shared when you visit https://libermatic.com (the “Site”).
 
