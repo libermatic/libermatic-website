@@ -11,7 +11,14 @@
 }
 
 .section {
-  padding: 6rem 1.5rem;
+  padding: 3rem 1.5rem 1rem;
+  &:last-child {
+    padding-bottom: 6rem;
+  }
+  @include desktop {
+    padding-left: 0;
+    padding-right: 0;
+  }
   h3 {
     @include tablet {
       padding-bottom: 1rem;

@@ -21,7 +21,7 @@ const Legal = ({ data }) => {
       </Hero>
       <Container>
         <Content
-          className={styles.content}
+          className={styles.section}
           dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
         />
       </Container>

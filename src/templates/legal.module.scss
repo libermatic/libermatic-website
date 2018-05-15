@@ -1,11 +1,1 @@
-@import '~bulma/sass/utilities/initial-variables';
-@import '~bulma/sass/utilities/derived-variables';
-@import '~bulma/sass/utilities/mixins';
-
-.content {
-  padding: 3rem 1.5rem 6rem;
-  @include desktop {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
+@import '../pages/index.module.scss';

@@ -1,10 +1,1 @@
-@import '~bulma/sass/utilities/initial-variables';
-@import '~bulma/sass/utilities/derived-variables';
-@import '~bulma/sass/utilities/mixins';
-
-.section {
-  padding: 3rem 1.5rem 1rem;
-  &:last-child {
-    padding-bottom: 6rem;
-  }
-}
+@import './index.module.scss';
