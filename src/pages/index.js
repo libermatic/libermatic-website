@@ -25,7 +25,7 @@ const IndexPage = () => (
           <Subtitle>With ERPNext, you just might.</Subtitle>
           <Button
             isColor="info"
-            to="/services/erpnext"
+            to="/services/erpnext/"
             render={props => <Link {...props} />}
           >
             Learn More
@@ -40,7 +40,7 @@ const IndexPage = () => (
             <h3>Who are we?</h3>
           </Content>
         </Column>
-        <Column>
+        <Column className={styles.content}>
           <Content>
             <p>
               <em>libermatic.</em> is a consulting firm based out of Imphal, IN

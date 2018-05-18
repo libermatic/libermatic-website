@@ -21,6 +21,7 @@
   }
   h3 {
     @include tablet {
+      margin-top: 0.5rem;
       padding-top: 1rem;
       border-top: 2px solid $info;
     }
@@ -31,5 +32,10 @@
   em {
     font-variant: small-caps;
     font-style: normal;
+  }
+  .content {
+    @include tablet {
+      margin-left: $gap;
+    }
   }
 }
