@@ -18,7 +18,7 @@ const About = () => (
     <Hero isColor="dark">
       <HeroBody>
         <Container>
-          <Title>About</Title>
+          <Title>Open sourcing humans</Title>
         </Container>
       </HeroBody>
     </Hero>
@@ -29,12 +29,17 @@ const About = () => (
             <h3>The Organization</h3>
           </Content>
         </Column>
-        <Column>
+        <Column className={styles.content}>
           <Content>
             <p>
               <em>libermatic.</em> is a consulting firm based out of Imphal, IN.
               Started in the fall of 2017, the core services and products we
               provide are all built on top of open source stacks.
+            </p>
+            <p>
+              The primary motive force behind this is to make technology
+              accessible to small businesses and individuals who might just be
+              starting to adopt it into their processes.
             </p>
             <p>
               Our teams are generally extremely lean, able to constantly shift
@@ -46,10 +51,10 @@ const About = () => (
       <Columns className={styles.section}>
         <Column isSize="1/4">
           <Content>
-            <h3>Tools</h3>
+            <h3>Tools of the Trade</h3>
           </Content>
         </Column>
-        <Column>
+        <Column className={styles.content}>
           <Content>
             <p>
               We utilize modern JavaScript technologies like Node.js, GraphQL,
