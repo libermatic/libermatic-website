@@ -7,6 +7,8 @@ import {
   NavbarItem,
   NavbarMenu,
   NavbarEnd,
+  NavbarLink,
+  NavbarDropdown,
   Title,
 } from 'bloomer';
 
@@ -14,11 +16,52 @@ import logo from '../media/libermatic-v2.svg';
 import styles from './header.module.scss';
 
 const links = [
-  { to: '/services', label: 'Things We Do' },
+  {
+    to: '/services',
+    label: 'Things We Do',
+    dropdown: [
+      {
+        to: '/services/erpnext',
+        label: 'ERPNext',
+      },
+      {
+        to: '/services/pricing',
+        label: 'Pricing',
+      },
+    ],
+  },
   { to: '/blog', label: 'Blog' },
   { to: '/about', label: 'About Us' },
   { to: '/contact', label: 'Contact' },
 ];
+
+function renderLink({ to, label, dropdown }) {
+  if (dropdown) {
+    return (
+      <NavbarItem key={to} hasDropdown isHoverable className={styles.navitem}>
+        <NavbarLink
+          to={to}
+          render={props => <Link {...props} />}
+          activeClassName="is-active"
+        >
+          {label}
+        </NavbarLink>
+        <NavbarDropdown>{dropdown.map(renderLink)}</NavbarDropdown>
+      </NavbarItem>
+    );
+  }
+  return (
+    <NavbarItem
+      key={to}
+      to={to}
+      render={props => <Link {...props} />}
+      className={styles.navitem}
+      activeClassName="is-active"
+    >
+      {label}
+    </NavbarItem>
+  );
+}
 
 class Header extends Component {
   state = { menuIsOpen: false };
@@ -37,19 +80,7 @@ class Header extends Component {
           <NavbarBurger isActive={menuIsOpen} onClick={this.handleMenuClick} />
         </NavbarBrand>
         <NavbarMenu isActive={menuIsOpen} onClick={this.handleMenuClick}>
-          <NavbarEnd>
-            {links.map(({ to, label }) => (
-              <NavbarItem
-                key={to}
-                to={to}
-                render={props => <Link {...props} />}
-                className={styles.navitem}
-                activeClassName="is-active"
-              >
-                {label}
-              </NavbarItem>
-            ))}
-          </NavbarEnd>
+          <NavbarEnd>{links.map(renderLink)}</NavbarEnd>
         </NavbarMenu>
       </Navbar>
     );
