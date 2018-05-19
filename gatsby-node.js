@@ -26,7 +26,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     }
     data.allMarkdownRemark.edges.forEach(({ node }) => {
       createPage({
-        path: node.frontmatter.path,
+        path: `${node.frontmatter.path}/`,
         component: path.resolve(
           `src/templates/${node.frontmatter.template}.js`
         ),
@@ -36,3 +36,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     return resolve();
   });
 };
+
+exports.modifyBabelrc = ({ babelrc }) => ({
+  ...babelrc,
+  plugins: [...babelrc.plugins, 'transform-regenerator'],
+});
