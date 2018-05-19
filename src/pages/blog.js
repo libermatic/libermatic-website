@@ -5,7 +5,7 @@ import { Hero, HeroBody, Container, Title, Content } from 'bloomer';
 import styles from './blog.module.scss';
 
 const Blog = () => (
-  <div>
+  <div className={styles.fill}>
     <Helmet title="libermatic. - Blog" />
     <Hero isColor="dark">
       <HeroBody>
@@ -14,7 +14,7 @@ const Blog = () => (
         </Container>
       </HeroBody>
     </Hero>
-    <Container className={`${styles.section} ${styles.fill}`}>
+    <Container className={styles.section}>
       <Content>
         <p>
           Later on, here you can read news about <em>libermatic.</em> and other
