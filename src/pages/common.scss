@@ -1,0 +1,33 @@
+@import '~bulma/sass/utilities/initial-variables';
+@import '~bulma/sass/utilities/derived-variables';
+@import '~bulma/sass/utilities/mixins';
+
+.section {
+  padding: 3rem 1.5rem 1rem;
+  &:last-child {
+    padding-bottom: 6rem;
+  }
+  @include desktop {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  h3 {
+    @include tablet {
+      margin-top: 0.5rem;
+      padding-top: 1rem;
+      border-top: 2px solid $info;
+    }
+    @include mobile {
+      color: $info;
+    }
+  }
+  em {
+    font-variant: small-caps;
+    font-style: normal;
+  }
+  .content {
+    @include tablet {
+      margin-left: $gap;
+    }
+  }
+}
