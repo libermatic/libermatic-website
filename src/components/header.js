@@ -18,7 +18,7 @@ import styles from './header.module.scss';
 const links = [
   {
     to: '/services',
-    label: 'Things We Do',
+    label: 'Products',
     dropdown: [
       {
         to: '/services/erpnext',
