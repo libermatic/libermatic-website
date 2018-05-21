@@ -15,7 +15,7 @@ import styles from './about.module.scss';
 const About = () => (
   <div>
     <Helmet title="libermatic. - About" />
-    <Hero isColor="dark">
+    <Hero isSize="medium" isColor="dark" className={styles.hero}>
       <HeroBody>
         <Container>
           <Title>Open sourcing humans</Title>

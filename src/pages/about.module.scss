@@ -1,1 +1,6 @@
-@import './index.module.scss';
+@import './common.scss';
+
+.hero {
+  background: center / cover no-repeat
+    url('../media/ball-black-bubble-35016.jpg');
+}
