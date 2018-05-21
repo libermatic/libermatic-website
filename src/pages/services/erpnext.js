@@ -98,11 +98,6 @@ const ERPNext = () => (
         <Column className={styles.content}>
           <Content>
             <p>
-              As the application is a cloud service, all that you need is a
-              modern browser. Even a smart phone or a tablet would be enough for
-              some.
-            </p>
-            <p>
               ERPNext an extremely easy to use, powerful open sourced
               application is published by{' '}
               <a href="https://frappe.io/">Frappe Technologies Pvt Ltd</a>. You
@@ -117,8 +112,8 @@ const ERPNext = () => (
             </p>
             <p>
               ERPNext is highly extensible. We also provide customization option
-              for your industry and build add ons for custom application to you
-              domain.
+              for your industry and build add ons for applications custom to
+              your domain.
             </p>
           </Content>
           <Button

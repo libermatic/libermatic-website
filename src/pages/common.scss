@@ -31,3 +31,33 @@
     }
   }
 }
+
+.pointers {
+  > div {
+    display: flex;
+    flex-flow: row nowrap;
+    padding: $gap / 4;
+    dl {
+      padding: 0 $gap / 2;
+    }
+    dt {
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: $grey-light;
+    }
+    dd {
+      color: $grey;
+    }
+  }
+  .icon {
+    min-width: 60px;
+    height: initial;
+  }
+  @include tablet {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: $gap;
+    grid-row-gap: $gap;
+  }
+}
