@@ -11,6 +11,14 @@ import Link from 'gatsby-link';
 
 import styles from './footer.module.scss';
 
+const links = [
+  { to: '/services', label: 'Services' },
+  { to: '/services/pricing', label: 'Pricing' },
+  { to: '/blog', label: 'Blog' },
+  { to: '/about', label: 'About' },
+  { to: '/contact', label: 'Contact' },
+];
+
 const Footer = () => (
   <BloomerFooter>
     <Container>
@@ -18,7 +26,7 @@ const Footer = () => (
         <Column isSize={8}>
           <Content className={styles.info}>
             <p>
-              <strong>libermatic.</strong> /ˈlɪbəmatɪk/ /lɪbərˈmatɪk/{' '}
+              <strong>libermatic.</strong> /ˈlɪbəmatɪk; lɪbərˈmatɪk/{' '}
               <span className={styles.smallcaps}>adj.</span> willing to be free,
               open. From Latin <em>liber</em> (free) + Greek <em>μέμαα</em> (to
               wish eagerly, strive, yearn, desire).
@@ -28,18 +36,11 @@ const Footer = () => (
         <Column className={styles.links}>
           <nav className="is-size-7">
             <ul>
-              <li>
-                <Link to="/services">Services</Link>
-              </li>
-              <li>
-                <Link to="/blog">Blog</Link>
-              </li>
-              <li>
-                <Link to="/contact">Contact</Link>
-              </li>
-              <li>
-                <Link to="/about">About</Link>
-              </li>
+              {links.map(({ to, label }) => (
+                <li key={to}>
+                  <Link to={to}>{label}</Link>
+                </li>
+              ))}
             </ul>
           </nav>
         </Column>
