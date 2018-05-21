@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import {
   Hero,
@@ -12,6 +13,7 @@ import {
   Label,
   Control,
   Input,
+  Select,
   Icon,
   TextArea,
   Button,
@@ -21,8 +23,22 @@ import {
 
 import styles from './contact.module.scss';
 
+const requestTypes = [
+  { req: 'general_info', label: 'General Information' },
+  { req: 'request_demo', label: 'Request a Demo' },
+  { req: 'erpnext_supplement', label: 'ERPNext Support' },
+];
+
 class Contact extends Component {
-  state = { isLoading: false, fields: {}, message: {} };
+  constructor(props) {
+    super(props);
+    const { state } = this.props.location;
+    this.state = {
+      isLoading: false,
+      fields: state ? { request: state.req } : { request: 'general_info' },
+      message: {},
+    };
+  }
   isValid = () => {
     const { email } = this.state.fields;
     if (email) {
@@ -65,6 +81,7 @@ class Contact extends Component {
       phone = '',
       company = '',
       website = '',
+      request = '',
       query = '',
     } = this.state.fields;
     return (
@@ -191,6 +208,31 @@ class Contact extends Component {
             </FieldLabel>
             <FieldBody>
               <Field>
+                <Control hasIcons="left">
+                  <Select
+                    name="request"
+                    value={request}
+                    onChange={this.handleChange}
+                  >
+                    {requestTypes.map(({ req, label }) => (
+                      <option key={req} value={req}>
+                        {label}
+                      </option>
+                    ))}
+                  </Select>
+                  <Icon isSize="small" isAlign="left">
+                    <span className="fas fa-question" aria-hidden="true" />
+                  </Icon>
+                </Control>
+              </Field>
+            </FieldBody>
+          </Field>
+          <Field isHorizontal>
+            <FieldLabel isNormal>
+              <Label />
+            </FieldLabel>
+            <FieldBody>
+              <Field>
                 <Control>
                   <TextArea
                     placeholder="Things you would like to know about (required)"
@@ -237,5 +279,12 @@ class Contact extends Component {
     );
   }
 }
+Contact.propTypes = {
+  location: PropTypes.shape({
+    state: PropTypes.shape({
+      req: PropTypes.string,
+    }),
+  }).isRequired,
+};
 
 export default Contact;
