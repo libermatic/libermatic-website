@@ -37,7 +37,12 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
   });
 };
 
-exports.modifyBabelrc = ({ babelrc }) => ({
-  ...babelrc,
-  plugins: [...babelrc.plugins, 'transform-regenerator'],
-});
+exports.modifyBabelrc = ({ babelrc }) => {
+  if (process.env.NODE_ENV === 'development') {
+    return babelrc;
+  }
+  return {
+    ...babelrc,
+    plugins: [...babelrc.plugins, 'transform-regenerator'],
+  };
+};
