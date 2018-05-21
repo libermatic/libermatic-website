@@ -7,7 +7,7 @@ import styles from './blog.module.scss';
 const Blog = () => (
   <div className={styles.fill}>
     <Helmet title="libermatic. - Blog" />
-    <Hero isColor="dark">
+    <Hero isSize="medium" isColor="dark" className={styles.hero}>
       <HeroBody>
         <Container>
           <Title>Blog</Title>

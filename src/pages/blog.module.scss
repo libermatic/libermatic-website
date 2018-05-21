@@ -1,4 +1,9 @@
-@import './index.module.scss';
+@import './common.scss';
+
+.hero {
+  background: center / cover no-repeat
+    url('../media/astronomy-evening-exploration-962095.jpg');
+}
 
 .fill {
   flex: 1 1 auto;
