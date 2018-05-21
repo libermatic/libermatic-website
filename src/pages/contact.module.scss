@@ -1,1 +1,19 @@
-@import './index.module.scss';
+@import './common.scss';
+
+.hero {
+  background: center / cover no-repeat
+    url('../media/asking-blur-close-up-255527.jpg');
+}
+
+.section {
+  input,
+  textarea {
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid $border;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}

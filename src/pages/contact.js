@@ -50,7 +50,7 @@ class Contact extends Component {
       // TODO: make req to frappe server
       this.setState({
         fields: {},
-        message: { notify: 'success', text: 'Query successfull' },
+        message: { notify: 'success', text: 'Query successful' },
       });
     } catch (err) {
       this.setState({ message: { notify: 'danger', text: err.toString() } });
@@ -70,7 +70,7 @@ class Contact extends Component {
     return (
       <div>
         <Helmet title="libermatic. - Contact" />
-        <Hero isColor="info">
+        <Hero isSize="medium" isColor="light" className={styles.hero}>
           <HeroBody>
             <Container>
               <Title>Contact</Title>
