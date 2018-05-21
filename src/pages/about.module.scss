@@ -4,3 +4,10 @@
   background: center / cover no-repeat
     url('../media/ball-black-bubble-35016.jpg');
 }
+
+.section {
+  em {
+    font-variant: inherit;
+    font-style: italic;
+  }
+}

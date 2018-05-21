@@ -37,13 +37,14 @@ const About = () => (
               provide are all built on top of open source stacks.
             </p>
             <p>
-              The primary motive force behind this is to make technology
-              accessible to small businesses and individuals who might just be
-              starting to adopt it into their processes.
+              Our primary motive is to make technology accessible to small
+              businesses and individuals who might just be starting to adopt it
+              into their organization. And whilst in the process, introduce them
+              to open source technologies from the start.
             </p>
             <p>
               Our teams are generally extremely lean, able to constantly shift
-              focus to different tasks quite fast.
+              focus to different tasks quite rapidly.
             </p>
           </Content>
         </Column>
@@ -57,10 +58,11 @@ const About = () => (
         <Column className={styles.content}>
           <Content>
             <p>
-              We utilize modern JavaScript technologies like Node.js, GraphQL,
-              React and React Native. We also make considerable use of Python
-              frameworks like Frappe and Flask. All in all, we prefer highly
-              extensible stacks with a great community and ecosystem.
+              We utilize modern JavaScript technologies like <em>Node.js</em>,{' '}
+              <em>GraphQL</em>, <em>React</em> and <em>React Native</em>. We
+              also make considerable use of Python frameworks like Frappe and
+              Flask. All in all, we prefer highly extensible stacks with a great
+              community and ecosystem.
             </p>
           </Content>
         </Column>
