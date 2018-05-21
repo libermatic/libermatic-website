@@ -61,10 +61,22 @@ const Pricing = () => (
         <Column className={styles.content}>
           <Content>
             <p>
-              Our ERPNext cloud service instances are hosted and maintained by
-              us at various secure, industry recommended containerized VMs.
+              Our ERPNext cloud service instances are hosted and maintained at
+              various secure, industry recommended containerized VMs.
+            </p>
+            <p>
+              All plans include update to the application as and when ERPNext
+              upstream releases new versions. Your data also gets updated
+              periodically.
             </p>
           </Content>
+          <Button
+            isColor="primary"
+            to={{ pathname: '/contact', state: { req: 'request_demo' } }}
+            render={props => <Link {...props} />}
+          >
+            Request a Demo
+          </Button>
         </Column>
       </Columns>
     </Container>
@@ -81,7 +93,6 @@ const Pricing = () => (
               <div className={styles.price}>
                 <Button
                   isOutlined
-                  // isInverted
                   isColor="dark"
                   to="/contact"
                   render={props => <Link {...props} />}
@@ -116,7 +127,7 @@ const Pricing = () => (
           </Content>
           <Button
             isColor="primary"
-            to="/contact"
+            to={{ pathname: '/contact', state: { req: 'erpnext_supplement' } }}
             render={props => <Link {...props} />}
           >
             Know More
