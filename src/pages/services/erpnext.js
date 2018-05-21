@@ -13,7 +13,7 @@ import {
   Icon,
 } from 'bloomer';
 
-import styles from '../services.module.scss';
+import styles from './erpnext.module.scss';
 
 const domains = [
   {
@@ -71,13 +71,23 @@ const domains = [
 const ERPNext = () => (
   <div>
     <Helmet title="libermatic. - ERPNext" />
-    <Hero isColor="dark">
+    <Hero isSize="medium" isColor="dark" className={styles.hero}>
       <HeroBody>
         <Container>
           <Title>ERPNext</Title>
         </Container>
       </HeroBody>
     </Hero>
+    <Container className={styles.section}>
+      <Content>
+        <p>
+          As the application is a cloud service, all that you need is a modern
+          browser. Even a smart phone or a tablet would be enough for some. You
+          are not required to install anything and all your data would be
+          accessible from any secure internet enabled device.
+        </p>
+      </Content>
+    </Container>
     <Container className={styles.section}>
       <Columns>
         <Column isSize="1/4">
@@ -87,6 +97,11 @@ const ERPNext = () => (
         </Column>
         <Column className={styles.content}>
           <Content>
+            <p>
+              As the application is a cloud service, all that you need is a
+              modern browser. Even a smart phone or a tablet would be enough for
+              some.
+            </p>
             <p>
               ERPNext an extremely easy to use, powerful open sourced
               application is published by{' '}
