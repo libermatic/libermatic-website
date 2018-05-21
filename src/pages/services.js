@@ -41,7 +41,7 @@ const services = [
 const Services = () => (
   <div>
     <Helmet title="libermatic. - Services" />
-    <Hero isColor="dark">
+    <Hero isSize="medium" isColor="dark" className={styles.hero}>
       <HeroBody>
         <Container>
           <Title>Services</Title>
