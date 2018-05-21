@@ -16,7 +16,7 @@ const Footer = () => (
     <Container>
       <Columns>
         <Column isSize={8}>
-          <Content>
+          <Content className={styles.info}>
             <p>
               <strong>libermatic.</strong> /ˈlɪbəmatɪk/ /lɪbərˈmatɪk/{' '}
               <span className={styles.smallcaps}>adj.</span> willing to be free,
