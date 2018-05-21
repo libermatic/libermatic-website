@@ -1,0 +1,91 @@
+@import '../common.scss';
+
+.hero {
+  background: center / cover no-repeat
+    url('../../media/computer-keyboard-34153.jpg');
+}
+
+$spc: 1.5rem;
+
+.prices {
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: $spc;
+  grid-row-gap: $spc;
+  @include tablet {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  > * {
+    &:nth-of-type(1) {
+      h4 {
+        background-color: $info;
+        color: $white;
+      }
+      .price {
+        background-color: lighten($info, 30%);
+      }
+    }
+    &:nth-of-type(2) {
+      h4 {
+        background-color: $success;
+        color: $white;
+      }
+      .price {
+        background-color: lighten($success, 30%);
+      }
+    }
+    &:nth-of-type(3) {
+      h4 {
+        background-color: $warning;
+      }
+      .price {
+        background-color: lighten($warning, 18%);
+      }
+    }
+    &:nth-of-type(4) {
+      h4 {
+        background-color: $danger;
+        color: $white;
+      }
+      .price {
+        background-color: lighten($danger, 25%);
+      }
+    }
+  }
+}
+
+.plan {
+  border-radius: $radius-large;
+  box-shadow: 0 2px 3px rgba($black, 0.1), 0 0 0 1px rgba($black, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-flow: column nowrap;
+  > * {
+    padding: $spc / 2;
+  }
+  h4 {
+    font-size: $size-5;
+  }
+  .price {
+    flex: 1 1 auto;
+  }
+  i,
+  em {
+    font-style: normal;
+  }
+  em {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  ul {
+    padding: 0;
+    font-size: 0.9rem;
+  }
+  li {
+    padding: $spc / 2;
+    background-color: $white-ter;
+    color: $grey;
+    margin-top: 1px;
+  }
+}
