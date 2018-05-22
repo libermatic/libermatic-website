@@ -7,12 +7,20 @@ module.exports = {
     siteUrl: 'https://libermatic.com',
   },
   plugins: [
+    'gatsby-transformer-sharp',
     'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'media',
+        path: `${__dirname}/src/media`,
+      },
+    },
     'gatsby-transformer-remark',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'src',
+        name: 'data',
         path: `${__dirname}/src/data`,
       },
     },
