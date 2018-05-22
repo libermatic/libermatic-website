@@ -13,3 +13,12 @@
     }
   }
 }
+
+.tweet {
+  background-color: #1b95e0;
+  color: $white;
+  &:hover,
+  &:focus {
+    color: $white;
+  }
+}

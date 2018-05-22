@@ -103,6 +103,23 @@ class Contact extends Component {
               Ask us anything regarding our products or otherwise. We are always
               happy to hear from you.
             </p>
+            <p>
+              Tweet us about what you&apos;d want to know and we&apos;ll get
+              back to you. But you could always use the form.
+            </p>
+            <p>
+              <Button
+                className={styles.tweet}
+                href="https://twitter.com/intent/tweet?text=Hi&screen_name=libermatic"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Icon isSize="small" isAlign="left">
+                  <span className="fab fa-twitter" aria-hidden="true" />
+                </Icon>
+                <span>Tweet @libermatic</span>
+              </Button>
+            </p>
           </Content>
         </Container>
         <Container className={styles.section} tag="form">
