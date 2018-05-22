@@ -1,26 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import {
-  Hero,
-  HeroBody,
-  Container,
-  Title,
-  Content,
-  Columns,
-  Column,
-} from 'bloomer';
+import { Title, Container, Content, Columns, Column } from 'bloomer';
 
+import Hero from '../components/hero';
 import styles from './about.module.scss';
 
-const About = () => (
+const About = ({ data }) => (
   <div>
     <Helmet title="libermatic. - About" />
-    <Hero isSize="medium" isColor="dark" className={styles.hero}>
-      <HeroBody>
-        <Container>
-          <Title>Open sourcing humans</Title>
-        </Container>
-      </HeroBody>
+    <Hero {...data.heroImage}>
+      <Title>Open sourcing humans</Title>
     </Hero>
     <Container>
       <Columns className={styles.section}>
@@ -70,5 +60,20 @@ const About = () => (
     </Container>
   </div>
 );
+About.propTypes = {
+  data: PropTypes.shape({
+    heroImage: PropTypes.object,
+  }).isRequired,
+};
 
 export default About;
+
+export const query = graphql`
+  query AboutHeroImageQuery {
+    heroImage: imageSharp(id: { regex: "/35016/" }) {
+      sizes(maxWidth: 1408) {
+        ...GatsbyImageSharpSizes
+      }
+    }
+  }
+`;

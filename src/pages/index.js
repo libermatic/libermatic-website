@@ -1,37 +1,35 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
 import Link from 'gatsby-link';
 import {
-  Hero,
-  HeroBody,
-  Container,
   Title,
   Subtitle,
+  Container,
   Button,
   Columns,
   Column,
   Content,
 } from 'bloomer';
 
+import Hero from '../components/hero';
 import styles from './index.module.scss';
 
-const IndexPage = () => (
+const IndexPage = ({ data }) => (
   <div>
-    <Hero isSize="medium" isColor="dark" className={styles.hero}>
-      <HeroBody>
-        <Container>
-          <Title className={styles.title} isSpaced>
-            Ever wished managing your business was easy and fun?
-          </Title>
-          <Subtitle>With ERPNext, you just might.</Subtitle>
-          <Button
-            isColor="info"
-            to="/services/erpnext/"
-            render={props => <Link {...props} />}
-          >
-            Learn More
-          </Button>
-        </Container>
-      </HeroBody>
+    <Helmet title="libermatic. - Blog" />
+    <Hero {...data.heroImage}>
+      <Title className={styles.title}>
+        Ever wished managing your business was easy and fun?
+      </Title>
+      <Subtitle>With ERPNext, you just might.</Subtitle>
+      <Button
+        isColor="info"
+        to="/services/erpnext/"
+        render={props => <Link {...props} />}
+      >
+        Learn More
+      </Button>
     </Hero>
     <Container className={styles.section}>
       <Columns>
@@ -67,5 +65,20 @@ const IndexPage = () => (
     </Container>
   </div>
 );
+IndexPage.propTypes = {
+  data: PropTypes.shape({
+    heroImage: PropTypes.object,
+  }).isRequired,
+};
 
 export default IndexPage;
+
+export const query = graphql`
+  query IndexHeroImageQuery {
+    heroImage: imageSharp(id: { regex: "/176851/" }) {
+      sizes(maxWidth: 1408) {
+        ...GatsbyImageSharpSizes
+      }
+    }
+  }
+`;

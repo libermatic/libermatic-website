@@ -2,16 +2,14 @@
 
 .hero {
   flex: 1 1 auto;
-  background: center / cover no-repeat
-    url('../media/aquarium-blue-creepy-628996.jpg');
-  .container {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-  }
-  .icon {
-    width: 80px + $gap;
-    height: 80px + $gap;
-    justify-content: start;
-  }
+}
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+.icon {
+  width: 80px + $gap;
+  height: 80px + $gap;
+  justify-content: start;
 }

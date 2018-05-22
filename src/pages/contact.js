@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import {
-  Hero,
-  HeroBody,
   Container,
   Title,
   Content,
@@ -21,6 +19,7 @@ import {
   Delete,
 } from 'bloomer';
 
+import Hero from '../components/hero';
 import styles from './contact.module.scss';
 
 const requestTypes = [
@@ -84,15 +83,12 @@ class Contact extends Component {
       request = '',
       query = '',
     } = this.state.fields;
+    const { data } = this.props;
     return (
       <div>
         <Helmet title="libermatic. - Contact" />
-        <Hero isSize="medium" isColor="light" className={styles.hero}>
-          <HeroBody>
-            <Container>
-              <Title>Contact</Title>
-            </Container>
-          </HeroBody>
+        <Hero {...data.heroImage}>
+          <Title>Contact</Title>
         </Hero>
         <Container className={styles.section}>
           <Content>
@@ -285,6 +281,19 @@ Contact.propTypes = {
       req: PropTypes.string,
     }),
   }).isRequired,
+  data: PropTypes.shape({
+    heroImage: PropTypes.object,
+  }).isRequired,
 };
 
 export default Contact;
+
+export const query = graphql`
+  query ContactHeroImageQuery {
+    heroImage: imageSharp(id: { regex: "/255527/" }) {
+      sizes(maxWidth: 1408) {
+        ...GatsbyImageSharpSizes
+      }
+    }
+  }
+`;

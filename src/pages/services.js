@@ -1,11 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import Link from 'gatsby-link';
 import {
-  Hero,
-  HeroBody,
-  Container,
   Title,
+  Container,
   Content,
   Button,
   Columns,
@@ -13,6 +12,7 @@ import {
   Icon,
 } from 'bloomer';
 
+import Hero from '../components/hero';
 import styles from './services.module.scss';
 
 const services = [
@@ -38,15 +38,11 @@ const services = [
   },
 ];
 
-const Services = () => (
+const Services = ({ data }) => (
   <div>
     <Helmet title="libermatic. - Services" />
-    <Hero isSize="medium" isColor="dark" className={styles.hero}>
-      <HeroBody>
-        <Container>
-          <Title>Services</Title>
-        </Container>
-      </HeroBody>
+    <Hero {...data.heroImage}>
+      <Title>Services</Title>
     </Hero>
     <Container className={styles.section}>
       <Content>
@@ -111,5 +107,20 @@ const Services = () => (
     </Container>
   </div>
 );
+Services.propTypes = {
+  data: PropTypes.shape({
+    heroImage: PropTypes.object,
+  }).isRequired,
+};
 
 export default Services;
+
+export const query = graphql`
+  query ServicesHeroImageQuery {
+    heroImage: imageSharp(id: { regex: "/41420/" }) {
+      sizes(maxWidth: 1408) {
+        ...GatsbyImageSharpSizes
+      }
+    }
+  }
+`;

@@ -1,17 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
-import {
-  Hero,
-  HeroBody,
-  Container,
-  Title,
-  Button,
-  Content,
-  Columns,
-  Column,
-} from 'bloomer';
+import { Title, Container, Button, Content, Columns, Column } from 'bloomer';
 
+import Hero from '../../components/hero';
 import styles from './pricing.module.scss';
 
 const plans = [
@@ -41,15 +34,11 @@ const plans = [
   },
 ];
 
-const Pricing = () => (
+const Pricing = ({ data }) => (
   <div>
     <Helmet title="libermatic. - Pricing" />
-    <Hero isSize="medium" isColor="dark" className={styles.hero}>
-      <HeroBody>
-        <Container>
-          <Title>Pricing Guidelines</Title>
-        </Container>
-      </HeroBody>
+    <Hero {...data.heroImage}>
+      <Title>Pricing Guidelines</Title>
     </Hero>
     <Container className={styles.section}>
       <Columns>
@@ -137,5 +126,19 @@ const Pricing = () => (
     </Container>
   </div>
 );
-
+Pricing.propTypes = {
+  data: PropTypes.shape({
+    heroImage: PropTypes.object,
+  }).isRequired,
+};
 export default Pricing;
+
+export const query = graphql`
+  query PricingHeroImageQuery {
+    heroImage: imageSharp(id: { regex: "/753267/" }) {
+      sizes(maxWidth: 1408) {
+        ...GatsbyImageSharpSizes
+      }
+    }
+  }
+`;

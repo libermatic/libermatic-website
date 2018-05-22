@@ -1,11 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import Link from 'gatsby-link';
 import {
-  Hero,
-  HeroBody,
-  Container,
   Title,
+  Container,
   Content,
   Button,
   Columns,
@@ -13,6 +12,7 @@ import {
   Icon,
 } from 'bloomer';
 
+import Hero from '../../components/hero';
 import styles from './erpnext.module.scss';
 
 const domains = [
@@ -68,15 +68,11 @@ const domains = [
   },
 ];
 
-const ERPNext = () => (
+const ERPNext = ({ data }) => (
   <div>
     <Helmet title="libermatic. - ERPNext" />
-    <Hero isSize="medium" isColor="dark" className={styles.hero}>
-      <HeroBody>
-        <Container>
-          <Title>ERPNext</Title>
-        </Container>
-      </HeroBody>
+    <Hero {...data.heroImage}>
+      <Title>ERPNext</Title>
     </Hero>
     <Container className={styles.section}>
       <Content>
@@ -141,5 +137,20 @@ const ERPNext = () => (
     </Container>
   </div>
 );
+ERPNext.propTypes = {
+  data: PropTypes.shape({
+    heroImage: PropTypes.object,
+  }).isRequired,
+};
 
 export default ERPNext;
+
+export const query = graphql`
+  query ERPNextHeroImageQuery {
+    heroImage: imageSharp(id: { regex: "/137612/" }) {
+      sizes(maxWidth: 1408) {
+        ...GatsbyImageSharpSizes
+      }
+    }
+  }
+`;
