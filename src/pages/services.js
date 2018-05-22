@@ -40,7 +40,16 @@ const services = [
 
 const Services = ({ data }) => (
   <div>
-    <Helmet title="libermatic. - Services" />
+    <Helmet>
+      <title>libermatic. - Services</title>
+      <meta
+        name="description"
+        content="libermatic provides ERPNext cloud service and support in
+        Imphal, Manipur. Support services include, but not limited to,
+        implementation, customization, training, migration and custom
+        development."
+      />
+    </Helmet>
     <Hero {...data.heroImage}>
       <Title>Services</Title>
     </Hero>

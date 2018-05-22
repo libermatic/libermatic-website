@@ -17,7 +17,14 @@ import styles from './index.module.scss';
 
 const IndexPage = ({ data }) => (
   <div>
-    <Helmet title="libermatic. - Blog" />
+    <Helmet>
+      <title>libermatic. - Open sourcing humans</title>
+      <meta
+        name="description"
+        content="libermatic builds and provides tools for startups and
+        contemporary businesses alike to help solve problems."
+      />
+    </Helmet>
     <Hero {...data.heroImage}>
       <Title className={styles.title}>
         Ever wished managing your business was easy and fun?

@@ -70,7 +70,15 @@ const domains = [
 
 const ERPNext = ({ data }) => (
   <div>
-    <Helmet title="libermatic. - ERPNext" />
+    <Helmet>
+      <title>libermatic. - ERPNext</title>
+      <meta
+        name="description"
+        content="ERPNext is a leading business management software which
+        supports industries related to retail, services, manufacturing,
+        hospitals and clinics, schools, agriculture and non-profits"
+      />
+    </Helmet>
     <Hero {...data.heroImage}>
       <Title>ERPNext</Title>
     </Hero>

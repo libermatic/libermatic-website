@@ -36,7 +36,15 @@ const plans = [
 
 const Pricing = ({ data }) => (
   <div>
-    <Helmet title="libermatic. - Pricing" />
+    <Helmet>
+      <title>libermatic. - Pricing</title>
+      <meta
+        name="description"
+        content="Pricing guidelines for ERPNext cloud service hosting and
+        maintenance. Find prices for related services like implementation,
+        customization, training, data migration and custom development."
+      />
+    </Helmet>
     <Hero {...data.heroImage}>
       <Title>Pricing Guidelines</Title>
     </Hero>

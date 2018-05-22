@@ -86,7 +86,13 @@ class Contact extends Component {
     const { data } = this.props;
     return (
       <div>
-        <Helmet title="libermatic. - Contact" />
+        <Helmet>
+          <title>libermatic. - Contact</title>
+          <meta
+            name="description"
+            content="Social links and form to contact libermatic."
+          />
+        </Helmet>
         <Hero isColor="light" {...data.heroImage}>
           <Title>Contact</Title>
         </Hero>

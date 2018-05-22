@@ -8,7 +8,10 @@ import styles from './blog.module.scss';
 
 const Blog = ({ data }) => (
   <div className={styles.fill}>
-    <Helmet title="libermatic. - Blog" />
+    <Helmet>
+      <title>libermatic. - Blog</title>
+      <meta name="description" content="News and blogs on libermatic." />
+    </Helmet>
     <Hero {...data.heroImage}>
       <Title>Blog</Title>
     </Hero>

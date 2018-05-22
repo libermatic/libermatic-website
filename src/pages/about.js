@@ -8,7 +8,15 @@ import styles from './about.module.scss';
 
 const About = ({ data }) => (
   <div>
-    <Helmet title="libermatic. - About" />
+    <Helmet>
+      <title>libermatic. - About</title>
+      <meta
+        name="description"
+        content="libermatic is an ERPNext service provider in Imphal, Manipur.
+        We also undertake unrelated projects all the while aiming to keep our
+        interest for all things open source intact"
+      />
+    </Helmet>
     <Hero {...data.heroImage}>
       <Title>Open sourcing humans</Title>
     </Hero>
