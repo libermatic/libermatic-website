@@ -20,7 +20,7 @@ const links = [
 ];
 
 const Footer = () => (
-  <BloomerFooter>
+  <BloomerFooter role="contentinfo">
     <Container>
       <Columns>
         <Column isSize={8}>

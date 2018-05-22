@@ -36,7 +36,7 @@ const IndexPage = ({ data }) => (
         render={props => <Link {...props} />}
         aria-label="More Info"
       >
-        Learn More
+        More About ERPNext
       </Button>
     </Hero>
     <Container className={styles.section}>
