@@ -6,6 +6,14 @@ import { Title, Container, Content, Columns, Column } from 'bloomer';
 import Hero from '../components/hero';
 import styles from './about.module.scss';
 
+const tools = [
+  { alt: 'React', src: require('../media/react.svg') },
+  { alt: 'Node JS', src: require('../media/nodejs.svg') },
+  { alt: 'GraphQL', src: require('../media/graphql.svg') },
+  { alt: 'Frappe', src: require('../media/frappe.svg') },
+  { alt: 'Flask', src: require('../media/flask.svg') },
+];
+
 const About = ({ data }) => (
   <div>
     <Helmet>
@@ -20,8 +28,8 @@ const About = ({ data }) => (
     <Hero {...data.heroImage}>
       <Title>Open sourcing humans</Title>
     </Hero>
-    <Container>
-      <Columns className={styles.section}>
+    <Container className={styles.section}>
+      <Columns>
         <Column isSize="1/4">
           <Content>
             <h3>The Organization</h3>
@@ -48,7 +56,9 @@ const About = ({ data }) => (
           </Content>
         </Column>
       </Columns>
-      <Columns className={styles.section}>
+    </Container>
+    <Container className={styles.section}>
+      <Columns>
         <Column isSize="1/4">
           <Content>
             <h3>Tools of the Trade</h3>
@@ -64,12 +74,19 @@ const About = ({ data }) => (
               extensible stacks with a great community and ecosystem.
             </p>
             <p>
-              We generally try to adhere to best pratices in the industry. But
+              We generally try to adhere to best practices in the industry. But
               break them when better alternatives appear.
             </p>
           </Content>
         </Column>
       </Columns>
+    </Container>
+    <Container className={`${styles.section} ${styles.tools}`}>
+      {tools.map(({ src, alt }) => (
+        <div key={alt}>
+          <img src={src} alt={alt} />
+        </div>
+      ))}
     </Container>
   </div>
 );

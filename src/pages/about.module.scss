@@ -1,1 +1,15 @@
 @import './common.scss';
+
+.tools {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  & > div {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+  & img {
+    width: 128px;
+    opacity: 0.67;
+  }
+}
