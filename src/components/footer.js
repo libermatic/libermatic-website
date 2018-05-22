@@ -50,6 +50,8 @@ const Footer = () => (
               role="menuitem"
               aria-label="Visit us on Github"
               href="https://github.com/libermatic"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <Icon isSize="large" className="fab fa-github fa-2x" />
             </a>
@@ -57,6 +59,8 @@ const Footer = () => (
               role="menuitem"
               aria-label="Visit us on Twitter"
               href="https://twitter.com/libermatic"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <Icon isSize="large" className="fab fa-twitter fa-2x" />
             </a>
