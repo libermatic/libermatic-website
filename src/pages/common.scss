@@ -22,15 +22,16 @@
       color: $primary;
     }
   }
-  em {
-    font-variant: small-caps;
-    font-style: normal;
-  }
   .content {
     @include tablet {
       margin-left: $gap;
     }
   }
+}
+
+.smallCaps {
+  font-variant: small-caps;
+  font-style: normal;
 }
 
 .pointers {

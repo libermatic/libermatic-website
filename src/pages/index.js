@@ -24,7 +24,7 @@ const IndexPage = ({ data }) => (
       </Title>
       <Subtitle>With ERPNext, you just might.</Subtitle>
       <Button
-        isColor="info"
+        isColor="warning"
         to="/services/erpnext/"
         render={props => <Link {...props} />}
         aria-label="More Info"
@@ -42,9 +42,9 @@ const IndexPage = ({ data }) => (
         <Column className={styles.content}>
           <Content>
             <p>
-              <em>libermatic.</em> is a consulting firm based out of Imphal, IN
-              that strives to solve problems solely using open source tools in a
-              sustainable way.
+              <em className={styles.smallCaps}>libermatic.</em> is a consulting
+              firm based out of Imphal, IN that strives to solve problems solely
+              using open source tools in a sustainable way.
             </p>
             <p>
               We use modern tools and industry best practises to deliver high

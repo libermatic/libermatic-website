@@ -22,9 +22,10 @@ const About = ({ data }) => (
         <Column className={styles.content}>
           <Content>
             <p>
-              <em>libermatic.</em> is a consulting firm based out of Imphal, IN.
-              Started in the fall of 2017, the core services and products we
-              provide are all built on top of open source stacks.
+              <em className={styles.smallCaps}>libermatic.</em> is a consulting
+              firm based out of Imphal, Manipur, IN. Started in the fall of
+              2017, the core services and products we provide are all built on
+              top of open source stacks.
             </p>
             <p>
               Our primary motive is to make technology accessible to small
@@ -50,9 +51,13 @@ const About = ({ data }) => (
             <p>
               We utilize modern JavaScript technologies like <em>Node.js</em>,{' '}
               <em>GraphQL</em>, <em>React</em> and <em>React Native</em>. We
-              also make considerable use of Python frameworks like Frappe and
-              Flask. All in all, we prefer highly extensible stacks with a great
-              community and ecosystem.
+              also make considerable use of Python frameworks like{' '}
+              <em>Frappe</em> and <em>Flask</em>. All in all, we prefer highly
+              extensible stacks with a great community and ecosystem.
+            </p>
+            <p>
+              We generally try to adhere to best pratices in the industry. But
+              break them when better alternatives appear.
             </p>
           </Content>
         </Column>
