@@ -87,7 +87,7 @@ class Contact extends Component {
     return (
       <div>
         <Helmet title="libermatic. - Contact" />
-        <Hero {...data.heroImage}>
+        <Hero isColor="light" {...data.heroImage}>
           <Title>Contact</Title>
         </Hero>
         <Container className={styles.section}>
@@ -110,6 +110,7 @@ class Contact extends Component {
                   <Input
                     type="text"
                     placeholder="Name"
+                    aria-label="Name"
                     name="name"
                     value={name}
                     onChange={this.handleChange}
@@ -133,6 +134,7 @@ class Contact extends Component {
                       (this.isValid() ? 'success' : 'danger')
                     }
                     placeholder="Email (required)"
+                    aria-label="Email"
                     name="email"
                     value={email}
                     onChange={this.handleChange}
@@ -152,6 +154,7 @@ class Contact extends Component {
                   <Input
                     type="phone"
                     placeholder="Phone"
+                    aria-label="Phone"
                     name="phone"
                     value={phone}
                     onChange={this.handleChange}
@@ -173,6 +176,7 @@ class Contact extends Component {
                   <Input
                     type="text"
                     placeholder="Name of the Organization"
+                    aria-label="Organization"
                     name="company"
                     value={company}
                     onChange={this.handleChange}
@@ -187,6 +191,7 @@ class Contact extends Component {
                   <Input
                     type="text"
                     placeholder="Website"
+                    aria-label="Website"
                     name="website"
                     value={website}
                     onChange={this.handleChange}
@@ -206,6 +211,7 @@ class Contact extends Component {
               <Field>
                 <Control hasIcons="left">
                   <Select
+                    aria-label="Query Type"
                     name="request"
                     value={request}
                     onChange={this.handleChange}
@@ -232,6 +238,7 @@ class Contact extends Component {
                 <Control>
                   <TextArea
                     placeholder="Things you would like to know about (required)"
+                    aria-label="Query"
                     name="query"
                     value={query}
                     onChange={this.handleChange}

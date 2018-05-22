@@ -1,1 +1,14 @@
-@import '../pages/index.module.scss';
+@import '~bulma/sass/utilities/initial-variables';
+@import '~bulma/sass/utilities/derived-variables';
+@import '~bulma/sass/utilities/mixins';
+
+.section {
+  padding: 3rem 1.5rem 1rem;
+  &:last-child {
+    padding-bottom: 6rem;
+  }
+  @include desktop {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

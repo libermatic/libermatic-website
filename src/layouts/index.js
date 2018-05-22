@@ -13,6 +13,7 @@ import styles from './layout.module.scss';
 const Layout = ({ children }) => (
   <div className={styles.root}>
     <Helmet>
+      <html lang="en" />
       <link rel="apple-touch-icon" type="image/png" href={iconSm} />
       <link rel="icon" type="image/png" href={iconSm} sizes="192x192" />
       <link rel="icon" type="image/png" href={iconLg} sizes="512x512" />

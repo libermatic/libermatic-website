@@ -45,11 +45,19 @@ const Footer = () => (
           </nav>
         </Column>
         <Column className={styles.socials}>
-          <Content>
-            <a href="https://github.com/libermatic">
+          <Content role="menu">
+            <a
+              role="menuitem"
+              aria-label="Visit us on Github"
+              href="https://github.com/libermatic"
+            >
               <Icon isSize="large" className="fab fa-github fa-2x" />
             </a>
-            <a href="https://twitter.com/libermatic">
+            <a
+              role="menuitem"
+              aria-label="Visit us on Twitter"
+              href="https://twitter.com/libermatic"
+            >
               <Icon isSize="large" className="fab fa-twitter fa-2x" />
             </a>
           </Content>

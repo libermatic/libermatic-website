@@ -27,6 +27,7 @@ const IndexPage = ({ data }) => (
         isColor="info"
         to="/services/erpnext/"
         render={props => <Link {...props} />}
+        aria-label="More Info"
       >
         Learn More
       </Button>
@@ -57,6 +58,7 @@ const IndexPage = ({ data }) => (
             isColor="primary"
             to="/contact"
             render={props => <Link {...props} />}
+            aria-label="Contact"
           >
             Reach Us
           </Button>

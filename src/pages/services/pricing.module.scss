@@ -15,7 +15,7 @@ $spc: 1.5rem;
     &:nth-of-type(1) {
       h4 {
         background-color: $info;
-        color: $white;
+        color: $light;
       }
       .price {
         background-color: lighten($info, 30%);
@@ -24,7 +24,7 @@ $spc: 1.5rem;
     &:nth-of-type(2) {
       h4 {
         background-color: $success;
-        color: $white;
+        color: $light;
       }
       .price {
         background-color: lighten($success, 30%);
@@ -33,6 +33,7 @@ $spc: 1.5rem;
     &:nth-of-type(3) {
       h4 {
         background-color: $warning;
+        color: $dark;
       }
       .price {
         background-color: lighten($warning, 18%);
@@ -41,7 +42,7 @@ $spc: 1.5rem;
     &:nth-of-type(4) {
       h4 {
         background-color: $danger;
-        color: $white;
+        color: $light;
       }
       .price {
         background-color: lighten($danger, 25%);
