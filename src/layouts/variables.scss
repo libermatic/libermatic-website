@@ -1,0 +1,12 @@
+$primary: #673ab7;
+$primary-invert: findColorInvert($primary);
+
+$info: #2196f3;
+$info-invert: findColorInvert($info);
+
+$link: #01579b;
+$link-invert: findColorInvert($link);
+
+$navbar-height: 4rem;
+$footer-background-color: #eeeeee;
+$navbar-background-color: $grey-lighter;

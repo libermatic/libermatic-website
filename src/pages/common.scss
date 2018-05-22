@@ -1,6 +1,7 @@
 @import '~bulma/sass/utilities/initial-variables';
 @import '~bulma/sass/utilities/derived-variables';
 @import '~bulma/sass/utilities/mixins';
+@import '../layouts/variables.scss';
 
 .section {
   padding: 3rem 1.5rem 1rem;
@@ -15,10 +16,10 @@
     @include tablet {
       margin-top: 0.5rem;
       padding-top: 1rem;
-      border-top: 2px solid $info;
+      border-top: 2px solid $primary;
     }
     @include mobile {
-      color: $info;
+      color: $primary;
     }
   }
   em {
