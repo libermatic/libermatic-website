@@ -7,7 +7,32 @@ module.exports = {
     siteUrl: 'https://libermatic.com',
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'libermatic. - Open sourcing humans',
+        short_name: 'libermatic',
+        start_url: '/',
+        background_color: '#ffdd57',
+        theme_color: '#2196f3',
+        display: 'minimal-ui',
+        icon: `${__dirname}/src/media/libermatic-v2.svg`,
+        icons: [
+          {
+            src: '/favicons/libermatic-v2-192x192.png',
+            sizes: '192x192',
+            type: 'image/png',
+          },
+          {
+            src: '/favicons/libermatic-v2-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+          },
+        ],
+      },
+    },
     'gatsby-plugin-sitemap',
+    'gatsby-plugin-offline',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
