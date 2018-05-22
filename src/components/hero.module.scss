@@ -1,0 +1,18 @@
+@import '~bulma/sass/utilities/initial-variables';
+@import '~bulma/sass/utilities/derived-variables';
+@import '~bulma/sass/utilities/mixins';
+
+.hero {
+  position: relative;
+  background-color: transparent !important;
+}
+
+.imageOuter,
+.image {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
