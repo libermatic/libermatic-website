@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import Link from 'gatsby-link';
+import Img from 'gatsby-image';
 import {
   Title,
   Subtitle,
@@ -26,12 +27,11 @@ const IndexPage = ({ data }) => (
       />
     </Helmet>
     <Hero {...data.heroImage}>
-      <Title className={styles.title}>
+      <Title isSpaced className={styles.title}>
         Ever wished managing your business was easy and fun?
       </Title>
       <Subtitle>With ERPNext, you just might.</Subtitle>
       <Button
-        isColor="warning"
         to="/services/erpnext/"
         render={props => <Link {...props} />}
         aria-label="More Info"
@@ -39,6 +39,41 @@ const IndexPage = ({ data }) => (
         Learn More
       </Button>
     </Hero>
+    <Container className={styles.section}>
+      <Columns>
+        <Column isSize="1/4">
+          <Content>
+            <h3>Technology and You</h3>
+          </Content>
+        </Column>
+        <Column className={styles.content}>
+          <Content>
+            <p>
+              Adopting any new technology always seems daunting. Particularly
+              so, if it is going to affect a critical portion of your life. But
+              it doesn&apos;t always have to like that.
+            </p>
+            <blockquote>
+              Any sufficiently advanced technology is indistinguishable from
+              magic. — Arthur C Clarke
+            </blockquote>
+            <p>
+              We believe that we can aid you in a few aspects of adopting and
+              implementing these major decisions. We offer our services to
+              possibly help you ease into this transition. We provide you
+              information and services to handle these.
+            </p>
+            <p>
+              Meanwhile you can continue doing what you do best — run your
+              business.
+            </p>
+          </Content>
+        </Column>
+      </Columns>
+    </Container>
+    <div aria-hidden className={styles.divider}>
+      <Img sizes={data.sectionOneImage.sizes} />
+    </div>
     <Container className={styles.section}>
       <Columns>
         <Column isSize="1/4">
@@ -83,8 +118,13 @@ IndexPage.propTypes = {
 export default IndexPage;
 
 export const query = graphql`
-  query IndexHeroImageQuery {
+  query IndexImageQuery {
     heroImage: imageSharp(id: { regex: "/176851/" }) {
+      sizes(maxWidth: 1408) {
+        ...GatsbyImageSharpSizes
+      }
+    }
+    sectionOneImage: imageSharp(id: { regex: "/34153/" }) {
       sizes(maxWidth: 1408) {
         ...GatsbyImageSharpSizes
       }

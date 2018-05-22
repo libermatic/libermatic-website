@@ -3,3 +3,20 @@
 .title {
   font-weight: normal;
 }
+
+.section {
+  padding-bottom: 3rem;
+}
+
+.divider {
+  position: relative;
+  height: 12rem;
+  & > div,
+  & > div > div {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
