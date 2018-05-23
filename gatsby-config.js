@@ -5,6 +5,7 @@ module.exports = {
     title: 'libermatic.',
     subtitle: 'Open sourcing humans',
     siteUrl: 'https://libermatic.com',
+    contactFormEndpoint: process.env.ERPNEXT_SENDMSG || '',
   },
   plugins: [
     {

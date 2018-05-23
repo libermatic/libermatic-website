@@ -62,7 +62,35 @@ class Contact extends Component {
       if (!this.isValid()) {
         throw new Error('Not a valid email');
       }
-      // TODO: make req to frappe server
+      const { label: subject = 'General Information' } =
+        requestTypes.find(({ req }) => req === this.state.fields.request) || {};
+      const formData = new FormData();
+      formData.append('sender', email);
+      formData.append('subject', subject);
+      const {
+        name = '',
+        phone = '',
+        company = '',
+        website = '',
+      } = this.state.fields;
+      formData.append(
+        'message',
+        `${query}
+
+        ---
+        name: ${name}
+        phone: ${phone}
+        company: ${company}
+        website: ${website}
+        `
+      );
+      const response = await fetch(
+        this.props.data.siteMeta.siteMetadata.contactFormEndpoint,
+        { mode: 'no-cors', method: 'POST', body: formData }
+      );
+      if (!response || response.type !== 'opaque') {
+        throw new Error('Unable to comply!');
+      }
       this.setState({
         fields: {},
         message: { notify: 'success', text: 'Query successful' },
@@ -313,6 +341,7 @@ Contact.propTypes = {
   }).isRequired,
   data: PropTypes.shape({
     heroImage: PropTypes.object,
+    siteMeta: PropTypes.object,
   }).isRequired,
 };
 
@@ -323,6 +352,11 @@ export const query = graphql`
     heroImage: imageSharp(id: { regex: "/255527/" }) {
       sizes(maxWidth: 1408) {
         ...GatsbyImageSharpSizes
+      }
+    }
+    siteMeta: site {
+      siteMetadata {
+        contactFormEndpoint
       }
     }
   }
