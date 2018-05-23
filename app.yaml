@@ -18,9 +18,9 @@ handlers:
     upload: public/.*\.(ttf|woff2|eot|woff)$
     secure: always
 
-  - url: /(.*\.(svg|jpeg|jpg))$
+  - url: /(.*\.(svg|jpeg|jpg|png))$
     static_files: public/\1
-    upload: public/.*\.(svg|jpeg|jpg)$
+    upload: public/.*\.(svg|jpeg|jpg|png)$
     secure: always
 
   - url: /(.*\.(css|js|map))$
@@ -28,9 +28,9 @@ handlers:
     upload: public/.*\.(css|js|map)$
     secure: always
 
-  - url: /(.*\.(json|webmanifest|xml))$
+  - url: /(.*\.(txt|json|webmanifest|xml))$
     static_files: public/\1
-    upload: public/.*\.(json|webmanifest|xml)$
+    upload: public/.*\.(txt|json|webmanifest|xml)$
     secure: always
 
   - url: /(.*)/?

@@ -8,6 +8,7 @@ module.exports = {
     contactFormEndpoint: process.env.ERPNEXT_SENDMSG || '',
   },
   plugins: [
+    'gatsby-plugin-robots-txt',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
