@@ -64,7 +64,7 @@ const Services = ({ data }) => (
       </Content>
       <Button
         isColor="info"
-        to="/services/erpnext/"
+        to="/services/erpnext"
         render={props => <Link {...props} />}
       >
         Learn More
@@ -93,7 +93,7 @@ const Services = ({ data }) => (
           </Content>
           <Button
             isColor="primary"
-            to="/services/pricing/"
+            to="/services/pricing"
             render={props => <Link {...props} />}
           >
             See Pricing

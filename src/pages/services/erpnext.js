@@ -122,7 +122,7 @@ const ERPNext = ({ data }) => (
           </Content>
           <Button
             isColor="primary"
-            to="/services/pricing/"
+            to="/services/pricing"
             render={props => <Link {...props} />}
           >
             See Pricing

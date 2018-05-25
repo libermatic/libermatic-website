@@ -32,7 +32,7 @@ const IndexPage = ({ data }) => (
       </Title>
       <Subtitle>With ERPNext, you just might.</Subtitle>
       <Button
-        to="/services/erpnext/"
+        to="/services/erpnext"
         render={props => <Link {...props} />}
         aria-label="More Info"
       >
