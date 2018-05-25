@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
 import './index.scss';
+import './whimsy';
 import Footer from '../components/footer';
 import Header from '../components/header';
 import iconSm from '../media/libermatic-v2-192.png';
