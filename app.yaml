@@ -8,34 +8,19 @@ handlers:
     upload: public/index.html
     secure: always
 
-  - url: /(.*\.html)(.*)
-    static_files: public/\1
-    upload: public/(.*\.html)(.*)
-    secure: always
-
-  - url: /(.*\.(ttf|woff2|eot|woff))$
-    static_files: public/\1
-    upload: public/.*\.(ttf|woff2|eot|woff)$
-    secure: always
-
-  - url: /(.*\.(svg|jpeg|jpg|png))$
-    static_files: public/\1
-    upload: public/.*\.(svg|jpeg|jpg|png)$
-    secure: always
-
-  - url: /(.*\.(css|js|map))$
-    static_files: public/\1
-    upload: public/.*\.(css|js|map)$
-    secure: always
-
-  - url: /(.*\.(txt|json|webmanifest|xml))$
-    static_files: public/\1
-    upload: public/.*\.(txt|json|webmanifest|xml)$
-    secure: always
-
-  - url: /(.*)/?
+  - url: /(.*)/$
     static_files: public/\1/index.html
     upload: public/(.*)/index.html
+    secure: always
+
+  - url: /([^.]*)$
+    static_files: public/\1/index.html
+    upload: public/[^.]*/index.html
+    secure: always
+
+  - url: /(.*)
+    static_files: public/\1
+    upload: public/(.*)
     secure: always
 
 skip_files:
