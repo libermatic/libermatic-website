@@ -8,3 +8,6 @@ env
 # Build directory
 /public
 .DS_Store
+
+# GAE routes
+dispatch.yml
