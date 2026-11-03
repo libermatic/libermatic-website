@@ -1,1 +1,39 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+@theme {
+  --color-brutal-black: #000000;
+  --color-brutal-white: #FFFFFF;
+  --color-brutal-accent: #CCFF00;
+  --color-brutal-gray: #888888;
+  --color-brutal-dark-gray: #1a1a1a;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  cursor: default;
+}
+
+a, button {
+  cursor: pointer;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+  border-left: 2px solid #fff;
+}
+::-webkit-scrollbar-thumb {
+  background: #CCFF00;
+  border: 2px solid #000;
+}
+
+/* Selection */
+::selection {
+  background: #CCFF00;
+  color: #000;
+}
