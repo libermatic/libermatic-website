@@ -296,10 +296,10 @@ const contactLines = [
         <div class="grid grid-cols-1 sm:grid-cols-2 border-r-4 border-brutal-white">
           {services.map((service, i) => (
             <div
-              class={[
+              class:list={[
                 'p-6 sm:p-8 border-b-4 border-brutal-white',
-                i % 2 === 0 ? 'border-r-4 border-brutal-white' : '',
-              ].join(' ')}
+                { 'border-r-4 border-brutal-white': i % 2 === 0 },
+              ]}
             >
               <div class="flex items-center gap-3 mb-4">
                 <span class="mono-meta text-brutal-accent text-xl font-bold">
@@ -340,10 +340,10 @@ const contactLines = [
         <div class="space-y-0">
           {projects.map((project, i) => (
             <div
-              class={[
+              class:list={[
                 'brutal-hover group border-b-4 border-brutal-white overflow-hidden',
                 'hover:bg-brutal-black hover:text-brutal-black',
-              ].join(' ')}
+              ]}
             >
               <div class="grid grid-cols-1 sm:grid-cols-12 gap-0">
                 <!-- Project number / visual -->
@@ -434,10 +434,9 @@ const contactLines = [
           <div class="lg:col-span-8">
             {manifesto.map((paragraph, i) => (
               <div
-                class={[
+                class:list={[
                   'p-6 sm:p-8 border-b-4 border-brutal-white',
-                  i === manifesto.length - 1 ? '' : '',
-                ].join(' ')}
+                ]}
               >
                 <span class="mono-meta text-brutal-accent block mb-3">
                   {`PARAGRAPH ${String(i + 1).padStart(2, '0')} / ${String(manifesto.length).padStart(2, '0')}`}
