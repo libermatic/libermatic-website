@@ -85,51 +85,6 @@ const contactLines = [
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content="We build fast, unbreakable web systems. Custom web apps, API engineering, performance optimization, and infrastructure." />
     <title>BUILD CO. — Fast, Unbreakable Web Systems</title>
-    <style>
-      /* Hard offset shadow utility */
-      .hard-shadow {
-        box-shadow: 6px 6px 0px #000;
-      }
-      .hard-shadow-sm {
-        box-shadow: 3px 3px 0px #000;
-      }
-      /* Instant hover inversion */
-      .brutal-hover {
-        transition: none;
-      }
-      .brutal-hover:hover {
-        transition: none;
-      }
-      /* Monospace metadata */
-      .mono-meta {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.75rem;
-        letter-spacing: 0.05em;
-      }
-      /* Grid overlay pattern */
-      .grid-lines {
-        background-image:
-          linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
-          linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
-        background-size: 60px 60px;
-      }
-      /* Terminal cursor blink */
-      @keyframes blink {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0; }
-      }
-      .cursor-blink::after {
-        content: '█';
-        animation: blink 1s step-end infinite;
-        margin-left: 2px;
-      }
-      /* Horizontal rule accent */
-      .accent-hr {
-        height: 4px;
-        background: #CCFF00;
-        border: none;
-      }
-    </style>
   </head>
   <body class="bg-brutal-black text-brutal-white font-sans antialiased overflow-x-hidden">
 
@@ -230,15 +185,6 @@ const contactLines = [
           ★ Custom Web Apps ★ API Engineering ★ Performance ★ Infrastructure ★
         </span>
       </div>
-      <style>
-        @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        .animate-marquee {
-          animation: marquee 20s linear infinite;
-        }
-      </style>
     </div>
 
     <!-- ═══════════════════ SERVICES SECTION ═══════════════════ -->

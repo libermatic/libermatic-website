@@ -36,3 +36,61 @@ a, button {
   background: var(--color-lime-300);
   color: var(--color-gray-950);
 }
+
+/* ── Hard offset shadow utilities ── */
+.hard-shadow {
+  box-shadow: 6px 6px 0px #000;
+}
+.hard-shadow-sm {
+  box-shadow: 3px 3px 0px #000;
+}
+
+/* ── Brutal hover (instant inversion, no transition) ── */
+.brutal-hover {
+  transition: none;
+}
+.brutal-hover:hover {
+  transition: none;
+}
+
+/* ── Monospace metadata ── */
+.mono-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+/* ── Grid overlay pattern ── */
+.grid-lines {
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ── Terminal cursor blink ── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.cursor-blink::after {
+  content: '█';
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
+}
+
+/* ── Horizontal rule accent ── */
+.accent-hr {
+  height: 4px;
+  background: #CCFF00;
+  border: none;
+}
+
+/* ── Marquee animation ── */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
