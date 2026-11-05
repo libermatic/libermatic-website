@@ -8,7 +8,7 @@ interface Props {
 const { services } = Astro.props;
 ---
 
-<section id="services" class="border-b-4 border-brutal-white">
+<section id="services" class="border-b-4 border-brutal-white pb-12 sm:pb-16">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Section header -->
     <div class="border-b-4 border-brutal-white py-8 sm:py-12">
@@ -21,12 +21,12 @@ const { services } = Astro.props;
     </div>
 
     <!-- Services grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 border-r-4 border-brutal-white">
+    <div class="grid grid-cols-1 sm:grid-cols-2">
       {services.map((service, i) => (
         <div
           class:list={[
             'p-6 sm:p-8 border-b-4 border-brutal-white',
-            { 'border-r-4 border-brutal-white': i % 2 === 0 },
+            { 'sm:border-r-4 border-brutal-white': i % 2 === 0 },
           ]}
         >
           <div class="flex items-center gap-3 mb-4">

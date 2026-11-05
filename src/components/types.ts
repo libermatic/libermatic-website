@@ -16,3 +16,8 @@ export interface Project {
   stats: ProjectStat;
   desc: string;
 }
+
+export interface Stat {
+  value: string;
+  label: string;
+}

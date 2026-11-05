@@ -6,7 +6,7 @@ interface Props {
 const { manifesto } = Astro.props;
 ---
 
-<section id="philosophy" class="border-b-4 border-brutal-white grid-lines">
+<section id="philosophy" class="border-b-4 border-brutal-white grid-lines pb-12 sm:pb-16">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Section header -->
     <div class="border-b-4 border-brutal-white py-8 sm:py-12">
@@ -21,7 +21,7 @@ const { manifesto } = Astro.props;
     <!-- Manifesto body -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
       <!-- Left column: large pull quote -->
-      <div class="lg:col-span-4 border-r-4 border-brutal-white p-6 sm:p-8 lg:p-10 flex flex-col justify-center">
+      <div class="lg:col-span-4 lg:border-r-4 border-b-4 border-brutal-white p-6 sm:p-8 lg:p-10 flex flex-col justify-center">
         <p class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl leading-tight tracking-tight">
           "The best technology is the technology that{' '}
           <span class="text-brutal-accent">gets out of the way.</span>"

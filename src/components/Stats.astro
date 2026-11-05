@@ -1,10 +1,5 @@
 ---
-import { stats } from './data';
-
-interface Stat {
-  value: string;
-  label: string;
-}
+import type { Stat } from './types';
 
 interface Props {
   stats: Stat[];
@@ -19,7 +14,9 @@ const { stats: statItems } = Astro.props;
       <div
         class:list={[
           'p-6 sm:p-8 flex flex-col items-center text-center',
-          { 'border-r-4 border-brutal-white': i < statItems.length - 1 },
+          { 'border-r-4 border-brutal-white': i % 2 === 0 },
+          { 'sm:border-r-4 border-brutal-white': i < statItems.length - 1 },
+          { 'border-b-4 border-brutal-white sm:border-b-0': i < 2 },
         ]}
       >
         <span class="font-display font-bold text-4xl sm:text-5xl text-brutal-black">
