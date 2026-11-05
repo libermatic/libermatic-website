@@ -71,7 +71,8 @@ const contactLines = [
   '',
   '$> Sending...',
   '',
-  '> Connection established. We reply within 24h.'
+  '> Connection established. We reply within 24h.',
+  ''
 ];
 ---
 
@@ -447,13 +448,15 @@ const contactLines = [
               </div>
               <!-- Terminal lines -->
               {contactLines.map((line, i) => (
-                <p class={[
+                <p class:list={[
                   'mb-2',
-                  line.startsWith('$') ? 'text-brutal-accent' :
-                  line.startsWith('>') ? 'text-brutal-white' :
-                  i === contactLines.length - 1 ? 'text-brutal-white cursor-blink' : 'text-brutal-gray'
-                ].join(' ')}>
-                  {line}
+                  {
+                    'text-brutal-accent': line.startsWith('$'),
+                    'text-brutal-white':line.startsWith('>'),
+                    'cursor-blink': i === contactLines.length - 1,
+                  }
+                ]}>
+                    {line}
                 </p>
               ))}
             </div>
