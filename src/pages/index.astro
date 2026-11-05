@@ -3,33 +3,56 @@ import '../styles/global.css';
 
 const meta = {
   status: '[SYSTEM_ONLINE: 99.9%]',
-  timezone: new Date().toLocaleString('en-US', { timeZoneName: 'short' }).split(' ').slice(-1)[0],
+  timezone: new Date()
+    .toLocaleString('en-US', { timeZoneName: 'short' })
+    .split(' ')
+    .slice(-1)[0],
   capacity: '[CAPACITY: AVAILABLE]',
   version: 'v2.4.1',
-  loadTime: '12ms'
+  loadTime: '12ms',
 };
 
 const services = [
   {
     icon: '//',
     title: 'Custom Web Apps',
-    bullets: ['[x] SPA / SSA architectures', '[x] State management & data flows', '[x] Component systems & design tokens', '[x] Accessibility (WCAG 2.1 AA+)']
+    bullets: [
+      '[x] SPA / SSA architectures',
+      '[x] State management & data flows',
+      '[x] Component systems & design tokens',
+      '[x] Accessibility (WCAG 2.1 AA+)',
+    ],
   },
   {
     icon: '->',
     title: 'API Engineering',
-    bullets: ['[x] REST & GraphQL endpoints', '[x] Authentication & rate limiting', '[x] Database modeling & migrations', '[x] Webhook & event-driven systems']
+    bullets: [
+      '[x] REST & GraphQL endpoints',
+      '[x] Authentication & rate limiting',
+      '[x] Database modeling & migrations',
+      '[x] Webhook & event-driven systems',
+    ],
   },
   {
     icon: '[x]',
     title: 'Performance Optimization',
-    bullets: ['[x] Core Web Vitals auditing', '[x] Bundle analysis & tree-shaking', '[x] Caching strategies & edge delivery', '[x] Lighthouse score: 100/100 target']
+    bullets: [
+      '[x] Core Web Vitals auditing',
+      '[x] Bundle analysis & tree-shaking',
+      '[x] Caching strategies & edge delivery',
+      '[x] Lighthouse score: 100/100 target',
+    ],
   },
   {
     icon: '//',
     title: 'Infrastructure',
-    bullets: ['[x] CI/CD pipeline design', '[x] Container orchestration', '[x] Monitoring & observability', '[x] Auto-scaling & load balancing']
-  }
+    bullets: [
+      '[x] CI/CD pipeline design',
+      '[x] Container orchestration',
+      '[x] Monitoring & observability',
+      '[x] Auto-scaling & load balancing',
+    ],
+  },
 ];
 
 const projects = [
@@ -37,20 +60,20 @@ const projects = [
     name: 'NEXUS / DASHBOARD',
     category: 'WEB APP',
     stats: { lighthouse: 100, loadTime: '120ms', bundleSize: '42kb' },
-    desc: 'Real-time analytics dashboard. Zero dependencies. Pure SSR.'
+    desc: 'Real-time analytics dashboard. Zero dependencies. Pure SSR.',
   },
   {
     name: 'FORGE / E-COMMERCE',
     category: 'FULL STACK',
     stats: { lighthouse: 100, loadTime: '89ms', bundleSize: '38kb' },
-    desc: 'Headless commerce platform. Sub-100ms TTFB across all regions.'
+    desc: 'Headless commerce platform. Sub-100ms TTFB across all regions.',
   },
   {
     name: 'PULSE / HEALTH-API',
     category: 'API ENGINEERING',
     stats: { lighthouse: 100, loadTime: '45ms', bundleSize: 'N/A' },
-    desc: 'HIPAA-compliant API handling 2M+ daily requests at 99.99% uptime.'
-  }
+    desc: 'HIPAA-compliant API handling 2M+ daily requests at 99.99% uptime.',
+  },
 ];
 
 const manifesto = [
@@ -58,7 +81,7 @@ const manifesto = [
 
   "Our approach is radical in its simplicity: raw HTML served at the speed of light, CSS that doesn't need a build step to work, and JavaScript only when the user actually needs interactivity. We strip away the ceremony and deliver applications that load instantly, render predictably, and degrade gracefully. This isn't minimalism for the sake of minimalism — it's engineering discipline applied to the web platform.",
 
-  "We work with founders, technical teams, and organizations who understand that the best technology is the technology that gets out of the way. If your project demands performance that matters, accessibility that's real, and code that your team can maintain without a 47-slide onboarding deck — let's talk. We build for the long haul, not the demo day."
+  "We work with founders, technical teams, and organizations who understand that the best technology is the technology that gets out of the way. If your project demands performance that matters, accessibility that's real, and code that your team can maintain without a 47-slide onboarding deck — let's talk. We build for the long haul, not the demo day.",
 ];
 
 const contactLines = [
@@ -72,11 +95,11 @@ const contactLines = [
   '$> Sending...',
   '',
   '> Connection established. We reply within 24h.',
-  ''
+  '',
 ];
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -84,37 +107,94 @@ const contactLines = [
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content="We build fast, unbreakable web systems. Custom web apps, API engineering, performance optimization, and infrastructure." />
+    <meta
+      name="description"
+      content="We build fast, unbreakable web systems. Custom web apps, API engineering, performance optimization, and infrastructure."
+    />
     <title>BUILD CO. — Fast, Unbreakable Web Systems</title>
   </head>
   <body class="bg-brutal-black text-brutal-white font-sans antialiased overflow-x-hidden">
-
     <!-- ═══════════════════ NAVIGATION ═══════════════════ -->
     <nav class="fixed top-0 left-0 right-0 z-50 border-b-4 border-brutal-white bg-brutal-black">
       <div class="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 h-16">
-        <a href="/" class="font-display font-bold text-xl sm:text-2xl tracking-tight flex items-center gap-2">
+        <a
+          href="/"
+          class="font-display font-bold text-xl sm:text-2xl tracking-tight flex items-center gap-2"
+        >
           <span class="inline-block w-3 h-3 bg-brutal-accent border-2 border-brutal-white"></span>
           BUILD<span class="text-brutal-accent">.</span>CO
         </a>
         <div class="hidden sm:flex items-center gap-8">
-          <a href="#services" class="font-mono text-sm uppercase tracking-wider hover:text-brutal-accent transition-colors">Services</a>
-          <a href="#work" class="font-mono text-sm uppercase tracking-wider hover:text-brutal-accent transition-colors">Work</a>
-          <a href="#philosophy" class="font-mono text-sm uppercase tracking-wider hover:text-brutal-accent transition-colors">Philosophy</a>
-          <a href="#contact" class="font-mono text-sm uppercase tracking-wider hover:text-brutal-accent transition-colors">Contact</a>
+          <a
+            href="#services"
+            class="font-mono text-sm uppercase tracking-wider hover:text-brutal-accent transition-colors"
+          >
+            Services
+          </a>
+          <a
+            href="#work"
+            class="font-mono text-sm uppercase tracking-wider hover:text-brutal-accent transition-colors"
+          >
+            Work
+          </a>
+          <a
+            href="#philosophy"
+            class="font-mono text-sm uppercase tracking-wider hover:text-brutal-accent transition-colors"
+          >
+            Philosophy
+          </a>
+          <a
+            href="#contact"
+            class="font-mono text-sm uppercase tracking-wider hover:text-brutal-accent transition-colors"
+          >
+            Contact
+          </a>
         </div>
         <!-- Mobile menu button -->
-        <button class="sm:hidden w-10 h-10 border-2 border-brutal-white flex items-center justify-center hover:bg-brutal-accent hover:border-brutal-accent hover:text-brutal-black transition-colors" onclick="this.nextElementSibling.classList.toggle('hidden')">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="2" y1="5" x2="18" y2="5"/><line x1="2" y1="10" x2="18" y2="10"/><line x1="2" y1="15" x2="18" y2="15"/>
+        <button
+          class="sm:hidden w-10 h-10 border-2 border-brutal-white flex items-center justify-center hover:bg-brutal-accent hover:border-brutal-accent hover:text-brutal-black transition-colors"
+          onclick="this.nextElementSibling.classList.toggle('hidden')"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <line x1="2" y1="5" x2="18" y2="5" />
+            <line x1="2" y1="10" x2="18" y2="10" />
+            <line x1="2" y1="15" x2="18" y2="15" />
           </svg>
         </button>
         <!-- Mobile menu -->
         <div class="hidden absolute top-16 left-0 right-0 border-b-4 border-r-4 border-l-4 border-brutal-white bg-brutal-black p-4 sm:hidden">
           <div class="flex flex-col gap-4">
-            <a href="#services" class="font-mono text-sm uppercase tracking-wider hover:text-brutal-accent py-2 border-b-2 border-brutal-dark-gray">Services</a>
-            <a href="#work" class="font-mono text-sm uppercase tracking-wider hover:text-brutal-accent py-2 border-b-2 border-brutal-dark-gray">Work</a>
-            <a href="#philosophy" class="font-mono text-sm uppercase tracking-wider hover:text-brutal-accent py-2 border-b-2 border-brutal-dark-gray">Philosophy</a>
-            <a href="#contact" class="font-mono text-sm uppercase tracking-wider hover:text-brutal-accent py-2">Contact</a>
+            <a
+              href="#services"
+              class="font-mono text-sm uppercase tracking-wider hover:text-brutal-accent py-2 border-b-2 border-brutal-dark-gray"
+            >
+              Services
+            </a>
+            <a
+              href="#work"
+              class="font-mono text-sm uppercase tracking-wider hover:text-brutal-accent py-2 border-b-2 border-brutal-dark-gray"
+            >
+              Work
+            </a>
+            <a
+              href="#philosophy"
+              class="font-mono text-sm uppercase tracking-wider hover:text-brutal-accent py-2 border-b-2 border-brutal-dark-gray"
+            >
+              Philosophy
+            </a>
+            <a
+              href="#contact"
+              class="font-mono text-sm uppercase tracking-wider hover:text-brutal-accent py-2"
+            >
+              Contact
+            </a>
           </div>
         </div>
       </div>
@@ -123,25 +203,36 @@ const contactLines = [
     <!-- ═══════════════════ HERO SECTION ═══════════════════ -->
     <header class="relative min-h-screen flex flex-col justify-center border-b-4 border-brutal-white grid-lines pt-16">
       <div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
-
         <!-- Metadata bar -->
         <div class="flex flex-wrap gap-3 sm:gap-4 mb-8 sm:mb-12">
-          <span class="mono-meta px-3 py-1 border-2 border-brutal-accent text-brutal-accent">{meta.status}</span>
-          <span class="mono-meta px-3 py-1 border-2 border-brutal-white text-brutal-white">{meta.timezone}</span>
-          <span class="mono-meta px-3 py-1 border-2 border-brutal-white text-brutal-white">{meta.capacity}</span>
-          <span class="mono-meta px-3 py-1 border-2 border-brutal-dark-gray text-brutal-gray">build {meta.version} / {meta.loadTime}</span>
+          <span class="mono-meta px-3 py-1 border-2 border-brutal-accent text-brutal-accent">
+            {meta.status}
+          </span>
+          <span class="mono-meta px-3 py-1 border-2 border-brutal-white text-brutal-white">
+            {meta.timezone}
+          </span>
+          <span class="mono-meta px-3 py-1 border-2 border-brutal-white text-brutal-white">
+            {meta.capacity}
+          </span>
+          <span class="mono-meta px-3 py-1 border-2 border-brutal-dark-gray text-brutal-gray">
+            build {meta.version} / {meta.loadTime}
+          </span>
         </div>
 
         <!-- Main headline -->
         <h1 class="font-display font-bold text-[clamp(2.5rem,8vw,7rem)] leading-[0.95] tracking-tighter mb-6 sm:mb-8">
-          WE BUILD FAST,<br />
-          <span class="text-brutal-accent">UNBREAKABLE</span><br />
+          WE BUILD FAST,
+          <br />
+          <span class="text-brutal-accent">UNBREAKABLE</span>
+          <br />
           WEB SYSTEMS.
         </h1>
 
         <!-- Subheadline -->
         <p class="font-mono text-base sm:text-lg text-brutal-gray max-w-2xl mb-10 sm:mb-14 leading-relaxed">
-          No bloat. No fluff. No framework drama. We engineer web applications that load instantly, scale reliably, and ship on time. Every year. Every project.
+          No bloat. No fluff. No framework drama. We engineer web applications
+          that load instantly, scale reliably, and ship on time. Every year.
+          Every project.
         </p>
 
         <!-- CTA buttons -->
@@ -191,10 +282,11 @@ const contactLines = [
     <!-- ═══════════════════ SERVICES SECTION ═══════════════════ -->
     <section id="services" class="border-b-4 border-brutal-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         <!-- Section header -->
         <div class="border-b-4 border-brutal-white py-8 sm:py-12">
-          <span class="mono-meta text-brutal-accent block mb-2">// 01 — CAPABILITIES</span>
+          <span class="mono-meta text-brutal-accent block mb-2">
+            // 01 — CAPABILITIES
+          </span>
           <h2 class="font-display font-bold text-[clamp(2rem,5vw,4rem)] tracking-tight">
             WHAT WE <span class="text-brutal-accent">DO.</span>
           </h2>
@@ -203,33 +295,42 @@ const contactLines = [
         <!-- Services grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 border-r-4 border-brutal-white">
           {services.map((service, i) => (
-            <div class={[
-              'p-6 sm:p-8 border-b-4 border-brutal-white',
-              i % 2 === 0 ? 'border-r-4 border-brutal-white' : ''
-            ].join(' ')}>
+            <div
+              class={[
+                'p-6 sm:p-8 border-b-4 border-brutal-white',
+                i % 2 === 0 ? 'border-r-4 border-brutal-white' : '',
+              ].join(' ')}
+            >
               <div class="flex items-center gap-3 mb-4">
-                <span class="mono-meta text-brutal-accent text-xl font-bold">{service.icon}</span>
-                <h3 class="font-display font-bold text-xl sm:text-2xl uppercase tracking-tight">{service.title}</h3>
+                <span class="mono-meta text-brutal-accent text-xl font-bold">
+                  {service.icon}
+                </span>
+                <h3 class="font-display font-bold text-xl sm:text-2xl uppercase tracking-tight">
+                  {service.title}
+                </h3>
               </div>
               <ul class="space-y-2">
-                {service.bullets.map(bullet => (
+                {service.bullets.map((bullet) => (
                   <li class="font-mono text-sm text-brutal-gray">{bullet}</li>
                 ))}
               </ul>
             </div>
           ))}
         </div>
-
       </div>
     </section>
 
     <!-- ═══════════════════ SELECTED WORKS ═══════════════════ -->
-    <section id="work" class="border-b-4 border-brutal-white bg-brutal-dark-gray">
+    <section
+      id="work"
+      class="border-b-4 border-brutal-white bg-brutal-dark-gray"
+    >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         <!-- Section header -->
         <div class="border-b-4 border-brutal-white py-8 sm:py-12">
-          <span class="mono-meta text-brutal-accent block mb-2">// 02 — SELECTED WORKS</span>
+          <span class="mono-meta text-brutal-accent block mb-2">
+            // 02 — SELECTED WORKS
+          </span>
           <h2 class="font-display font-bold text-[clamp(2rem,5vw,4rem)] tracking-tight">
             BUILT. <span class="text-brutal-accent">NOT BLOATED.</span>
           </h2>
@@ -238,12 +339,13 @@ const contactLines = [
         <!-- Project cards -->
         <div class="space-y-0">
           {projects.map((project, i) => (
-            <div class={[
-              'brutal-hover group border-b-4 border-brutal-white overflow-hidden',
-              'hover:bg-brutal-black hover:text-brutal-black'
-            ].join(' ')}>
+            <div
+              class={[
+                'brutal-hover group border-b-4 border-brutal-white overflow-hidden',
+                'hover:bg-brutal-black hover:text-brutal-black',
+              ].join(' ')}
+            >
               <div class="grid grid-cols-1 sm:grid-cols-12 gap-0">
-
                 <!-- Project number / visual -->
                 <div class="sm:col-span-2 border-r-4 border-brutal-white p-6 sm:p-8 group-hover:border-brutal-white flex flex-col items-start justify-between">
                   <span class="font-display font-bold text-6xl sm:text-7xl text-brutal-white group-hover:text-brutal-accent leading-none">
@@ -268,16 +370,28 @@ const contactLines = [
                 <div class="sm:col-span-5 border-l-4 border-brutal-white p-6 sm:p-8">
                   <div class="grid grid-cols-3 gap-4">
                     <div>
-                      <p class="mono-meta text-brutal-accent mb-1 group-hover:text-brutal-black">LIGHTHOUSE</p>
-                      <p class="font-display font-bold text-2xl group-hover:text-brutal-accent">{project.stats.lighthouse}</p>
+                      <p class="mono-meta text-brutal-accent mb-1 group-hover:text-brutal-black">
+                        LIGHTHOUSE
+                      </p>
+                      <p class="font-display font-bold text-2xl group-hover:text-brutal-accent">
+                        {project.stats.lighthouse}
+                      </p>
                     </div>
                     <div>
-                      <p class="mono-meta text-brutal-accent mb-1 group-hover:text-brutal-black">LOAD TIME</p>
-                      <p class="font-display font-bold text-2xl group-hover:text-brutal-accent">{project.stats.loadTime}</p>
+                      <p class="mono-meta text-brutal-accent mb-1 group-hover:text-brutal-black">
+                        LOAD TIME
+                      </p>
+                      <p class="font-display font-bold text-2xl group-hover:text-brutal-accent">
+                        {project.stats.loadTime}
+                      </p>
                     </div>
                     <div>
-                      <p class="mono-meta text-brutal-accent mb-1 group-hover:text-brutal-black">BUNDLE</p>
-                      <p class="font-display font-bold text-2xl group-hover:text-brutal-accent">{project.stats.bundleSize}</p>
+                      <p class="mono-meta text-brutal-accent mb-1 group-hover:text-brutal-black">
+                        BUNDLE
+                      </p>
+                      <p class="font-display font-bold text-2xl group-hover:text-brutal-accent">
+                        {project.stats.bundleSize}
+                      </p>
                     </div>
                   </div>
                   <div class="mt-6 pt-4 border-t-2 border-brutal-white/20 group-hover:border-brutal-white/30">
@@ -286,22 +400,21 @@ const contactLines = [
                     </span>
                   </div>
                 </div>
-
               </div>
             </div>
           ))}
         </div>
-
       </div>
     </section>
 
     <!-- ═══════════════════ PHILOSOPHY / MANIFESTO ═══════════════════ -->
     <section id="philosophy" class="border-b-4 border-brutal-white grid-lines">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         <!-- Section header -->
         <div class="border-b-4 border-brutal-white py-8 sm:py-12">
-          <span class="mono-meta text-brutal-accent block mb-2">// 03 — PHILOSOPHY</span>
+          <span class="mono-meta text-brutal-accent block mb-2">
+            // 03 — PHILOSOPHY
+          </span>
           <h2 class="font-display font-bold text-[clamp(2rem,5vw,4rem)] tracking-tight">
             THE <span class="text-brutal-accent">MANIFESTO.</span>
           </h2>
@@ -312,17 +425,20 @@ const contactLines = [
           <!-- Left column: large pull quote -->
           <div class="lg:col-span-4 border-r-4 border-brutal-white p-6 sm:p-8 lg:p-10 flex flex-col justify-center">
             <p class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl leading-tight tracking-tight">
-              "The best technology is the technology that <span class="text-brutal-accent">gets out of the way.</span>"
+              "The best technology is the technology that{' '}
+              <span class="text-brutal-accent">gets out of the way.</span>"
             </p>
           </div>
 
           <!-- Right column: manifesto paragraphs -->
           <div class="lg:col-span-8">
             {manifesto.map((paragraph, i) => (
-              <div class={[
-                'p-6 sm:p-8 border-b-4 border-brutal-white',
-                i === manifesto.length - 1 ? '' : ''
-              ].join(' ')}>
+              <div
+                class={[
+                  'p-6 sm:p-8 border-b-4 border-brutal-white',
+                  i === manifesto.length - 1 ? '' : '',
+                ].join(' ')}
+              >
                 <span class="mono-meta text-brutal-accent block mb-3">
                   {`PARAGRAPH ${String(i + 1).padStart(2, '0')} / ${String(manifesto.length).padStart(2, '0')}`}
                 </span>
@@ -333,7 +449,6 @@ const contactLines = [
             ))}
           </div>
         </div>
-
       </div>
     </section>
 
@@ -341,20 +456,36 @@ const contactLines = [
     <div class="border-b-4 border-brutal-white bg-brutal-accent">
       <div class="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-4">
         <div class="p-6 sm:p-8 border-r-4 border-brutal-white flex flex-col items-center text-center">
-          <span class="font-display font-bold text-4xl sm:text-5xl text-brutal-black">147</span>
-          <span class="mono-meta text-brutal-black uppercase tracking-wider mt-2">Projects Shipped</span>
+          <span class="font-display font-bold text-4xl sm:text-5xl text-brutal-black">
+            147
+          </span>
+          <span class="mono-meta text-brutal-black uppercase tracking-wider mt-2">
+            Projects Shipped
+          </span>
         </div>
         <div class="p-6 sm:p-8 border-r-4 border-brutal-white flex flex-col items-center text-center">
-          <span class="font-display font-bold text-4xl sm:text-5xl text-brutal-black">99.9%</span>
-          <span class="mono-meta text-brutal-black uppercase tracking-wider mt-2">Uptime SLA</span>
+          <span class="font-display font-bold text-4xl sm:text-5xl text-brutal-black">
+            99.9%
+          </span>
+          <span class="mono-meta text-brutal-black uppercase tracking-wider mt-2">
+            Uptime SLA
+          </span>
         </div>
         <div class="p-6 sm:p-8 border-r-4 border-brutal-white flex flex-col items-center text-center">
-          <span class="font-display font-bold text-4xl sm:text-5xl text-brutal-black">&lt;50ms</span>
-          <span class="mono-meta text-brutal-black uppercase tracking-wider mt-2">Avg TTFB</span>
+          <span class="font-display font-bold text-4xl sm:text-5xl text-brutal-black">
+            &lt;50ms
+          </span>
+          <span class="mono-meta text-brutal-black uppercase tracking-wider mt-2">
+            Avg TTFB
+          </span>
         </div>
         <div class="p-6 sm:p-8 flex flex-col items-center text-center">
-          <span class="font-display font-bold text-4xl sm:text-5xl text-brutal-black">0</span>
-          <span class="mono-meta text-brutal-black uppercase tracking-wider mt-2">Bloat Dependencies</span>
+          <span class="font-display font-bold text-4xl sm:text-5xl text-brutal-black">
+            0
+          </span>
+          <span class="mono-meta text-brutal-black uppercase tracking-wider mt-2">
+            Bloat Dependencies
+          </span>
         </div>
       </div>
     </div>
@@ -362,17 +493,17 @@ const contactLines = [
     <!-- ═══════════════════ CONTACT / FOOTER TERMINAL ═══════════════════ -->
     <section id="contact" class="border-b-4 border-brutal-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         <!-- Section header -->
         <div class="border-b-4 border-brutal-white py-8 sm:py-12">
-          <span class="mono-meta text-brutal-accent block mb-2">// 04 — INITIATE PROJECT</span>
+          <span class="mono-meta text-brutal-accent block mb-2">
+            // 04 — INITIATE PROJECT
+          </span>
           <h2 class="font-display font-bold text-[clamp(2rem,5vw,4rem)] tracking-tight">
             LET'S <span class="text-brutal-accent">BUILD.</span>
           </h2>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
-
           <!-- Contact form -->
           <div class="border-r-4 border-brutal-white p-6 sm:p-8 lg:p-10">
             <form class="space-y-6" action="/api/contact" method="POST">
@@ -444,26 +575,32 @@ const contactLines = [
                 <div class="w-3 h-3 rounded-full bg-red-500 border border-red-700"></div>
                 <div class="w-3 h-3 rounded-full bg-yellow-500 border border-yellow-700"></div>
                 <div class="w-3 h-3 rounded-full bg-green-500 border border-green-700"></div>
-                <span class="ml-2 mono-meta text-brutal-gray">build.co — project-init</span>
+                <span class="ml-2 mono-meta text-brutal-gray">
+                  build.co — project-init
+                </span>
               </div>
               <!-- Terminal lines -->
               {contactLines.map((line, i) => (
-                <p class:list={[
-                  'mb-2',
-                  {
-                    'text-brutal-accent': line.startsWith('$'),
-                    'text-brutal-white':line.startsWith('>'),
-                    'cursor-blink': i === contactLines.length - 1,
-                  }
-                ]}>
-                    {line}
+                <p
+                  class:list={[
+                    'mb-2',
+                    {
+                      'text-brutal-accent': line.startsWith('$'),
+                      'text-brutal-white': line.startsWith('>'),
+                      'cursor-blink': i === contactLines.length - 1,
+                    },
+                  ]}
+                >
+                  {line}
                 </p>
               ))}
             </div>
 
             <!-- System info -->
             <div class="mt-10 pt-6 border-t-2 border-brutal-white/20">
-              <h4 class="mono-meta text-brutal-accent uppercase tracking-wider mb-4">system details</h4>
+              <h4 class="mono-meta text-brutal-accent uppercase tracking-wider mb-4">
+                system details
+              </h4>
               <div class="grid grid-cols-2 gap-4">
                 <div>
                   <span class="mono-meta text-brutal-gray block">server</span>
@@ -484,7 +621,6 @@ const contactLines = [
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
@@ -495,7 +631,9 @@ const contactLines = [
         <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div class="flex items-center gap-3">
             <span class="inline-block w-2 h-2 bg-brutal-accent"></span>
-            <span class="font-display font-bold text-lg tracking-tight">BUILD.CO</span>
+            <span class="font-display font-bold text-lg tracking-tight">
+              BUILD.CO
+            </span>
           </div>
           <div class="mono-meta text-brutal-gray flex flex-wrap gap-4 sm:gap-6 items-center">
             <span>© {new Date().getFullYear()} BUILD CO.</span>
@@ -505,11 +643,33 @@ const contactLines = [
             <span>MEM:4.2mb</span>
           </div>
           <div class="flex gap-4">
-            <a href="#" class="w-10 h-10 border-2 border-brutal-white flex items-center justify-center hover:bg-brutal-accent hover:border-brutal-accent hover:text-brutal-black transition-colors shadow-hard-sm" aria-label="GitHub">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            <a
+              href="#"
+              class="w-10 h-10 border-2 border-brutal-white flex items-center justify-center hover:bg-brutal-accent hover:border-brutal-accent hover:text-brutal-black transition-colors shadow-hard-sm"
+              aria-label="GitHub"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+              </svg>
             </a>
-            <a href="#" class="w-10 h-10 border-2 border-brutal-white flex items-center justify-center hover:bg-brutal-accent hover:border-brutal-accent hover:text-brutal-black transition-colors shadow-hard-sm" aria-label="Twitter">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            <a
+              href="#"
+              class="w-10 h-10 border-2 border-brutal-white flex items-center justify-center hover:bg-brutal-accent hover:border-brutal-accent hover:text-brutal-black transition-colors shadow-hard-sm"
+              aria-label="Twitter"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
             </a>
           </div>
         </div>
@@ -519,6 +679,5 @@ const contactLines = [
         </p>
       </div>
     </footer>
-
   </body>
 </html>

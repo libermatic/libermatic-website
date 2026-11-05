@@ -21,6 +21,10 @@ Consult these guides before working on related tasks:
 - [Adding styles or using Tailwind](https://docs.astro.build/en/guides/styling/)
 - [Supporting multiple languages](https://docs.astro.build/en/guides/internationalization/)
 
+## Formatting
+
+Run `npm run format` before committing to ensure consistent code style.
+
 ## Commits
 
 Use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/). Each commit should be atomic — one logical change per commit. The code must build and not break before each commit; verify `npm run build` (or the project's build command) passes before committing.

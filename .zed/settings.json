@@ -1,6 +1,13 @@
 {
   "languages": {
+    "Astro": {
+      "soft_wrap": "bounded",
+      "preferred_line_length": 120,
+      "tab_size": 2
+    },
     "CSS": {
+      "preferred_line_length": 120,
+      "tab_size": 2,
       "language_servers": [
         "tailwindcss-language-server",
         "!vscode-css-language-server",
