@@ -1,0 +1,46 @@
+---
+interface Props {
+  manifesto: string[];
+}
+
+const { manifesto } = Astro.props;
+---
+
+<section id="philosophy" class="border-b-4 border-brutal-white grid-lines">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="border-b-4 border-brutal-white py-8 sm:py-12">
+      <span class="mono-meta text-brutal-accent block mb-2">
+        // 03 — PHILOSOPHY
+      </span>
+      <h2 class="font-display font-bold text-[clamp(2rem,5vw,4rem)] tracking-tight">
+        THE <span class="text-brutal-accent">MANIFESTO.</span>
+      </h2>
+    </div>
+
+    <!-- Manifesto body -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+      <!-- Left column: large pull quote -->
+      <div class="lg:col-span-4 border-r-4 border-brutal-white p-6 sm:p-8 lg:p-10 flex flex-col justify-center">
+        <p class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl leading-tight tracking-tight">
+          "The best technology is the technology that{' '}
+          <span class="text-brutal-accent">gets out of the way.</span>"
+        </p>
+      </div>
+
+      <!-- Right column: manifesto paragraphs -->
+      <div class="lg:col-span-8">
+        {manifesto.map((paragraph, i) => (
+          <div class:list={['p-6 sm:p-8 border-b-4 border-brutal-white']}>
+            <span class="mono-meta text-brutal-accent block mb-3">
+              {`PARAGRAPH ${String(i + 1).padStart(2, '0')} / ${String(manifesto.length).padStart(2, '0')}`}
+            </span>
+            <p class="font-mono text-sm sm:text-base leading-relaxed text-brutal-gray">
+              {paragraph}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

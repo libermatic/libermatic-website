@@ -1,0 +1,137 @@
+---
+import { contactLines } from './data';
+---
+
+<section id="contact" class="border-b-4 border-brutal-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="border-b-4 border-brutal-white py-8 sm:py-12">
+      <span class="mono-meta text-brutal-accent block mb-2">
+        // 04 — INITIATE PROJECT
+      </span>
+      <h2 class="font-display font-bold text-[clamp(2rem,5vw,4rem)] tracking-tight">
+        LET'S <span class="text-brutal-accent">BUILD.</span>
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+      <!-- Contact form -->
+      <div class="border-r-4 border-brutal-white p-6 sm:p-8 lg:p-10">
+        <form class="space-y-6" action="/api/contact" method="POST">
+          <div>
+            <label class="mono-meta text-brutal-accent block mb-2 uppercase">
+              &gt; name:
+            </label>
+            <input
+              type="text"
+              name="name"
+              required
+              class="w-full bg-brutal-dark-gray border-4 border-brutal-white px-4 py-3 font-mono text-sm text-brutal-white placeholder-brutal-gray focus:border-brutal-accent focus:outline-none shadow-hard-sm"
+              placeholder="your name"
+            />
+          </div>
+          <div>
+            <label class="mono-meta text-brutal-accent block mb-2 uppercase">
+              &gt; email:
+            </label>
+            <input
+              type="email"
+              name="email"
+              required
+              class="w-full bg-brutal-dark-gray border-4 border-brutal-white px-4 py-3 font-mono text-sm text-brutal-white placeholder-brutal-gray focus:border-brutal-accent focus:outline-none shadow-hard-sm"
+              placeholder="you@company.com"
+            />
+          </div>
+          <div>
+            <label class="mono-meta text-brutal-accent block mb-2 uppercase">
+              &gt; project:
+            </label>
+            <textarea
+              name="project"
+              rows="4"
+              required
+              class="w-full bg-brutal-dark-gray border-4 border-brutal-white px-4 py-3 font-mono text-sm text-brutal-white placeholder-brutal-gray focus:border-brutal-accent focus:outline-none shadow-hard-sm resize-none"
+              placeholder="describe your project..."
+            ></textarea>
+          </div>
+          <div>
+            <label class="mono-meta text-brutal-accent block mb-2 uppercase">
+              &gt; budget:
+            </label>
+            <select
+              name="budget"
+              class="w-full bg-brutal-dark-gray border-4 border-brutal-white px-4 py-3 font-mono text-sm text-brutal-white focus:border-brutal-accent focus:outline-none shadow-hard-sm appearance-none"
+            >
+              <option value="">select range</option>
+              <option value="10-25k">$10k — $25k</option>
+              <option value="25-50k">$25k — $50k</option>
+              <option value="50-100k">$50k — $100k</option>
+              <option value="100k+">$100k+</option>
+            </select>
+          </div>
+          <button
+            type="submit"
+            class="w-full font-display font-bold text-lg px-8 py-4 bg-brutal-accent text-brutal-black border-4 border-brutal-accent shadow-hard hover:bg-brutal-white hover:border-brutal-white hover:translate-x-0.75 hover:translate-y-0.75 hover:shadow-none uppercase tracking-wider"
+          >
+            INITIATE PROJECT →
+          </button>
+        </form>
+      </div>
+
+      <!-- Terminal output -->
+      <div class="p-6 sm:p-8 lg:p-10 bg-brutal-dark-gray">
+        <div class="font-mono text-sm sm:text-base">
+          <!-- Terminal header -->
+          <div class="flex items-center gap-2 mb-6 pb-4 border-b-2 border-brutal-white/20">
+            <div class="w-3 h-3 rounded-full bg-red-500 border border-red-700"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500 border border-yellow-700"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500 border border-green-700"></div>
+            <span class="ml-2 mono-meta text-brutal-gray">
+              build.co — project-init
+            </span>
+          </div>
+          <!-- Terminal lines -->
+          {contactLines.map((line, i) => (
+            <p
+              class:list={[
+                'mb-2',
+                {
+                  'text-brutal-accent': line.startsWith('$'),
+                  'text-brutal-white': line.startsWith('>'),
+                  'cursor-blink': i === contactLines.length - 1,
+                },
+              ]}
+            >
+              {line}
+            </p>
+          ))}
+        </div>
+
+        <!-- System info -->
+        <div class="mt-10 pt-6 border-t-2 border-brutal-white/20">
+          <h4 class="mono-meta text-brutal-accent uppercase tracking-wider mb-4">
+            system details
+          </h4>
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <span class="mono-meta text-brutal-gray block">server</span>
+              <span class="font-mono text-sm">US-East-1</span>
+            </div>
+            <div>
+              <span class="mono-meta text-brutal-gray block">stack</span>
+              <span class="font-mono text-sm">Astro / TS / Tailwind</span>
+            </div>
+            <div>
+              <span class="mono-meta text-brutal-gray block">memory</span>
+              <span class="font-mono text-sm">4.2mb footprint</span>
+            </div>
+            <div>
+              <span class="mono-meta text-brutal-gray block">response</span>
+              <span class="font-mono text-sm">&lt; 24 hours</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

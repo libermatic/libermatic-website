@@ -1,0 +1,49 @@
+---
+import type { Service } from './types';
+
+interface Props {
+  services: Service[];
+}
+
+const { services } = Astro.props;
+---
+
+<section id="services" class="border-b-4 border-brutal-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="border-b-4 border-brutal-white py-8 sm:py-12">
+      <span class="mono-meta text-brutal-accent block mb-2">
+        // 01 — CAPABILITIES
+      </span>
+      <h2 class="font-display font-bold text-[clamp(2rem,5vw,4rem)] tracking-tight">
+        WHAT WE <span class="text-brutal-accent">DO.</span>
+      </h2>
+    </div>
+
+    <!-- Services grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 border-r-4 border-brutal-white">
+      {services.map((service, i) => (
+        <div
+          class:list={[
+            'p-6 sm:p-8 border-b-4 border-brutal-white',
+            { 'border-r-4 border-brutal-white': i % 2 === 0 },
+          ]}
+        >
+          <div class="flex items-center gap-3 mb-4">
+            <span class="mono-meta text-brutal-accent text-xl font-bold">
+              {service.icon}
+            </span>
+            <h3 class="font-display font-bold text-xl sm:text-2xl uppercase tracking-tight">
+              {service.title}
+            </h3>
+          </div>
+          <ul class="space-y-2">
+            {service.bullets.map((bullet) => (
+              <li class="font-mono text-sm text-brutal-gray">{bullet}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

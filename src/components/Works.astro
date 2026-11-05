@@ -1,0 +1,92 @@
+---
+import type { Project } from './types';
+
+interface Props {
+  projects: Project[];
+}
+
+const { projects } = Astro.props;
+---
+
+<section id="work" class="border-b-4 border-brutal-white bg-brutal-dark-gray">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="border-b-4 border-brutal-white py-8 sm:py-12">
+      <span class="mono-meta text-brutal-accent block mb-2">
+        // 02 — SELECTED WORKS
+      </span>
+      <h2 class="font-display font-bold text-[clamp(2rem,5vw,4rem)] tracking-tight">
+        BUILT. <span class="text-brutal-accent">NOT BLOATED.</span>
+      </h2>
+    </div>
+
+    <!-- Project cards -->
+    <div class="space-y-0">
+      {projects.map((project, i) => (
+        <div
+          class:list={[
+            'brutal-hover group border-b-4 border-brutal-white overflow-hidden',
+            'hover:bg-brutal-black hover:text-brutal-black',
+          ]}
+        >
+          <div class="grid grid-cols-1 sm:grid-cols-12 gap-0">
+            <!-- Project number / visual -->
+            <div class="sm:col-span-2 border-r-4 border-brutal-white p-6 sm:p-8 group-hover:border-brutal-white flex flex-col items-start justify-between">
+              <span class="font-display font-bold text-6xl sm:text-7xl text-brutal-white group-hover:text-brutal-accent leading-none">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+            </div>
+
+            <!-- Project details -->
+            <div class="sm:col-span-5 p-6 sm:p-8">
+              <span class="mono-meta text-brutal-accent block mb-2 group-hover:text-brutal-black">
+                {`// ${project.category}`}
+              </span>
+              <h3 class="font-display font-bold text-2xl sm:text-3xl uppercase tracking-tight mb-3 group-hover:text-brutal-accent">
+                {project.name}
+              </h3>
+              <p class="font-mono text-sm text-brutal-gray group-hover:text-brutal-dark-gray leading-relaxed">
+                {project.desc}
+              </p>
+            </div>
+
+            <!-- Project stats -->
+            <div class="sm:col-span-5 border-l-4 border-brutal-white p-6 sm:p-8">
+              <div class="grid grid-cols-3 gap-4">
+                <div>
+                  <p class="mono-meta text-brutal-accent mb-1 group-hover:text-brutal-black">
+                    LIGHTHOUSE
+                  </p>
+                  <p class="font-display font-bold text-2xl group-hover:text-brutal-accent">
+                    {project.stats.lighthouse}
+                  </p>
+                </div>
+                <div>
+                  <p class="mono-meta text-brutal-accent mb-1 group-hover:text-brutal-black">
+                    LOAD TIME
+                  </p>
+                  <p class="font-display font-bold text-2xl group-hover:text-brutal-accent">
+                    {project.stats.loadTime}
+                  </p>
+                </div>
+                <div>
+                  <p class="mono-meta text-brutal-accent mb-1 group-hover:text-brutal-black">
+                    BUNDLE
+                  </p>
+                  <p class="font-display font-bold text-2xl group-hover:text-brutal-accent">
+                    {project.stats.bundleSize}
+                  </p>
+                </div>
+              </div>
+              <div class="mt-6 pt-4 border-t-2 border-brutal-white/20 group-hover:border-brutal-white/30">
+                <span class="mono-meta text-brutal-gray group-hover:text-brutal-black uppercase tracking-wider">
+                  View Case Study →
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
