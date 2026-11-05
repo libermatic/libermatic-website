@@ -7,8 +7,24 @@
   --color-brutal-accent: var(--color-lime-300);
   --color-brutal-gray: var(--color-gray-400);
   --color-brutal-dark-gray: var(--color-gray-800);
+
   --font-display: 'Space Grotesk', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
+
+  --shadow-hard: calc(2 * var(--spacing)) calc(2 * var(--spacing)) 0 oklch(1 0 0 / 10%);
+  --shadow-hard-sm: var(--spacing) var(--spacing) 0 oklch(1 0 0 / 10%);
+
+  --animate-marquee: marquee 20s linear infinite;
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  --animate-blink: blink 1s step-end infinite;
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
 }
 
 * {
@@ -37,14 +53,6 @@ a, button {
   color: var(--color-gray-950);
 }
 
-/* ── Hard offset shadow utilities ── */
-.hard-shadow {
-  box-shadow: calc(2 * var(--spacing)) calc(2 * var(--spacing)) 0 oklch(1 0 0 / 10%);
-}
-.hard-shadow-sm {
-  box-shadow: var(--spacing) var(--spacing) 0 oklch(1 0 0 / 10%);
-}
-
 /* ── Brutal hover (instant inversion, no transition) ── */
 .brutal-hover {
   transition: none;
@@ -55,9 +63,7 @@ a, button {
 
 /* ── Monospace metadata ── */
 .mono-meta {
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  letter-spacing: var(--tracking-wider);
+  @apply font-mono text-xs tracking-wider;
 }
 
 /* ── Grid overlay pattern ── */
@@ -69,28 +75,12 @@ a, button {
 }
 
 /* ── Terminal cursor blink ── */
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
 .cursor-blink::after {
   content: '█';
-  animation: blink 1s step-end infinite;
-  margin-left: 2px;
+  @apply animate-blink;
 }
 
 /* ── Horizontal rule accent ── */
 .accent-hr {
-  height: var(--spacing);
-  background: var(--color-brutal-accent);
-  border: none;
-}
-
-/* ── Marquee animation ── */
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-.animate-marquee {
-  animation: marquee 20s linear infinite;
+  @apply h-1 bg-brutal-accent border-none
 }
