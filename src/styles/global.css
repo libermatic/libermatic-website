@@ -39,10 +39,10 @@ a, button {
 
 /* ── Hard offset shadow utilities ── */
 .hard-shadow {
-  box-shadow: 6px 6px 0px #000;
+  box-shadow: calc(2 * var(--spacing)) calc(2 * var(--spacing)) 0 oklch(1 0 0 / 10%);
 }
 .hard-shadow-sm {
-  box-shadow: 3px 3px 0px #000;
+  box-shadow: var(--spacing) var(--spacing) 0 oklch(1 0 0 / 10%);
 }
 
 /* ── Brutal hover (instant inversion, no transition) ── */
@@ -55,17 +55,17 @@ a, button {
 
 /* ── Monospace metadata ── */
 .mono-meta {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  letter-spacing: 0.05em;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wider);
 }
 
 /* ── Grid overlay pattern ── */
 .grid-lines {
   background-image:
-    linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
+    linear-gradient(to right, oklch(1 0 0 / 3%) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(1 0 0 / 3%) 1px, transparent 1px);
+  background-size: calc(15 * var(--spacing)) calc(15 * var(--spacing));
 }
 
 /* ── Terminal cursor blink ── */
@@ -81,8 +81,8 @@ a, button {
 
 /* ── Horizontal rule accent ── */
 .accent-hr {
-  height: 4px;
-  background: #CCFF00;
+  height: var(--spacing);
+  background: var(--color-brutal-accent);
   border: none;
 }
 
