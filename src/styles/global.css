@@ -93,5 +93,5 @@ button {
 
 /* ── Horizontal rule accent ── */
 .accent-hr {
-  @apply h-1 bg-brutal-accent border-none;
+  @apply bg-brutal-accent h-1 border-none;
 }
