@@ -30,3 +30,8 @@ npm run build    # verify
 - [Triage labels](docs/agents/triage-labels.md)
 - [Domain docs](docs/agents/domain-docs.md)
 - [Astro reference](docs/agents/astro-reference.md)
+
+## Plan Mode
+
+- Make the plan extremely concise. Sacrifice grammar for the sake of concision.
+- At the end of each plan, give me a list of unresolved questions to answer, if any.
