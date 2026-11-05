@@ -9,7 +9,7 @@ import Manifesto from '../components/Manifesto.astro';
 import Stats from '../components/Stats.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
-import { services, projects, manifesto } from '../components/data';
+import { services, projects, manifesto, stats } from '../components/data';
 ---
 
 <!doctype html>
@@ -33,7 +33,7 @@ import { services, projects, manifesto } from '../components/data';
     <Services services={services} />
     <Works projects={projects} />
     <Manifesto manifesto={manifesto} />
-    <Stats />
+    <Stats stats={stats} />
     <Contact />
     <Footer />
   </body>

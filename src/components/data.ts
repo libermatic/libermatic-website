@@ -81,6 +81,13 @@ export const manifesto = [
   "We work with founders, technical teams, and organizations who understand that the best technology is the technology that gets out of the way. If your project demands performance that matters, accessibility that's real, and code that your team can maintain without a 47-slide onboarding deck — let's talk. We build for the long haul, not the demo day.",
 ];
 
+export const stats = [
+  { value: '147', label: 'Projects Shipped' },
+  { value: '99.9%', label: 'Uptime SLA' },
+  { value: '<50ms', label: 'Avg TTFB' },
+  { value: '0', label: 'Bloat Dependencies' },
+];
+
 export const contactLines = [
   '$ echo "INITIATE PROJECT"',
   '',
