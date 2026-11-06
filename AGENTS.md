@@ -14,11 +14,12 @@ Manage it with `astro dev stop`, `astro dev status`, and `astro dev logs`.
 
 ## Build & Format
 
-Code must be formatted and build cleanly before every commit:
+Code must be checked, formatted and build cleanly before every commit:
 
 ```bash
-npm run format   # format
-npm run build    # verify
+npm run check
+npm run format
+npm run build
 ```
 
 ## References
