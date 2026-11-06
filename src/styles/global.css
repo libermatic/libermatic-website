@@ -51,17 +51,17 @@ button {
   width: calc(3 * var(--spacing));
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-gray-950);
-  border-left: var(--spacing) solid var(--color-gray-50);
+  background: var(--color-brutal-black);
+  border-left: var(--spacing) solid var(--color-brutal-white);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-lime-300);
+  background: var(--color-brutal-accent);
 }
 
 /* Selection */
 ::selection {
-  background: var(--color-lime-300);
-  color: var(--color-gray-950);
+  background: var(--color-brutal-accent);
+  color: var(--color-brutal-black);
 }
 
 /* ── Brutal hover (instant inversion, no transition) ── */
