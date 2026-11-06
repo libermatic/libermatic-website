@@ -9,6 +9,9 @@ import { version } from '../../package.json';
       <span class="mono-meta px-3 py-1 border-2 border-brutal-accent text-brutal-accent">
         <span id="m-tz">--</span>
       </span>
+      <span class="mono-meta px-3 py-1 border-2 border-brutal-accent text-brutal-accent">
+        net <span id="m-conn">--</span>
+      </span>
       <span class="mono-meta px-3 py-1 border-2 border-brutal-white text-brutal-white">
         load <span id="m-load">--</span>
       </span>
@@ -73,6 +76,15 @@ import { version } from '../../package.json';
           .split(' ')
           .slice(-1)[0];
         el('m-tz').textContent = parts;
+
+        // Network type
+        const conn = (navigator as Navigator & { connection?: any }).connection;
+        if (conn) {
+          el('m-conn').textContent = conn.type || 'unknown';
+          conn.addEventListener('change', () => {
+            el('m-conn').textContent = conn.type || 'unknown';
+          });
+        }
 
         // Page weight
         const resources = performance.getEntriesByType(
