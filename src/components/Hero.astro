@@ -14,10 +14,7 @@ import { version } from '../../package.json';
         <span id="m-lcp">--</span>
       </span>
       <span class="mono-meta px-3 py-1 border-2 border-brutal-white text-brutal-white">
-        wt <span id="m-wt">--</span>
-      </span>
-      <span class="mono-meta px-3 py-1 border-2 border-brutal-white text-brutal-white">
-        xfer <span id="m-xfer">--</span>
+        wt <span id="m-xfer-wt">--</span> / <span id="m-wt">--</span>
       </span>
       <span class="mono-meta px-3 py-1 border-2 border-brutal-dark-gray text-brutal-gray">
         build <span id="m-build">{version}</span>
@@ -88,16 +85,16 @@ import { version } from '../../package.json';
         const resources = performance.getEntriesByType(
           'resource'
         ) as PerformanceResourceTiming[];
-        let decodedTotal = 0;
+        let total = 0;
         let xferTotal = 0;
         for (let i = 0; i < resources.length; i++) {
-          decodedTotal += resources[i].decodedBodySize || 0;
+          total += resources[i].encodedBodySize || 0;
           xferTotal += resources[i].transferSize || 0;
         }
         const fmt = (bytes: number) =>
           bytes > 1024 ? (bytes / 1024).toFixed(1) + 'kb' : bytes + 'b';
-        el('m-wt').textContent = fmt(decodedTotal);
-        el('m-xfer').textContent = fmt(xferTotal);
+        el('m-wt').textContent = fmt(total);
+        el('m-xfer-wt').textContent = fmt(xferTotal);
 
         // Load time
         window.addEventListener('load', function () {
