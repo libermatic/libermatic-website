@@ -10,10 +10,14 @@ import { version } from '../../package.json';
         <span id="m-tz">--</span>
       </span>
       <span class="mono-meta px-3 py-1 border-2 border-brutal-white text-brutal-white">
-        <span id="m-conn">--</span>: load <span id="m-load">--</span> / lcp <span id="m-lcp">--</span>
+        <span id="m-conn">--</span>: load <span id="m-load">--</span> / lcp{' '}
+        <span id="m-lcp">--</span>
       </span>
       <span class="mono-meta px-3 py-1 border-2 border-brutal-white text-brutal-white">
-        <span id="m-wt">--</span>
+        wt <span id="m-wt">--</span>
+      </span>
+      <span class="mono-meta px-3 py-1 border-2 border-brutal-white text-brutal-white">
+        xfer <span id="m-xfer">--</span>
       </span>
       <span class="mono-meta px-3 py-1 border-2 border-brutal-dark-gray text-brutal-gray">
         build <span id="m-build">{version}</span>
@@ -80,20 +84,20 @@ import { version } from '../../package.json';
           });
         }
 
-        // Page weight
+        // Page weight (decoded) & transfer
         const resources = performance.getEntriesByType(
           'resource'
         ) as PerformanceResourceTiming[];
-        let total = 0;
+        let decodedTotal = 0;
+        let xferTotal = 0;
         for (let i = 0; i < resources.length; i++) {
-          total += resources[i].transferSize || 0;
+          decodedTotal += resources[i].decodedBodySize || 0;
+          xferTotal += resources[i].transferSize || 0;
         }
-        if (total > 0) {
-          el('m-wt').textContent =
-            total > 1024 ? (total / 1024).toFixed(1) + 'kb' : total + 'b';
-        } else {
-          el('m-wt').textContent = '0kb';
-        }
+        const fmt = (bytes: number) =>
+          bytes > 1024 ? (bytes / 1024).toFixed(1) + 'kb' : bytes + 'b';
+        el('m-wt').textContent = fmt(decodedTotal);
+        el('m-xfer').textContent = fmt(xferTotal);
 
         // Load time
         window.addEventListener('load', function () {
