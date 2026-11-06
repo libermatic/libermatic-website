@@ -1,14 +1,3 @@
-export const meta = {
-  status: '[SYSTEM_ONLINE: 99.9%]',
-  timezone: new Date()
-    .toLocaleString('en-US', { timeZoneName: 'short' })
-    .split(' ')
-    .slice(-1)[0],
-  capacity: '[CAPACITY: AVAILABLE]',
-  version: 'v2.4.1',
-  loadTime: '12ms',
-};
-
 export const services = [
   {
     icon: '//',

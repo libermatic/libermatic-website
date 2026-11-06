@@ -1,5 +1,5 @@
 ---
-import { meta } from './data';
+import { version } from '../../package.json';
 ---
 
 <header class="relative min-h-screen flex flex-col justify-center border-b-4 border-brutal-white grid-lines pt-16">
@@ -7,16 +7,19 @@ import { meta } from './data';
     <!-- Metadata bar -->
     <div class="flex flex-wrap gap-3 sm:gap-4 mb-8 sm:mb-12">
       <span class="mono-meta px-3 py-1 border-2 border-brutal-accent text-brutal-accent">
-        {meta.status}
+        <span id="m-tz">--</span>
       </span>
       <span class="mono-meta px-3 py-1 border-2 border-brutal-white text-brutal-white">
-        {meta.timezone}
+        load <span id="m-load">--</span>
       </span>
       <span class="mono-meta px-3 py-1 border-2 border-brutal-white text-brutal-white">
-        {meta.capacity}
+        lcp <span id="m-lcp">--</span>
+      </span>
+      <span class="mono-meta px-3 py-1 border-2 border-brutal-white text-brutal-white">
+        weight <span id="m-wt">--</span>
       </span>
       <span class="mono-meta px-3 py-1 border-2 border-brutal-dark-gray text-brutal-gray">
-        build {meta.version} / {meta.loadTime}
+        build <span id="m-build">{version}</span>
       </span>
     </div>
 
@@ -59,5 +62,50 @@ import { meta } from './data';
         <p class="mt-1">↓</p>
       </div>
     </div>
+
+    <!-- Runtime metrics -->
+    <script>
+      (function () {
+        // Timezone
+        var parts = new Date()
+          .toLocaleString('en-US', { timeZoneName: 'short' })
+          .split(' ')
+          .slice(-1)[0];
+        document.getElementById('m-tz').textContent = parts;
+
+        // Page weight
+        var resources = performance.getEntriesByType('resource');
+        var total = 0;
+        for (var i = 0; i < resources.length; i++) {
+          total += resources[i].transferSize || 0;
+        }
+        if (total > 0) {
+          document.getElementById('m-wt').textContent =
+            total > 1024 ? (total / 1024).toFixed(1) + 'kb' : total + 'b';
+        } else {
+          document.getElementById('m-wt').textContent = '0kb';
+        }
+
+        // Load time
+        window.addEventListener('load', function () {
+          var nav = performance.getEntriesByType('navigation')[0];
+          setTimeout(() => {
+            if (nav) {
+              document.getElementById('m-load').textContent =
+                Math.round(nav.duration) + 'ms';
+            }
+          }, 0);
+        });
+
+        // LCP
+        new PerformanceObserver(function (entryList) {
+          var entries = entryList.getEntries();
+          for (var j = 0; j < entries.length; j++) {
+            document.getElementById('m-lcp').textContent =
+              Math.round(entries[j].startTime) + 'ms';
+          }
+        }).observe({ type: 'largest-contentful-paint', buffered: true });
+      })();
+    </script>
   </div>
 </header>
