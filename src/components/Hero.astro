@@ -9,17 +9,11 @@ import { version } from '../../package.json';
       <span class="mono-meta px-3 py-1 border-2 border-brutal-accent text-brutal-accent">
         <span id="m-tz">--</span>
       </span>
-      <span class="mono-meta px-3 py-1 border-2 border-brutal-accent text-brutal-accent">
-        net <span id="m-conn">--</span>
+      <span class="mono-meta px-3 py-1 border-2 border-brutal-white text-brutal-white">
+        <span id="m-conn">--</span>: load <span id="m-load">--</span> / lcp <span id="m-lcp">--</span>
       </span>
       <span class="mono-meta px-3 py-1 border-2 border-brutal-white text-brutal-white">
-        load <span id="m-load">--</span>
-      </span>
-      <span class="mono-meta px-3 py-1 border-2 border-brutal-white text-brutal-white">
-        lcp <span id="m-lcp">--</span>
-      </span>
-      <span class="mono-meta px-3 py-1 border-2 border-brutal-white text-brutal-white">
-        weight <span id="m-wt">--</span>
+        <span id="m-wt">--</span>
       </span>
       <span class="mono-meta px-3 py-1 border-2 border-brutal-dark-gray text-brutal-gray">
         build <span id="m-build">{version}</span>
@@ -80,9 +74,9 @@ import { version } from '../../package.json';
         // Network type
         const conn = (navigator as Navigator & { connection?: any }).connection;
         if (conn) {
-          el('m-conn').textContent = conn.type || 'unknown';
+          el('m-conn').textContent = conn.effectiveType || 'unknown';
           conn.addEventListener('change', () => {
-            el('m-conn').textContent = conn.type || 'unknown';
+            el('m-conn').textContent = conn.effectiveType || 'unknown';
           });
         }
 
