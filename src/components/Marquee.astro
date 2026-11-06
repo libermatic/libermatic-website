@@ -8,16 +8,22 @@ const items = [
 const separator = '★';
 ---
 
-<div class="border-b-4 border-brutal-white bg-brutal-accent overflow-hidden">
+<div class="flex border-b-4 border-brutal-white bg-brutal-accent overflow-hidden">
   <div class="flex whitespace-nowrap py-3 animate-marquee hover:[animation-play-state:paused] font-mon font-bold text-brutal-black text-lg sm:text-xl uppercase tracking-wider">
-    {Array(2)
-      .fill(items)
-      .flat()
-      .map((item) => (
-        <>
-          <span class="mx-3 sm:mx-6">{item}</span>
-          <span class="mx-3 sm:mx-6">{separator}</span>
-        </>
-      ))}
+    {Array.from({ length: 2 }).map((_, i) => (
+      <div class="flex" aria-hidden={i > 0 ? 'true' : 'false'}>
+        {Array(2)
+          .fill(items)
+          .flat()
+          .map((item) => (
+            <>
+              <span class="mx-3 sm:mx-6">{item}</span>
+              <span class="mx-3 sm:mx-6" aria-hidden="true">
+                {separator}
+              </span>
+            </>
+          ))}
+      </div>
+    ))}
   </div>
 </div>

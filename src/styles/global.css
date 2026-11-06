@@ -15,7 +15,7 @@
     oklch(1 0 0 / 10%);
   --shadow-hard-sm: var(--spacing) var(--spacing) 0 oklch(1 0 0 / 10%);
 
-  --animate-marquee: marquee 20s linear infinite;
+  --animate-marquee: marquee 15s linear infinite;
   @keyframes marquee {
     0% {
       transform: translateX(0);
