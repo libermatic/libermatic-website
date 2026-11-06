@@ -66,43 +66,44 @@ import { version } from '../../package.json';
     <!-- Runtime metrics -->
     <script>
       (function () {
+        const el = (id: string) => document.getElementById(id)!;
         // Timezone
-        var parts = new Date()
+        const parts = new Date()
           .toLocaleString('en-US', { timeZoneName: 'short' })
           .split(' ')
           .slice(-1)[0];
-        document.getElementById('m-tz').textContent = parts;
+        el('m-tz').textContent = parts;
 
         // Page weight
-        var resources = performance.getEntriesByType('resource');
-        var total = 0;
-        for (var i = 0; i < resources.length; i++) {
+        const resources = performance.getEntriesByType(
+          'resource'
+        ) as PerformanceResourceTiming[];
+        let total = 0;
+        for (let i = 0; i < resources.length; i++) {
           total += resources[i].transferSize || 0;
         }
         if (total > 0) {
-          document.getElementById('m-wt').textContent =
+          el('m-wt').textContent =
             total > 1024 ? (total / 1024).toFixed(1) + 'kb' : total + 'b';
         } else {
-          document.getElementById('m-wt').textContent = '0kb';
+          el('m-wt').textContent = '0kb';
         }
 
         // Load time
         window.addEventListener('load', function () {
-          var nav = performance.getEntriesByType('navigation')[0];
+          const nav = performance.getEntriesByType('navigation')[0];
           setTimeout(() => {
             if (nav) {
-              document.getElementById('m-load').textContent =
-                Math.round(nav.duration) + 'ms';
+              el('m-load').textContent = Math.round(nav.duration) + 'ms';
             }
           }, 0);
         });
 
         // LCP
         new PerformanceObserver(function (entryList) {
-          var entries = entryList.getEntries();
-          for (var j = 0; j < entries.length; j++) {
-            document.getElementById('m-lcp').textContent =
-              Math.round(entries[j].startTime) + 'ms';
+          const entries = entryList.getEntries();
+          for (let j = 0; j < entries.length; j++) {
+            el('m-lcp').textContent = Math.round(entries[j].startTime) + 'ms';
           }
         }).observe({ type: 'largest-contentful-paint', buffered: true });
       })();
