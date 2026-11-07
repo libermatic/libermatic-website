@@ -1,0 +1,65 @@
+@import '~bulma/sass/utilities/initial-variables';
+@import '~bulma/sass/utilities/derived-variables';
+@import '~bulma/sass/utilities/mixins';
+@import '../layouts/variables.scss';
+
+.section {
+  padding: 3rem 1.5rem 1rem;
+  &:last-child {
+    padding-bottom: 6rem;
+  }
+  @include desktop {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  h3 {
+    @include tablet {
+      margin-top: 0.5rem;
+      padding-top: 1rem;
+      border-top: 2px solid $primary;
+    }
+    @include mobile {
+      color: $primary;
+    }
+  }
+  .content {
+    @include tablet {
+      margin-left: $gap;
+    }
+  }
+}
+
+.smallCaps {
+  font-variant: small-caps;
+  font-style: normal;
+}
+
+.pointers {
+  > div {
+    display: flex;
+    flex-flow: row nowrap;
+    padding: $gap / 4;
+    dl {
+      padding: 0 $gap / 2;
+    }
+    dt {
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: $grey-light;
+    }
+    dd {
+      color: $grey;
+    }
+  }
+  .icon {
+    min-width: 60px;
+    height: initial;
+  }
+  @include tablet {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: $gap;
+    grid-row-gap: $gap;
+  }
+}
