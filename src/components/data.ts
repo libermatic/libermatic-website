@@ -45,19 +45,31 @@ export const projects = [
   {
     name: 'NEXUS / DASHBOARD',
     category: 'WEB APP',
-    stats: { lighthouse: 100, loadTime: '120ms', bundleSize: '42kb' },
+    stats: [
+      { label: 'Lighthouse', value: 100 },
+      { label: 'Load Time', value: '120ms' },
+      { label: 'Bundle Size', value: '42kb' },
+    ],
     desc: 'Real-time analytics dashboard. Zero dependencies. Pure SSR.',
   },
   {
     name: 'FORGE / E-COMMERCE',
     category: 'FULL STACK',
-    stats: { lighthouse: 100, loadTime: '89ms', bundleSize: '38kb' },
+    stats: [
+      { label: 'Lighthouse', value: 100 },
+      { label: 'Load Time', value: '89ms' },
+      { label: 'Bundle Size', value: '38kb' },
+    ],
     desc: 'Headless commerce platform. Sub-100ms TTFB across all regions.',
   },
   {
     name: 'PULSE / HEALTH-API',
     category: 'API ENGINEERING',
-    stats: { lighthouse: 100, loadTime: '45ms', bundleSize: 'N/A' },
+    stats: [
+      { label: 'Lighthouse', value: 100 },
+      { label: 'Load Time', value: '45ms' },
+      { label: 'Bundle Size', value: 'N/A' },
+    ],
     desc: 'HIPAA-compliant API handling 2M+ daily requests at 99.99% uptime.',
   },
 ];

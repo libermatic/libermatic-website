@@ -55,31 +55,17 @@ const { projects } = Astro.props;
 
             <!-- Project stats -->
             <div class="sm:col-span-5 p-6 sm:p-8">
-              <div class="grid grid-cols-3 gap-4">
-                <div>
-                  <p class="mono-meta text-brutal-accent mb-1 group-hover:text-brutal-gray">
-                    LIGHTHOUSE
-                  </p>
-                  <p class="font-display font-bold text-2xl group-hover:text-brutal-accent">
-                    {project.stats.lighthouse}
-                  </p>
-                </div>
-                <div>
-                  <p class="mono-meta text-brutal-accent mb-1 group-hover:text-brutal-gray">
-                    LOAD TIME
-                  </p>
-                  <p class="font-display font-bold text-2xl group-hover:text-brutal-accent">
-                    {project.stats.loadTime}
-                  </p>
-                </div>
-                <div>
-                  <p class="mono-meta text-brutal-accent mb-1 group-hover:text-brutal-gray">
-                    BUNDLE
-                  </p>
-                  <p class="font-display font-bold text-2xl group-hover:text-brutal-accent">
-                    {project.stats.bundleSize}
-                  </p>
-                </div>
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                {project.stats.map((stat) => (
+                  <div>
+                    <p class="mono-meta text-brutal-accent mb-1 group-hover:text-brutal-gray">
+                      {stat.label.toUpperCase()}
+                    </p>
+                    <p class="font-display font-bold text-2xl group-hover:text-brutal-accent">
+                      {String(stat.value)}
+                    </p>
+                  </div>
+                ))}
               </div>
               <div class="mt-6 pt-4 border-t-2 border-brutal-white/20 group-hover:border-brutal-white/30">
                 <span class="mono-meta text-brutal-gray group-hover:text-brutal-white uppercase tracking-wider">

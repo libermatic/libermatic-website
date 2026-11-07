@@ -5,15 +5,14 @@ export interface Service {
 }
 
 export interface ProjectStat {
-  lighthouse: number;
-  loadTime: string;
-  bundleSize: string;
+  label: string;
+  value: string | number;
 }
 
 export interface Project {
   name: string;
   category: string;
-  stats: ProjectStat;
+  stats: ProjectStat[];
   desc: string;
 }
 
