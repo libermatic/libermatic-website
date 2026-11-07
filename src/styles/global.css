@@ -95,3 +95,18 @@ button {
 .accent-hr {
   @apply bg-brutal-accent h-1 border-none;
 }
+
+/* ── Subscript citation ── */
+.citation {
+  @apply text-brutal-accent text-xs relative align-super cursor-help;
+}
+.citation::before {
+  content: var(--tooltip-text);
+  bottom: calc(100% + 2 * var(--spacing));
+  transform: translateX(-50%);
+  transition: none;
+  @apply text-xs leading-normal bg-brutal-black border border-brutal-accent text-brutal-white pointer-events-none opacity-0 z-10 w-40 p-2 absolute left-1/2;
+}
+.citation:hover::before {
+  @apply opacity-100;
+}
