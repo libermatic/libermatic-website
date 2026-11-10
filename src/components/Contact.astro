@@ -106,17 +106,51 @@ const prompt = 'user@web-01';
       }
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', async function () {
       let lastPrompt: HTMLPreElement | null = null;
 
       const form = document.querySelector<HTMLFormElement>('#contact-form');
       const terminal =
         document.querySelector<HTMLDivElement>('#contact-terminal');
 
-      function addStdout(text: string) {
-        const pre = document.createElement('pre');
-        pre.textContent = text;
-        terminal?.append(pre);
+      const BASE_SPEED = 20;
+      const JITTER = 15;
+
+      function randRange(min: number, max: number) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      function sleep(ms: number) {
+        return new Promise((r) => setTimeout(r, ms));
+      }
+
+      // Shared async queue to serialize typing
+      let queue: Promise<void> = Promise.resolve();
+
+      function enqueue(fn: () => Promise<void>): Promise<void> {
+        return (queue = queue.then(fn));
+      }
+
+      async function typeChars(source: HTMLElement, text: string) {
+        for (let i = 0; i < text.length; i++) {
+          source.append(text[i]);
+          await sleep(randRange(BASE_SPEED - JITTER, BASE_SPEED + JITTER));
+        }
+      }
+
+      async function addStdout(text: string) {
+        return enqueue(async () => {
+          const pre = document.createElement('pre');
+          terminal?.append(pre);
+          await typeChars(pre, text);
+        });
+      }
+
+      async function addCommand(text: string) {
+        return enqueue(async () => {
+          if (!lastPrompt) return;
+          await typeChars(lastPrompt, text);
+        });
       }
 
       function addPrompt() {
@@ -128,14 +162,6 @@ const prompt = 'user@web-01';
         pre.prepend(span);
         terminal?.append(pre);
         lastPrompt = pre;
-      }
-
-      function addCommand(text: string) {
-        if (!lastPrompt) {
-          return;
-        }
-
-        lastPrompt.append(text);
       }
 
       function clearTerminal() {
@@ -150,7 +176,7 @@ const prompt = 'user@web-01';
       }
 
       clearTerminal();
-      addStdout('Last login: Thu Jan 1 00:00:00 1970 on pts/0');
+      await addStdout('Last login: Thu Jan 1 00:00:00 1970 on pts/0');
       addPrompt();
 
       form?.addEventListener('submit', async function (e) {
@@ -158,17 +184,17 @@ const prompt = 'user@web-01';
         const formData = new FormData(form);
         const data = Object.fromEntries(formData);
         console.log(data);
-        addCommand('./init-project');
-        addStdout('COLLECTED INPUT');
-        addStdout('---------------');
-        addStdout(`> Name:    ${data.name}`);
-        addStdout(`> Email:   ${data.email}`);
-        addStdout(`> Project: [text]`);
-        addStdout(' ');
-        addStdout('Sending...');
+        await addCommand('./init-project');
+        await addStdout('COLLECTED INPUT');
+        await addStdout('---------------');
+        await addStdout(`> Name:    ${data.name}`);
+        await addStdout(`> Email:   ${data.email}`);
+        await addStdout(`> Project: [text]`);
+        await addStdout(' ');
+        await addStdout('Sending...');
 
         const message = await submit(data);
-        addStdout(message);
+        await addStdout(message);
         addPrompt();
       });
     });
