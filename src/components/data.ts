@@ -88,17 +88,3 @@ export const stats = [
   { value: '<50ms', label: 'Avg TTFB' },
   { value: '0', label: 'Bloat Dependencies' },
 ];
-
-export const contactLines = [
-  '$ echo "INITIATE PROJECT"',
-  '',
-  '> Name:        [input]',
-  '> Email:       [input]',
-  '> Project:     [input]',
-  '> Budget:      [input]',
-  '',
-  '$> Sending...',
-  '',
-  '> Connection established. We reply within 24h.',
-  '',
-];

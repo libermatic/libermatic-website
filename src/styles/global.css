@@ -7,6 +7,7 @@
   --color-brutal-accent: var(--color-lime-300);
   --color-brutal-gray: var(--color-gray-400);
   --color-brutal-dark-gray: var(--color-gray-800);
+  --color-brutal-dark-accent: var(--color-lime-600);
 
   --font-display: 'Space Grotesk', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -83,12 +84,6 @@ button {
     linear-gradient(to right, oklch(1 0 0 / 3%) 1px, transparent 1px),
     linear-gradient(to bottom, oklch(1 0 0 / 3%) 1px, transparent 1px);
   background-size: calc(15 * var(--spacing)) calc(15 * var(--spacing));
-}
-
-/* ── Terminal cursor blink ── */
-.cursor-blink::after {
-  content: '█';
-  @apply animate-blink;
 }
 
 /* ── Horizontal rule accent ── */

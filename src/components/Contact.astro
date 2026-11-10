@@ -1,5 +1,5 @@
 ---
-import { contactLines } from './data';
+const prompt = 'user@web-01';
 ---
 
 <section id="contact" class="border-b-4 border-brutal-white">
@@ -16,8 +16,9 @@ import { contactLines } from './data';
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
       <!-- Contact form -->
-      <div class="border-r-4 border-brutal-white p-6 sm:p-8 lg:p-10">
-        <form class="space-y-6" action="/api/contact" method="POST">
+      <div class="p-6 sm:p-8 lg:p-10">
+        <form class="space-y-6" method="POST" id="contact-form">
+          <input type="hidden" name="access_key" value="WEB3FORM_ACCESS_KEY" />
           <div>
             <label class="mono-meta text-brutal-accent block mb-2 uppercase">
               &gt; name:
@@ -79,59 +80,112 @@ import { contactLines } from './data';
       </div>
 
       <!-- Terminal output -->
-      <div class="p-6 sm:p-8 lg:p-10 bg-brutal-dark-gray">
-        <div class="font-mono text-sm sm:text-base">
-          <!-- Terminal header -->
-          <div class="flex items-center gap-2 mb-6 pb-4 border-b-2 border-brutal-white/20">
-            <div class="w-3 h-3 rounded-full bg-red-500 border border-red-700"></div>
-            <div class="w-3 h-3 rounded-full bg-yellow-500 border border-yellow-700"></div>
-            <div class="w-3 h-3 rounded-full bg-green-500 border border-green-700"></div>
-            <span class="ml-2 mono-meta text-brutal-gray">
-              build.co — project-init
-            </span>
-          </div>
-          <!-- Terminal lines -->
-          {contactLines.map((line, i) => (
-            <p
-              class:list={[
-                'mb-2',
-                {
-                  'text-brutal-accent': line.startsWith('$'),
-                  'text-brutal-white': line.startsWith('>'),
-                  'cursor-blink': i === contactLines.length - 1,
-                },
-              ]}
-            >
-              {line}
-            </p>
-          ))}
+      <div class="mt-10 bg-brutal-dark-gray text-brutal-gray border border-brutal-dark-gray rounded-t-lg overflow-hidden min-h-96">
+        <!-- Terminal header -->
+        <div class="flex items-center gap-2 p-3 border-b-2 border-brutal-white/20 bg-brutal-black">
+          <div class="w-3 h-3 rounded-full bg-red-500 border border-red-700"></div>
+          <div class="w-3 h-3 rounded-full bg-yellow-500 border border-yellow-700"></div>
+          <div class="w-3 h-3 rounded-full bg-green-500 border border-green-700"></div>
+          <span class="ml-2 mono-meta text-brutal-gray">{prompt} ~</span>
         </div>
-
-        <!-- System info -->
-        <div class="mt-10 pt-6 border-t-2 border-brutal-white/20">
-          <h4 class="mono-meta text-brutal-accent uppercase tracking-wider mb-4">
-            system details
-          </h4>
-          <div class="grid grid-cols-2 gap-4">
-            <div>
-              <span class="mono-meta text-brutal-gray block">server</span>
-              <span class="font-mono text-sm">US-East-1</span>
-            </div>
-            <div>
-              <span class="mono-meta text-brutal-gray block">stack</span>
-              <span class="font-mono text-sm">Astro / TS / Tailwind</span>
-            </div>
-            <div>
-              <span class="mono-meta text-brutal-gray block">memory</span>
-              <span class="font-mono text-sm">4.2mb footprint</span>
-            </div>
-            <div>
-              <span class="mono-meta text-brutal-gray block">response</span>
-              <span class="font-mono text-sm">&lt; 24 hours</span>
-            </div>
-          </div>
+        <div
+          class="font-mono text-sm sm:text-base p-1 *:my-0.5 *:last:after:content-['█'] *:last:after:animate-blink"
+          id="contact-terminal"
+          data-prompt={prompt}
+        >
+          <!-- Terminal lines -->
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  (function () {
+    async function submit(data: Record<string, FormDataEntryValue>) {
+      try {
+        const r = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+        const result = await r.json();
+        console.log(result);
+        return result.message;
+      } catch (e) {
+        console.log(e);
+        return 'Unknown error encountered';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      let lastPrompt: HTMLPreElement | null = null;
+
+      const form = document.querySelector<HTMLFormElement>('#contact-form');
+      const terminal =
+        document.querySelector<HTMLDivElement>('#contact-terminal');
+
+      function addStdout(text: string) {
+        const pre = document.createElement('pre');
+        pre.textContent = text;
+        terminal?.append(pre);
+      }
+
+      function addPrompt() {
+        const pre = document.createElement('pre');
+        const span = document.createElement('span');
+        span.textContent = terminal?.dataset.prompt || '';
+        span.className = 'text-brutal-dark-accent';
+        pre.textContent = ':~$ ';
+        pre.prepend(span);
+        terminal?.append(pre);
+        lastPrompt = pre;
+      }
+
+      function addCommand(text: string) {
+        if (!lastPrompt) {
+          return;
+        }
+
+        lastPrompt.append(text);
+      }
+
+      function clearTerminal() {
+        if (!terminal) {
+          return;
+        }
+        terminal.innerHTML = '';
+      }
+
+      if (!form || !terminal) {
+        return;
+      }
+
+      clearTerminal();
+      addStdout('Last login: Thu Jan 1 00:00:00 1970 on pts/0');
+      addPrompt();
+
+      form?.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+        console.log(data);
+        addCommand('./init-project');
+        addStdout('COLLECTED INPUT');
+        addStdout('---------------');
+        addStdout(`> Name:    ${data.name}`);
+        addStdout(`> Email:   ${data.email}`);
+        addStdout(`> Project: [text]`);
+        addStdout(' ');
+        addStdout('Sending...');
+
+        const message = await submit(data);
+        addStdout(message);
+        addPrompt();
+      });
+    });
+  })();
+</script>
