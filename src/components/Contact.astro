@@ -87,7 +87,14 @@ const prompt = 'user@web-01';
 
 <script>
   (function () {
-    async function submit(data: Record<string, FormDataEntryValue>) {
+    interface SubmitResult {
+      status: 'success' | 'fail';
+      message: string;
+    }
+
+    async function submit(
+      data: Record<string, FormDataEntryValue>
+    ): Promise<SubmitResult> {
       try {
         const r = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
@@ -97,12 +104,11 @@ const prompt = 'user@web-01';
           },
           body: JSON.stringify(data),
         });
-        const result = await r.json();
-        console.log(result);
-        return result.message;
+        const { message } = await r.json();
+        return { status: r.status === 200 ? 'success' : 'fail', message };
       } catch (e) {
         console.log(e);
-        return 'Unknown error encountered';
+        return { status: 'fail', message: 'Unknown error encountered' };
       }
     }
 
@@ -125,9 +131,9 @@ const prompt = 'user@web-01';
       }
 
       // Shared async queue to serialize typing
-      let queue: Promise<void> = Promise.resolve();
+      let queue: Promise<any> = Promise.resolve();
 
-      function enqueue(fn: () => Promise<void>): Promise<void> {
+      function enqueue<T>(fn: () => Promise<T>): Promise<T> {
         return (queue = queue.then(fn));
       }
 
@@ -138,11 +144,29 @@ const prompt = 'user@web-01';
         }
       }
 
-      async function addStdout(text: string) {
+      async function addStdout(
+        text: string,
+        className: string = ''
+      ): Promise<HTMLPreElement> {
         return enqueue(async () => {
           const pre = document.createElement('pre');
+          pre.className = className;
           terminal?.append(pre);
           await typeChars(pre, text);
+          return pre;
+        });
+      }
+
+      async function replaceStdout(
+        pre: HTMLPreElement,
+        text: string,
+        className: string = ''
+      ): Promise<HTMLPreElement> {
+        return enqueue(async () => {
+          pre.textContent = '';
+          pre.className = className;
+          await typeChars(pre, text);
+          return pre;
         });
       }
 
@@ -150,6 +174,7 @@ const prompt = 'user@web-01';
         return enqueue(async () => {
           if (!lastPrompt) return;
           await typeChars(lastPrompt, text);
+          return lastPrompt;
         });
       }
 
@@ -191,10 +216,14 @@ const prompt = 'user@web-01';
         await addStdout(`> Email:   ${data.email}`);
         await addStdout(`> Project: [text]`);
         await addStdout(' ');
-        await addStdout('Sending...');
-
-        const message = await submit(data);
-        await addStdout(message);
+        const loadningRef = await addStdout(' Uploading', 'braille-spinner');
+        const { status, message } = await submit(data);
+        await replaceStdout(
+          loadningRef,
+          status === 'success' ? '✓ Upload successful' : '✗ Upload failed',
+          ''
+        );
+        await addStdout(message, status === 'success' ? '' : 'text-red-300');
         addPrompt();
       });
     });
