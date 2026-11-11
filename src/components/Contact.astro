@@ -67,20 +67,22 @@ const prompt = 'user@web-01';
       </div>
 
       <!-- Terminal output -->
-      <div class="mt-10 bg-brutal-dark-gray text-brutal-gray border border-brutal-dark-gray rounded-t-lg overflow-hidden min-h-96">
-        <!-- Terminal header -->
-        <div class="flex items-center gap-2 p-3 border-b-2 border-brutal-white/20 bg-brutal-black">
-          <div class="w-3 h-3 rounded-full bg-red-500 border border-red-700"></div>
-          <div class="w-3 h-3 rounded-full bg-yellow-500 border border-yellow-700"></div>
-          <div class="w-3 h-3 rounded-full bg-green-500 border border-green-700"></div>
-          <span class="ml-2 mono-meta text-brutal-gray">{prompt} ~</span>
-        </div>
-        <div
-          class="font-mono text-sm p-1 *:my-0.5 *:last:after:content-['█'] *:last:after:animate-blink"
-          id="contact-terminal"
-          data-prompt={prompt}
-        >
-          <!-- Terminal lines -->
+      <div class="mt-10 relative">
+        <div class="lg:absolute lg:inset-0 flex flex-col">
+          <!-- Terminal header -->
+          <div class="shrink-0 flex items-center gap-2 p-3 border border-brutal-white/20 bg-brutal-black rounded-t-lg">
+            <div class="w-3 h-3 rounded-full bg-red-500 border border-red-700"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500 border border-yellow-700"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500 border border-green-700"></div>
+            <span class="ml-2 mono-meta text-brutal-gray">{prompt} ~</span>
+          </div>
+          <div
+            class="h-96 lg:h-auto lg:flex-1 min-h-0 overflow-y-auto scrollbar-none [&::-webkit-scrollbar]:hidden bg-brutal-dark-gray text-brutal-gray font-mono text-sm p-1 *:my-0.5 *:whitespace-pre-wrap *:last:after:content-['█'] *:last:after:animate-blink"
+            id="contact-terminal"
+            data-prompt={prompt}
+          >
+            <!-- Terminal lines -->
+          </div>
         </div>
       </div>
     </div>
@@ -165,6 +167,7 @@ const prompt = 'user@web-01';
           pre.className = className;
           terminal?.append(pre);
           await typeChars(pre, text);
+          scrollToBottom();
           return pre;
         });
       }
@@ -178,6 +181,7 @@ const prompt = 'user@web-01';
           pre.textContent = '';
           pre.className = className;
           await typeChars(pre, text);
+          scrollToBottom();
           return pre;
         });
       }
@@ -186,6 +190,7 @@ const prompt = 'user@web-01';
         return enqueue(async () => {
           if (!lastPrompt) return;
           await typeChars(lastPrompt, text);
+          scrollToBottom();
           return lastPrompt;
         });
       }
@@ -212,6 +217,11 @@ const prompt = 'user@web-01';
           return;
         }
         terminal.innerHTML = '';
+      }
+
+      function scrollToBottom() {
+        if (!terminal) return;
+        terminal.scrollTop = terminal.scrollHeight;
       }
 
       if (!form || !terminal) {
