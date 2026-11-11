@@ -198,6 +198,12 @@ const prompt = 'user@web-01';
         lastPrompt = pre;
       }
 
+      function maskEmail(email: string): string {
+        const [user, domain] = email.split('@');
+        const masked = user[0] ? user[0] + '*'.repeat(user.length - 1) : '';
+        return `${masked}@${domain}`;
+      }
+
       function clearTerminal() {
         if (!terminal) {
           return;
@@ -222,7 +228,7 @@ const prompt = 'user@web-01';
         await addStdout('COLLECTED INPUT');
         await addStdout('---------------');
         await addStdout(`> Name:    ${data.name}`);
-        await addStdout(`> Email:   ${data.email}`);
+        await addStdout(`> Email:   ${maskEmail(data.email as string)}`);
         await addStdout(`> Project: [text]`);
         await addStdout(' ');
         const loadningRef = await addStdout(' Uploading', 'braille-spinner');
