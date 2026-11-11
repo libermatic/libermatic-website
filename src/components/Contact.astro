@@ -18,7 +18,6 @@ const prompt = 'user@web-01';
       <!-- Contact form -->
       <div class="p-6 sm:p-8 lg:p-10">
         <form class="space-y-6" method="POST" id="contact-form">
-          <input type="hidden" name="access_key" value="WEB3FORM_ACCESS_KEY" />
           <div>
             <label class="mono-meta text-brutal-accent block mb-2 uppercase">
               &gt; name:
@@ -104,8 +103,18 @@ const prompt = 'user@web-01';
           },
           body: JSON.stringify(data),
         });
-        const { message } = await r.json();
-        return { status: r.status === 200 ? 'success' : 'fail', message };
+
+        if (r.status === 200) {
+          return {
+            status: 'success',
+            message: 'Data captured. Response in ~24h',
+          };
+        }
+
+        return {
+          status: 'fail',
+          message: `[${r.status}] Error capturing data`,
+        };
       } catch (e) {
         console.log(e);
         return { status: 'fail', message: 'Unknown error encountered' };
@@ -206,10 +215,10 @@ const prompt = 'user@web-01';
 
       form?.addEventListener('submit', async function (e) {
         e.preventDefault();
+        await addCommand('./init-project');
+
         const formData = new FormData(form);
         const data = Object.fromEntries(formData);
-        console.log(data);
-        await addCommand('./init-project');
         await addStdout('COLLECTED INPUT');
         await addStdout('---------------');
         await addStdout(`> Name:    ${data.name}`);
