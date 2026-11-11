@@ -71,6 +71,16 @@
       content: '⠏';
     }
   }
+
+  --animate-cube-spin: cube-spin 5s linear infinite;
+  @keyframes cube-spin {
+    0% {
+      transform: rotateX(-20deg) rotateY(180deg);
+    }
+    100% {
+      transform: rotateX(-20deg) rotateY(-180deg);
+    }
+  }
 }
 
 * {

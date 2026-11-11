@@ -3,9 +3,9 @@ import { version } from '../../package.json';
 ---
 
 <header class="relative min-h-screen flex flex-col justify-center border-b-4 border-brutal-white grid-lines pt-16">
-  <div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
+  <div class="relative max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
     <!-- Metadata bar -->
-    <div class="flex flex-wrap gap-3 sm:gap-4 mb-8 sm:mb-12">
+    <div class="relative z-20 flex flex-wrap gap-3 sm:gap-4 mb-8 sm:mb-12">
       <span class="mono-meta px-3 py-1 border-2 border-brutal-accent text-brutal-accent">
         <span id="m-tz">--</span>
       </span>
@@ -22,7 +22,7 @@ import { version } from '../../package.json';
     </div>
 
     <!-- Main headline -->
-    <h1 class="font-display font-bold text-[clamp(2.5rem,8vw,7rem)] leading-[0.95] tracking-tighter mb-6 sm:mb-8">
+    <h1 class="relative z-20 font-display font-bold text-[clamp(2.5rem,8vw,7rem)] leading-[0.95] tracking-tighter mb-6 sm:mb-8">
       WE BUILD FAST,
       <br />
       <span class="text-brutal-accent">UNBREAKABLE</span>
@@ -31,12 +31,20 @@ import { version } from '../../package.json';
     </h1>
 
     <!-- Subheadline -->
-    <p class="font-mono text-base sm:text-lg text-brutal-gray max-w-2xl mb-10 sm:mb-14 leading-relaxed">
-      No bloat. No fluff. No framework drama.<sup class="citation" style="--tooltip-text: &quot;Astro. We checked the definition. It&apos;s fine.&quot;">*</sup> We engineer web applications that load instantly, scale reliably, and ship on time. Code that degrades gracefully.
+    <p class="relative z-20 font-mono text-base sm:text-lg text-brutal-gray max-w-2xl mb-10 sm:mb-14 leading-relaxed">
+      No bloat. No fluff. No framework drama.
+      <sup
+        class="citation"
+        style='--tooltip-text: "Astro. We checked the definition. It&apos;s fine."'
+      >
+        *
+      </sup>{' '}
+      We engineer web applications that load instantly, scale reliably, and ship
+      on time. Code that degrades gracefully.
     </p>
 
     <!-- CTA buttons -->
-    <div class="flex flex-wrap gap-4">
+    <div class="relative z-20 flex flex-wrap gap-4">
       <a
         href="#contact"
         class="font-display font-bold text-lg sm:text-xl px-8 py-4 bg-brutal-accent text-brutal-black border-4 border-brutal-accent shadow-hard hover:bg-brutal-white hover:border-brutal-white hover:translate-x-0.75 hover:translate-y-0.75 hover:shadow-none inline-block uppercase tracking-wider"
@@ -51,12 +59,34 @@ import { version } from '../../package.json';
       </a>
     </div>
 
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-4 sm:left-8">
-      <div class="mono-meta text-brutal-gray border-l-4 border-brutal-accent pl-3">
-        <p class="uppercase tracking-wider">Scroll to explore</p>
-        <p class="mt-1">↓</p>
+    <div class="z-10 absolute inset-y-1/2 right-4 sm:right-8">
+      <div class="size-56 place-items-center place-self-center p-10">
+        <div
+          class:list={[
+            'animate-cube-spin',
+            'size-24 sm:size-48',
+            'perspective-none transform-3d',
+            '*:absolute *:inset-0',
+            '*:place-content-center *:place-items-center',
+            '*:border *:border-brutal-dark-accent *:bg-brutal-gray/10 *:opacity-20 *:backface-visible',
+          ]}
+        >
+          <div class="translate-z-12 sm:translate-z-24 rotate-x-0" />
+          <div class="-translate-z-12 sm:-translate-z-24 rotate-y-180" />
+          <div class="translate-x-12 sm:translate-x-24 rotate-y-90" />
+          <div class="-translate-x-12 sm:-translate-x-24 -rotate-y-90" />
+          <div class="-translate-y-12 sm:-translate-y-24 rotate-x-90" />
+          <div class="translate-y-12 sm:translate-y-24 -rotate-x-90" />
+        </div>
       </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-4 sm:left-8">
+    <div class="mono-meta text-brutal-gray border-l-4 border-brutal-accent pl-3">
+      <p class="uppercase tracking-wider">Scroll to explore</p>
+      <p class="mt-1">↓</p>
     </div>
   </div>
 </header>
