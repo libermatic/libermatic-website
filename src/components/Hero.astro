@@ -58,60 +58,60 @@ import { version } from '../../package.json';
         <p class="mt-1">↓</p>
       </div>
     </div>
-
-    <!-- Runtime metrics -->
-    <script>
-      (function () {
-        const el = (id: string) => document.getElementById(id)!;
-        // Timezone
-        const parts = new Date()
-          .toLocaleString('en-US', { timeZoneName: 'short' })
-          .split(' ')
-          .slice(-1)[0];
-        el('m-tz').textContent = parts;
-
-        // Network type
-        const conn = (navigator as Navigator & { connection?: any }).connection;
-        if (conn) {
-          el('m-conn').textContent = conn.effectiveType || 'unknown';
-          conn.addEventListener('change', () => {
-            el('m-conn').textContent = conn.effectiveType || 'unknown';
-          });
-        }
-
-        // Page weight (decoded) & transfer
-        const resources = performance.getEntriesByType(
-          'resource'
-        ) as PerformanceResourceTiming[];
-        let total = 0;
-        let xferTotal = 0;
-        for (let i = 0; i < resources.length; i++) {
-          total += resources[i].encodedBodySize || 0;
-          xferTotal += resources[i].transferSize || 0;
-        }
-        const fmt = (bytes: number) =>
-          bytes > 1024 ? (bytes / 1024).toFixed(1) + 'kb' : bytes + 'b';
-        el('m-wt').textContent = fmt(total);
-        el('m-xfer-wt').textContent = fmt(xferTotal);
-
-        // Load time
-        window.addEventListener('load', function () {
-          const nav = performance.getEntriesByType('navigation')[0];
-          setTimeout(() => {
-            if (nav) {
-              el('m-load').textContent = Math.round(nav.duration) + 'ms';
-            }
-          }, 0);
-        });
-
-        // LCP
-        new PerformanceObserver(function (entryList) {
-          const entries = entryList.getEntries();
-          for (let j = 0; j < entries.length; j++) {
-            el('m-lcp').textContent = Math.round(entries[j].startTime) + 'ms';
-          }
-        }).observe({ type: 'largest-contentful-paint', buffered: true });
-      })();
-    </script>
   </div>
 </header>
+
+<!-- Runtime metrics -->
+<script>
+  (function () {
+    const el = (id: string) => document.getElementById(id)!;
+    // Timezone
+    const parts = new Date()
+      .toLocaleString('en-US', { timeZoneName: 'short' })
+      .split(' ')
+      .slice(-1)[0];
+    el('m-tz').textContent = parts;
+
+    // Network type
+    const conn = (navigator as Navigator & { connection?: any }).connection;
+    if (conn) {
+      el('m-conn').textContent = conn.effectiveType || 'unknown';
+      conn.addEventListener('change', () => {
+        el('m-conn').textContent = conn.effectiveType || 'unknown';
+      });
+    }
+
+    // Page weight (decoded) & transfer
+    const resources = performance.getEntriesByType(
+      'resource'
+    ) as PerformanceResourceTiming[];
+    let total = 0;
+    let xferTotal = 0;
+    for (let i = 0; i < resources.length; i++) {
+      total += resources[i].encodedBodySize || 0;
+      xferTotal += resources[i].transferSize || 0;
+    }
+    const fmt = (bytes: number) =>
+      bytes > 1024 ? (bytes / 1024).toFixed(1) + 'kb' : bytes + 'b';
+    el('m-wt').textContent = fmt(total);
+    el('m-xfer-wt').textContent = fmt(xferTotal);
+
+    // Load time
+    window.addEventListener('load', function () {
+      const nav = performance.getEntriesByType('navigation')[0];
+      setTimeout(() => {
+        if (nav) {
+          el('m-load').textContent = Math.round(nav.duration) + 'ms';
+        }
+      }, 0);
+    });
+
+    // LCP
+    new PerformanceObserver(function (entryList) {
+      const entries = entryList.getEntries();
+      for (let j = 0; j < entries.length; j++) {
+        el('m-lcp').textContent = Math.round(entries[j].startTime) + 'ms';
+      }
+    }).observe({ type: 'largest-contentful-paint', buffered: true });
+  })();
+</script>
