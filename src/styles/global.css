@@ -120,15 +120,11 @@ button {
 
 .grid-lines::before {
   content: '';
-  position: absolute;
-  inset: -20%;
   background-image:
     linear-gradient(to right, oklch(1 0 0 / 3%) 1px, transparent 1px),
     linear-gradient(to bottom, oklch(1 0 0 / 3%) 1px, transparent 1px);
   background-size: calc(15 * var(--spacing)) calc(15 * var(--spacing));
-  transform: rotate(7.5deg);
-  pointer-events: none;
-  z-index: 0;
+  @apply absolute -inset-3/12 -rotate-3 pointer-events-none z-0;
 }
 
 /* ── Horizontal rule accent ── */
