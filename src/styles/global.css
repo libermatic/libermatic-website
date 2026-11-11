@@ -39,16 +39,37 @@
 
   --animate-spinner: spinner 1.8s steps(1) infinite;
   @keyframes spinner {
-    0%, 100% { content: '⠋'; }
-    10%    { content: '⠙'; }
-    20%      { content: '⠹'; }
-    30%    { content: '⠸'; }
-    40%      { content: '⠼'; }
-    50%    { content: '⠴'; }
-    60%      { content: '⠦'; }
-    70%    { content: '⠧'; }
-    80%    { content: '⠇'; }
-    90%    { content: '⠏'; }
+    0%,
+    100% {
+      content: '⠋';
+    }
+    10% {
+      content: '⠙';
+    }
+    20% {
+      content: '⠹';
+    }
+    30% {
+      content: '⠸';
+    }
+    40% {
+      content: '⠼';
+    }
+    50% {
+      content: '⠴';
+    }
+    60% {
+      content: '⠦';
+    }
+    70% {
+      content: '⠧';
+    }
+    80% {
+      content: '⠇';
+    }
+    90% {
+      content: '⠏';
+    }
   }
 }
 
@@ -123,5 +144,5 @@ button {
 /* ── Form Loading ── */
 .braille-spinner::before {
   content: '⠁';
-  @apply animate-spinner
+  @apply animate-spinner;
 }

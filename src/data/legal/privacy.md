@@ -24,10 +24,10 @@ automatically-collected information as “Device Information.”
 
 We collect Device Information using the following technologies:
 
-* “Cookies” are data files that are placed on your device or computer and often
+- “Cookies” are data files that are placed on your device or computer and often
   include an anonymous unique identifier. For more information about cookies,
   and how to disable cookies, visit http://www.allaboutcookies.org.
-* “Log files” track actions occurring on the Site, and collect data including
+- “Log files” track actions occurring on the Site, and collect data including
   your IP address, browser type, Internet service provider, referring/exit
   pages, and date/time stamps.
 
@@ -45,8 +45,8 @@ both about Device Information and Contact Information.
 We use the Contact Information that we collect generally to reply to queries
 that you have inquired about. Additionally, we use this Contact Information to:
 
-* Communicate with you; and
-* When in line with the preferences you have shared with us, provide you with
+- Communicate with you; and
+- When in line with the preferences you have shared with us, provide you with
   information or advertising relating to our products or services.
 
 We use the Device Information that we collect to help us screen for potential
