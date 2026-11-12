@@ -1,11 +1,12 @@
 ---
 import type { Stat } from './types';
 
-interface Props {
-  stats: Stat[];
-}
-
-const { stats: statItems } = Astro.props;
+const statItems: Stat[] = [
+  { value: '147', label: 'Projects Shipped' },
+  { value: '99.9%', label: 'Uptime SLA' },
+  { value: '<50ms', label: 'Avg TTFB' },
+  { value: '0', label: 'Bloat Dependencies' },
+];
 ---
 
 <div class="border-b-4 border-brutal-white bg-brutal-accent">

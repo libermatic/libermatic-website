@@ -1,11 +1,48 @@
 ---
 import type { Service } from './types';
 
-interface Props {
-  services: Service[];
-}
-
-const { services } = Astro.props;
+const services: Service[] = [
+  {
+    icon: '.*',
+    title: 'Web Apps',
+    bullets: [
+      'SPA / SSR architectures',
+      'Offline-first & PWA capabilities',
+      'Component systems & design tokens',
+      'Accessibility (WCAG 2.1 AA+)',
+    ],
+  },
+  {
+    icon: '=>',
+    title: 'Frappe / ERPNext',
+    bullets: [
+      'Custom modules & server scripts',
+      'Legacy data migration',
+      'Third-party integrations $ APIs',
+      'System upgrades & maintenance',
+    ],
+  },
+  {
+    icon: '#!',
+    title: 'Audits / Performance',
+    bullets: [
+      'Core Web Vitals optimization',
+      'Database & query tuning',
+      'Bundle analysis & tree-shaking',
+      'Infrastructure security reviews',
+    ],
+  },
+  {
+    icon: '::',
+    title: 'Infrastructure',
+    bullets: [
+      'CI/CD pipeline automation',
+      'Containerization & orchestration',
+      'Monitoring & observability',
+      'Reverse proxies & edge caching',
+    ],
+  },
+];
 ---
 
 <section id="services" class="border-b-4 border-brutal-white pb-12 sm:pb-16">

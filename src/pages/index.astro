@@ -9,7 +9,6 @@ import Manifesto from '../components/Manifesto.astro';
 import Stats from '../components/Stats.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
-import { services, projects, manifesto, stats } from '../components/data';
 ---
 
 <!doctype html>
@@ -30,10 +29,10 @@ import { services, projects, manifesto, stats } from '../components/data';
     <Navigation />
     <Hero />
     <Marquee />
-    <Services services={services} />
-    <Works projects={projects} />
-    <Manifesto manifesto={manifesto} />
-    <Stats stats={stats} />
+    <Services />
+    <Works />
+    <Manifesto />
+    <Stats />
     <Contact />
     <Footer />
   </body>
