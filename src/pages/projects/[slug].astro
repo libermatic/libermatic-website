@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+import { getCollection, render } from 'astro:content';
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+const { project } = Astro.props;
+const { Content } = await render(project);
+---
+
+<BaseLayout title={`libermatic. - ${project.data.title}`}>
+  <section class="pt-16 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-20 min-h-">
+    <div class="*:my-4">
+      <Content />
+    </div>
+  </section>
+</BaseLayout>
