@@ -11,12 +11,117 @@ export async function getStaticPaths() {
 }
 const { project } = Astro.props;
 const { Content } = await render(project);
+
+const { title, category, client, year, stack, stats, repo, url } = project.data;
+
+const isValidUrl = (str: string) => /^https?:\/\//i.test(str);
 ---
 
-<BaseLayout title={`libermatic. - ${project.data.title}`}>
-  <section class="pt-16 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-20 min-h-">
-    <div class="*:my-4">
+<BaseLayout title={`libermatic. - ${title}`}>
+  <section class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+    <!-- Breadcrumb -->
+    <div class="mb-8">
+      <span class="mono-meta text-brutal-accent block mb-2">// PROJECTS</span>
+      <span class="mono-meta text-brutal-gray block">[{category}]</span>
+    </div>
+
+    <!-- Title -->
+    <h1 class="font-display font-bold text-[clamp(2.5rem,6vw,5rem)] tracking-tight leading-[0.9] mb-8">
+      {title}
+    </h1>
+
+    <!-- Meta grid -->
+    <div class="bg-brutal-dark-gray border-y-4 border-brutal-gray px-4 sm:px-6">
+      <!-- Stack -->
+      <div class="py-2 sm:py-4">
+        <span class="mono-meta text-brutal-accent block mb-2">STACK</span>
+        <p class="font-display font-bold text-lg uppercase tracking-tight">
+          {stack}
+        </p>
+      </div>
+
+      <!-- Client -->
+      <div class="py-2 sm:py-4">
+        <span class="mono-meta text-brutal-accent block mb-2">CLIENT</span>
+        <p class="font-display font-bold text-lg uppercase tracking-tight">
+          {client}
+        </p>
+      </div>
+
+      <!-- Year -->
+      <div class="py-2 sm:py-4">
+        <span class="mono-meta text-brutal-accent block mb-2">YEAR</span>
+        <p class="font-display font-bold text-lg uppercase tracking-tight">
+          {year ?? '—'}
+        </p>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    {stats && stats.length > 0 && (
+      <div class="py-12 border-b-4">
+        <span class="mono-meta text-brutal-accent block mb-2">KEY METRICS</span>
+        <div class="flex flex-wrap gap-4">
+          {stats.map((stat) => (
+            <div class="mono-meta uppercase">
+              {stat.label}:{' '}
+              <span class="font-display font-bold text-xl">
+                {typeof stat.value === 'string'
+                  ? stat.value
+                  : String(stat.value)}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+
+    <!-- Content -->
+    <div class="font-mono text-sm sm:text-base leading-relaxed text-brutal-gray py-12 *:mb-6">
       <Content />
     </div>
+
+    <!-- Links -->
+    {(repo || url) && (
+      <div class="py-4 mb-12">
+        <div class="flex flex-wrap gap-4 mono-meta text-brutal-gray">
+          {url && (
+            <div>
+              URL:{' '}
+              {!isValidUrl(url) ? (
+                url
+              ) : (
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-brutal-accent brutal-hover hover:text-brutal-white"
+                >
+                  {url}
+                </a>
+              )}
+            </div>
+          )}
+          {url && repo && <div>/</div>}
+          {repo && (
+            <div>
+              REPO:{' '}
+              {!isValidUrl(repo) ? (
+                repo
+              ) : (
+                <a
+                  href={repo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-brutal-white brutal-hover hover:text-brutal-accent"
+                >
+                  {repo}
+                </a>
+              )}
+            </div>
+          )}
+        </div>
+      </div>
+    )}
   </section>
 </BaseLayout>
