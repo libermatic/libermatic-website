@@ -1,6 +1,5 @@
 ---
-import '../styles/global.css';
-import Navigation from '../components/Navigation.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import Marquee from '../components/Marquee.astro';
 import Services from '../components/Services.astro';
@@ -8,32 +7,14 @@ import Works from '../components/Works.astro';
 import Manifesto from '../components/Manifesto.astro';
 import Stats from '../components/Stats.astro';
 import Contact from '../components/Contact.astro';
-import Footer from '../components/Footer.astro';
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="generator" content={Astro.generator} />
-    <meta
-      name="description"
-      content="We build fast, unbreakable web systems. Custom web apps, API engineering, performance optimization, and infrastructure."
-    />
-    <title>BUILD CO. — Fast, Unbreakable Web Systems</title>
-  </head>
-  <body class="bg-brutal-black text-brutal-white font-sans antialiased overflow-x-hidden">
-    <Navigation />
-    <Hero />
-    <Marquee />
-    <Services />
-    <Works />
-    <Manifesto />
-    <Stats />
-    <Contact />
-    <Footer />
-  </body>
-</html>
+<BaseLayout title="libermatic. - Fast, Unbreakable Web Systems">
+  <Hero />
+  <Marquee />
+  <Services />
+  <Works />
+  <Manifesto />
+  <Stats />
+  <Contact />
+</BaseLayout>

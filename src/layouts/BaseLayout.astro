@@ -1,0 +1,32 @@
+---
+import '../styles/global.css';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content="We build fast, unbreakable web systems. Custom web apps, ERPNext, performance optimization, and infrastructure."
+    />
+    <title>{title}</title>
+  </head>
+  <body class="bg-brutal-black text-brutal-white font-sans antialiased overflow-x-hidden">
+    <Navigation />
+    <slot />
+    <Footer />
+  </body>
+</html>
