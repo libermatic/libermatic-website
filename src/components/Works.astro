@@ -1,38 +1,16 @@
 ---
-import type { Project } from './types';
+import { getCollection } from 'astro:content';
 
-const projects: Project[] = [
-  {
-    name: 'NEXUS / DASHBOARD',
-    category: 'WEB APP',
-    stats: [
-      { label: 'Lighthouse', value: 100 },
-      { label: 'Load Time', value: '120ms' },
-      { label: 'Bundle Size', value: '42kb' },
-    ],
-    desc: 'Real-time analytics dashboard. Zero dependencies. Pure SSR.',
-  },
-  {
-    name: 'FORGE / E-COMMERCE',
-    category: 'FULL STACK',
-    stats: [
-      { label: 'Lighthouse', value: 100 },
-      { label: 'Load Time', value: '89ms' },
-      { label: 'Bundle Size', value: '38kb' },
-    ],
-    desc: 'Headless commerce platform. Sub-100ms TTFB across all regions.',
-  },
-  {
-    name: 'PULSE / HEALTH-API',
-    category: 'API ENGINEERING',
-    stats: [
-      { label: 'Lighthouse', value: 100 },
-      { label: 'Load Time', value: '45ms' },
-      { label: 'Bundle Size', value: 'N/A' },
-    ],
-    desc: 'HIPAA-compliant API handling 2M+ daily requests at 99.99% uptime.',
-  },
-];
+const projects = await getCollection('projects').then((col) =>
+  col
+    .filter((x) => x.data.featureOrder)
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+    .sort(
+      (a, b) =>
+        (a.data.featureOrder?.valueOf() ?? 0) -
+        (b.data.featureOrder?.valueOf() ?? 0)
+    )
+);
 ---
 
 <section
@@ -70,20 +48,20 @@ const projects: Project[] = [
             <!-- Project details -->
             <div class="sm:col-span-5 p-6 sm:p-8 sm:border-x-4 border-brutal-white">
               <span class="mono-meta text-brutal-accent block mb-2 group-hover:text-brutal-white">
-                {`// ${project.category}`}
+                {`// ${project.data.category}`}
               </span>
               <h3 class="font-display font-bold text-2xl sm:text-3xl uppercase tracking-tight mb-3 group-hover:text-brutal-accent">
-                {project.name}
+                {project.data.title}
               </h3>
               <p class="font-mono text-sm text-brutal-gray leading-relaxed">
-                {project.desc}
+                {project.data.featureSummary}
               </p>
             </div>
 
             <!-- Project stats -->
             <div class="sm:col-span-5 p-6 sm:p-8">
               <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                {project.stats.map((stat) => (
+                {project.data.stats?.map((stat) => (
                   <div>
                     <p class="mono-meta text-brutal-accent mb-1 group-hover:text-brutal-gray">
                       {stat.label.toUpperCase()}
@@ -95,9 +73,12 @@ const projects: Project[] = [
                 ))}
               </div>
               <div class="mt-6 pt-4 border-t-2 border-brutal-white/20 group-hover:border-brutal-white/30">
-                <span class="mono-meta text-brutal-gray group-hover:text-brutal-white uppercase tracking-wider">
+                <a
+                  href={`/projects/${project.id}/`}
+                  class="mono-meta text-brutal-white brutal-hover hover:text-brutal-accent uppercase tracking-wider"
+                >
                   View Case Study →
-                </span>
+                </a>
               </div>
             </div>
           </div>
