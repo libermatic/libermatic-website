@@ -1,7 +1,7 @@
 ---
 title: 'Hidak'
-featureOrder: 3
-featureSummary: 'Medicine tracking PWA. Individual / shared management. Offline-first. RLS enforced.'
+featureOrder: 2
+summary: 'Medicine tracking PWA. Individual / shared management. Offline-first. RLS enforced.'
 category: 'PWA'
 client: '[PRIVATE]'
 year: 2026
@@ -14,7 +14,7 @@ stats:
     value: '1.9s'
   - label: 'Bundle Size'
     value: '119kB'
-pubDate: 2026-01-01
+pubDate: 2026-11-12
 ---
 
 A medicine tracking progressive web app where each user manages their own medications and can invite others to help track and log doses. Add a medication with its daily schedule, see what's due grouped by time of day, and mark doses as taken or skipped. Logs are fully audited (who logged it and when) and history is preserved even when schedules change.

@@ -1,7 +1,7 @@
 ---
 title: 'King Rose Migration'
-featureOrder: 4
-featureSummary: 'Joomla to Astro 5. 65+ pages, 80+ employees. Fully static.'
+featureOrder: 3
+summary: 'Joomla to Astro 5. 65+ pages, 80+ employees. Fully static.'
 client: 'KING ROSE CONSTRUCTION'
 category: 'PERFORMANCE'
 year: 2025
@@ -15,7 +15,7 @@ stats:
     value: '54kB'
   - label: 'Images Optimized'
     value: '1000+'
-pubDate: 2026-01-01
+pubDate: 2026-11-12
 ---
 
 King Rose of NY is a licensed general contractor and construction management firm operating from two New York offices (Bronx and Manhattan). The old Joomla site served as a static brochure with 65+ project listings, service pages, a team directory, and career openings - all of which needed modernisation.

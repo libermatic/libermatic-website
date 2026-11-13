@@ -1,7 +1,7 @@
 ---
 title: 'Salon Management'
 featureOrder: 1
-featureSummary: 'Custom ERPNext app for salons. Appointments + configurable commissions.'
+summary: 'Custom ERPNext app for salons. Appointments + configurable commissions.'
 category: 'ERP SYSTEMS'
 client: '[REDACTED]'
 year: 2026

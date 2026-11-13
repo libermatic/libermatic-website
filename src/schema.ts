@@ -3,7 +3,7 @@ import { z } from 'astro/zod';
 export const projectSchema = z.object({
   title: z.string(),
   featureOrder: z.int().optional(),
-  featureSummary: z.string().optional(),
+  summary: z.string(),
   category: z.string(),
   client: z.string(),
   year: z.int().optional(),
