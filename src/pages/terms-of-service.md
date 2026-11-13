@@ -1,12 +1,7 @@
 ---
-template: legal
+layout: ../layouts/LegalLayout.astro
 title: Terms of Service
-subtitle: Or things we agree upon when we work together
-path: /terms-of-service
----
-
-<em>Updated May 14, 2018</em>
-
+lastUpdate: 2018-05-14
 ---
 
 ## OVERVIEW
@@ -281,5 +276,4 @@ changes.
 
 ## SECTION 16 - CONTACT INFORMATION
 
-Questions about the Terms of Service should be sent to us at legal
-<span class="fas fa-at"></span> libermatic.com
+Questions about the Terms of Service should be sent to us at legal@libermatic.com

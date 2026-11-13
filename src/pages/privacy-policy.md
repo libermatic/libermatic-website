@@ -1,12 +1,7 @@
 ---
-template: legal
+layout: ../layouts/LegalLayout.astro
 title: Privacy Policy
-subtitle: Or things we say to stay out of jail
-path: /privacy-policy
----
-
-<em>Updated May 14, 2018</em>
-
+lastUpdate: 2026-11-13
 ---
 
 This Privacy Policy describes how your personal information is collected, used,
@@ -32,7 +27,7 @@ We collect Device Information using the following technologies:
   pages, and date/time stamps.
 
 Additionally when you contact us through the form at
-[https://libermatic.com/contact/](/contact), we collect certain information from
+[https://libermatic.com/#contact/](/#contact), we collect certain information from
 you, including your name and email address, and optionally, phone number,
 address and the name of your company. We refer to this information as “Contact
 Information.”
@@ -102,8 +97,7 @@ reasons.
 ## CONTACT US
 
 For more information about our privacy practices, if you have questions, or if
-you would like to make a complaint, please contact us by e-mail at legal
-<span class="fas fa-at"></span> libermatic.com or by mail using the details
+you would like to make a complaint, please contact us by e-mail at legal@libermatic.com or by mail using the details
 provided below:
 
     Imphal, MN, 795001, India
