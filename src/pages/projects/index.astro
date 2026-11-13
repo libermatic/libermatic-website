@@ -4,9 +4,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
 const projects = await getCollection('projects').then((col) =>
-  col.sort((a, b) =>
-    a.data.pubDate.valueOf() > b.data.pubDate.valueOf() ? -1 : 1
-  )
+  col
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+    .sort((a, b) => (b.data.year ?? 0) - (a.data.year ?? 0))
 );
 
 const categories = [...new Set(projects.map((p) => p.data.category))].sort();
