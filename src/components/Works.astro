@@ -35,5 +35,15 @@ const projects = await getCollection('projects').then((col) =>
         <ProjectCard index={i} slug={project.id} project={project.data} />
       ))}
     </div>
+
+    <!-- View all -->
+    <div class="pt-12 pb-4">
+      <a
+        href="/projects/"
+        class="mono-meta text-brutal-white brutal-hover hover:text-brutal-accent uppercase tracking-wider"
+      >
+        View All Projects →
+      </a>
+    </div>
   </div>
 </section>
