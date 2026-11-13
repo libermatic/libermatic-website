@@ -63,8 +63,8 @@ const isValidUrl = (str: string) => /^https?:\/\//i.test(str);
         <span class="mono-meta text-brutal-accent block">KEY METRICS</span>
         <div class="flex flex-wrap gap-4">
           {stats.map((stat) => (
-            <div class="mono-meta uppercase">
-              {stat.label}:{' '}
+            <div class="mono-meta">
+              <span class="uppercase">{stat.label}</span>:{' '}
               <span class="font-display font-bold text-xl">
                 {typeof stat.value === 'string'
                   ? stat.value
