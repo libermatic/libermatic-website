@@ -8,3 +8,5 @@ export interface Stat {
   value: string;
   label: string;
 }
+
+export type { Project } from '../schema';
