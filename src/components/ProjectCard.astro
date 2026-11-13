@@ -1,0 +1,59 @@
+---
+import type { Project } from './types';
+
+interface Props {
+  index: number;
+  project: Project;
+  slug: string;
+}
+
+const { index, project, slug } = Astro.props;
+---
+
+<div class="brutal-hover group overflow-hidden hover:bg-brutal-black">
+  <div class="grid grid-cols-1 sm:grid-cols-12 gap-0">
+    <!-- Project number / visual -->
+    <div class="sm:col-span-2 p-6 sm:p-8 group-hover:border-brutal-white flex flex-col items-start justify-between">
+      <span class="font-display font-bold text-6xl sm:text-7xl text-brutal-white group-hover:text-brutal-accent leading-none">
+        {String(index + 1).padStart(2, '0')}
+      </span>
+    </div>
+
+    <!-- Project details -->
+    <div class="sm:col-span-5 p-6 sm:p-8 sm:border-x-4 border-brutal-white">
+      <span class="mono-meta text-brutal-accent block mb-2 group-hover:text-brutal-white">
+        {`// ${project.category}`}
+      </span>
+      <h3 class="font-display font-bold text-2xl sm:text-3xl uppercase tracking-tight mb-3 group-hover:text-brutal-accent">
+        {project.title}
+      </h3>
+      <p class="font-mono text-sm text-brutal-gray leading-relaxed">
+        {project.featureSummary}
+      </p>
+    </div>
+
+    <!-- Project stats -->
+    <div class="sm:col-span-5 p-6 sm:p-8">
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+        {project.stats?.map((stat) => (
+          <div>
+            <p class="mono-meta text-brutal-accent mb-1 group-hover:text-brutal-gray">
+              {stat.label.toUpperCase()}
+            </p>
+            <p class="font-display font-bold text-2xl group-hover:text-brutal-accent">
+              {String(stat.value)}
+            </p>
+          </div>
+        ))}
+      </div>
+      <div class="mt-6 pt-4 border-t-2 border-brutal-white/20 group-hover:border-brutal-white/30">
+        <a
+          href={`/projects/${slug}/`}
+          class="mono-meta text-brutal-white brutal-hover hover:text-brutal-accent uppercase tracking-wider"
+        >
+          View Case Study →
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
