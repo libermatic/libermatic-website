@@ -7,8 +7,10 @@ year: 2018
 stack: 'Docker / Google Cloud Build'
 repo: 'https://github.com/libermatic/erpnext_deploy'
 stats:
-  - label: 'Apps'
-    value: '12'
+  - label: 'Patched'
+    value: 'true'
+  - label: 'Image Size'
+    value: '~2GB'
 pubDate: 2026-11-12
 ---
 
