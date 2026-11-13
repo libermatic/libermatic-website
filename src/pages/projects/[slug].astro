@@ -60,7 +60,7 @@ const isValidUrl = (str: string) => /^https?:\/\//i.test(str);
     <!-- Stats -->
     {stats && stats.length > 0 && (
       <div class="py-12 border-b-4">
-        <span class="mono-meta text-brutal-accent block mb-2">KEY METRICS</span>
+        <span class="mono-meta text-brutal-accent block">KEY METRICS</span>
         <div class="flex flex-wrap gap-4">
           {stats.map((stat) => (
             <div class="mono-meta uppercase">
@@ -123,5 +123,15 @@ const isValidUrl = (str: string) => /^https?:\/\//i.test(str);
         </div>
       </div>
     )}
+
+    <!-- View all -->
+    <div class="py-4">
+      <a
+        href="/projects/"
+        class="mono-meta text-brutal-white brutal-hover hover:text-brutal-accent uppercase tracking-wider"
+      >
+        ← Back to All Projects
+      </a>
+    </div>
   </section>
 </BaseLayout>
