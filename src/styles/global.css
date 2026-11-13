@@ -134,7 +134,7 @@ button {
     linear-gradient(to right, oklch(1 0 0 / 3%) 1px, transparent 1px),
     linear-gradient(to bottom, oklch(1 0 0 / 3%) 1px, transparent 1px);
   background-size: calc(15 * var(--spacing)) calc(15 * var(--spacing));
-  @apply absolute -inset-3/12 -rotate-3 pointer-events-none z-0;
+  @apply pointer-events-none absolute -inset-3/12 z-0 -rotate-3;
 }
 
 /* ── Horizontal rule accent ── */
@@ -144,14 +144,14 @@ button {
 
 /* ── Subscript citation ── */
 .citation {
-  @apply text-brutal-accent text-xs relative align-super cursor-help;
+  @apply text-brutal-accent relative cursor-help align-super text-xs;
 }
 .citation::before {
   content: var(--tooltip-text);
   bottom: calc(100% + 2 * var(--spacing));
   transform: translateX(-50%);
   transition: none;
-  @apply text-xs leading-normal bg-brutal-black border border-brutal-accent text-brutal-white pointer-events-none opacity-0 z-10 w-40 p-2 absolute left-1/2;
+  @apply bg-brutal-black border-brutal-accent text-brutal-white pointer-events-none absolute left-1/2 z-10 w-40 border p-2 text-xs leading-normal opacity-0;
 }
 .citation:hover::before {
   @apply opacity-100;
