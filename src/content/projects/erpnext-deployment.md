@@ -1,6 +1,5 @@
 ---
 title: 'ERPNext Deployment'
-featureOrder: 2
 featureSummary: 'Containerized Cloud Build pipeline. ERPNext + Frappe apps, tagged production images.'
 category: 'INFRASTRUCTURE'
 client: 'LIBERMATIC'
