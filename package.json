@@ -12,7 +12,9 @@
     "preview": "astro preview",
     "astro": "astro",
     "format": "prettier --write src/ public/",
-    "format:check": "prettier --check src/ public/"
+    "format:check": "prettier --check src/ public/",
+    "deploy": "wrangler deploy",
+    "deploy:dev": "wrangler dev"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.12",
@@ -24,6 +26,7 @@
   "devDependencies": {
     "prettier": "^3.9.10",
     "prettier-plugin-astro": "^1.1.2",
-    "prettier-plugin-tailwindcss": "^0.8.1"
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "wrangler": "^4.162.0"
   }
 }
