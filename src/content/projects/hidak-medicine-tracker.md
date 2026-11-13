@@ -8,12 +8,12 @@ year: 2026
 stack: 'SvelteKit 2 / Supabase / Tailwind CSS 4'
 repo: '[PRIVATE]'
 stats:
-  - label: 'Routes'
-    value: '7'
-  - label: 'Test Projects'
-    value: '4'
-  - label: 'Frequencies'
-    value: '4 (daily, weekly, interval, PRN)'
+  - label: 'Lighthouse'
+    value: '98'
+  - label: 'LCP'
+    value: '1.9s'
+  - label: 'Bundle Size'
+    value: '119kB'
 pubDate: 2026-01-01
 ---
 
