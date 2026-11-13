@@ -1,0 +1,99 @@
+---
+import ProjectCard from '../../components/ProjectCard.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const projects = await getCollection('projects').then((col) =>
+  col.sort((a, b) =>
+    a.data.pubDate.valueOf() > b.data.pubDate.valueOf() ? -1 : 1
+  )
+);
+
+const categories = [...new Set(projects.map((p) => p.data.category))].sort();
+---
+
+<BaseLayout title="libermatic. - Projects">
+  <section class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+    <!-- Section header -->
+    <div class="mb-12 sm:mb-16">
+      <span class="mono-meta text-brutal-accent block mb-2">
+        // 00 — PROJECTS
+      </span>
+      <h1 class="font-display font-bold text-[clamp(2.5rem,6vw,5rem)] tracking-tight leading-[0.9] mb-4">
+        ALL <span class="text-brutal-accent">WORK.</span>
+      </h1>
+      <p class="font-mono text-sm sm:text-base text-brutal-gray max-w-xl">
+        {projects.length} projects catalogued. Click any entry for the full case
+        study.
+      </p>
+    </div>
+
+    <!-- Category filter buttons -->
+    <div class="flex flex-wrap gap-2 mb-10">
+      <button
+        class="category-btn mono-meta px-4 py-2 border-2 border-brutal-white bg-brutal-accent text-brutal-black uppercase tracking-wider"
+        data-filter="all"
+      >
+        ALL ({projects.length})
+      </button>
+      {categories.map((cat) => (
+        <button
+          class="category-btn mono-meta px-4 py-2 border-2 border-brutal-white text-brutal-gray hover:bg-brutal-white hover:text-brutal-black uppercase tracking-wider"
+          data-filter={cat}
+        >
+          {cat}
+        </button>
+      ))}
+    </div>
+
+    <!-- Project list -->
+    <div class="border-t-4 border-brutal-white *:border-b-4 *:border-brutal-white project-grid space-y-0">
+      {projects.map((project, i) => (
+        <ProjectCard
+          index={i}
+          slug={project.id}
+          project={project.data}
+          class="hover:bg-brutal-dark-gray"
+        />
+      ))}
+    </div>
+  </section>
+
+  <script>
+    // Client-side category filter
+    const buttons = document.querySelectorAll(
+      '.category-btn'
+    ) as NodeListOf<HTMLButtonElement>;
+    const rows = document.querySelectorAll(
+      '.project-grid > div'
+    ) as NodeListOf<HTMLAnchorElement>;
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+
+        // Update active state
+        buttons.forEach((b) => {
+          b.classList.remove('bg-brutal-accent', 'text-brutal-black');
+          b.classList.add('text-brutal-gray');
+        });
+        btn.classList.add('bg-brutal-accent', 'text-brutal-black');
+        btn.classList.remove('text-brutal-gray');
+
+        // Show / hide rows
+        rows.forEach((row) => {
+          const meta = row
+            .querySelector('.mono-meta.text-brutal-accent.block')
+            ?.textContent?.trim();
+          const cat = meta?.replace('//', '').trim();
+
+          if (filter === 'all' || cat === filter) {
+            row.classList.remove('hidden');
+          } else {
+            row.classList.add('hidden');
+          }
+        });
+      });
+    });
+  </script>
+</BaseLayout>

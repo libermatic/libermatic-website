@@ -5,12 +5,18 @@ interface Props {
   index: number;
   project: Project;
   slug: string;
+  class?: string;
 }
 
-const { index, project, slug } = Astro.props;
+const { index, project, slug, class: className } = Astro.props;
 ---
 
-<div class="brutal-hover group overflow-hidden hover:bg-brutal-black">
+<div
+  class:list={[
+    'brutal-hover group overflow-hidden hover:bg-brutal-black',
+    className,
+  ]}
+>
   <div class="grid grid-cols-1 sm:grid-cols-12 gap-0">
     <!-- Project number / visual -->
     <div class="sm:col-span-2 p-6 sm:p-8 group-hover:border-brutal-white flex flex-col items-start justify-between">
