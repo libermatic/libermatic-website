@@ -1,7 +1,7 @@
 ---
 title: 'King Rose Migration'
 featureOrder: 4
-featureSummary: "Full migration of King Rose's Joomla-based construction company website to a modern Astro 5 static site with content collections, 65+ project pages, and a team directory serving 80+ employees."
+featureSummary: 'Joomla to Astro 5. 65+ pages, 80+ employees. Fully static.'
 client: 'KING ROSE CONSTRUCTION'
 category: 'PERFORMANCE'
 year: 2025

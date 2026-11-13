@@ -1,7 +1,7 @@
 ---
 title: 'Hidak'
 featureOrder: 3
-featureSummary: Medicine tracking PWA for personal and shared medication management - schedule meds, see what's due today, and invite others to help track and log doses with full audit history.
+featureSummary: 'Medicine tracking PWA. Individual / shared management. Offline-first. RLS enforced.'
 category: 'PWA'
 client: '[PRIVATE]'
 year: 2026

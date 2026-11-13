@@ -1,7 +1,7 @@
 ---
 title: 'Salon Management'
 featureOrder: 1
-featureSummary: 'Custom ERPNext app for salon operations - appointment scheduling, service line items, staff commissions, and business settings, all built on the Frappe framework.'
+featureSummary: 'Custom ERPNext app for salons. Appointments + configurable commissions.'
 category: 'ERP SYSTEMS'
 client: '[REDACTED]'
 year: 2026

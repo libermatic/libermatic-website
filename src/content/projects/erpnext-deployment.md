@@ -1,7 +1,7 @@
 ---
 title: 'ERPNext Deployment'
 featureOrder: 2
-featureSummary: 'A containerized Google Cloud Build pipeline that assembles ERPNext, Frappe apps, and custom forks into tagged production images with automated patch management.'
+featureSummary: 'Containerized Cloud Build pipeline. ERPNext + Frappe apps, tagged production images.'
 category: 'INFRASTRUCTURE'
 client: 'LIBERMATIC'
 year: 2025
